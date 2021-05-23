@@ -5,6 +5,7 @@
 <br>
 
 ### Basic Steps :
+![Credentials](https://user-images.githubusercontent.com/56213740/119262455-f1ec2280-bbf8-11eb-862b-2591945d5a25.png)
   * Login to Cloud Console using given credentials.
   * Open Google Cloud Shell.
 
@@ -38,6 +39,8 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
 ## TASK 3:
 
   * Now go to **open editor** Button 
+  ![Open Editor](https://user-images.githubusercontent.com/56213740/119262467-fca6b780-bbf8-11eb-9715-7d6d260205e5.png)
+  ![Open Editor in new Tab](https://user-images.githubusercontent.com/56213740/119262466-fadcf400-bbf8-11eb-8875-95a4d34402e0.png)
   * Open `analyze-image.py` file in Editor
   * Remove whole code and paste below code
 
@@ -165,6 +168,8 @@ errors = bq_client.insert_rows(table, rows_for_bq)
 assert errors == []
 ```
  * Save All Files `ctrl + s`
+ * Go Back to Terminal
+ ![Open Terminal](https://user-images.githubusercontent.com/56213740/119262469-fd3f4e00-bbf8-11eb-8cdd-05d4d1fe7551.png)
 
 <br>
 
@@ -211,5 +216,6 @@ SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_te
 <br>
 
 **Congratulation LAB Successfully Completed**
+![Lab Completed](https://user-images.githubusercontent.com/56213740/119262464-f9133080-bbf8-11eb-9f1d-14286ca48f02.png)
 
 Subscribe my YouTube Channel :- [Akshat Jain](https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/)
