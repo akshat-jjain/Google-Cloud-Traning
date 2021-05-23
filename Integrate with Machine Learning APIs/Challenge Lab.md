@@ -12,7 +12,8 @@
 
 ## TASK 1 : 
 
-``` export SANAME=challenge
+``` 
+export SANAME=challenge
 gcloud iam service-accounts create $SANAME
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/bigquery.admin
@@ -25,7 +26,7 @@ gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSH
 ## TASK 2:
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
-gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py 
+gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
 
 ```
 <br>
@@ -168,6 +169,9 @@ assert errors == []
 <br>
 
 - [x] Task 3 Completed
+<br>
+
+>Note:Run Task 4 commands and then Check 
 
 <br>
 
