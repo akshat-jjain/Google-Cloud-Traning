@@ -8,6 +8,7 @@
   * Login to Cloud Console using given credentials.
   * Open Google Cloud Shell.
 
+<br>
 
 > TASK 1 : 
 
@@ -19,14 +20,19 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAcco
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
 gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
+<br>
+
 > TASK 2:
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
 gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py 
 
 ```
+<br>
 
 - [x] Task 1 and 2 are Completed
+
+<br>
 
 * TASK 3:
 
@@ -34,6 +40,7 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py
   * Open `analyze-image.py` file in Editor
   * Remove whole code and paste below code
 
+<br>
 
 ``` python
 # Dataset: image_classification_dataset
@@ -156,27 +163,48 @@ print('Writing Vision API image data to BigQuery...')
 errors = bq_client.insert_rows(table, rows_for_bq)
 assert errors == []
 ```
+ * Save All Files `ctrl + s`
+
+<br>
 
 - [x] Task 3 Completed
 
+<br>
 
 > TASK 4 :
+
+<br>
+
 ```
 python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
 
+<br>
+
 - [x] Task 4 Completed
 
+<br>
+
 > TASK 5 :
+
+<br>
 
   * Now go to Big Query
   * Click Compose New Query
   * Paste Below Query
   * Run This Query
+  
+  <br>
+
 ``` sql
 SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_text_detail GROUP BY locale ORDER BY lcount DESC
 ```
+
+<br>
+
 - [x] Task 5 Completed
+
+<br>
 
 **Congratulation LAB Successfully Completed**
 
