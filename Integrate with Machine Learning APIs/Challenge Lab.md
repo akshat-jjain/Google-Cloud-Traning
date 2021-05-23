@@ -10,7 +10,7 @@
 
 <br>
 
-> TASK 1 : 
+## TASK 1 : 
 
 ``` export SANAME=challenge
 gcloud iam service-accounts create $SANAME
@@ -22,7 +22,7 @@ gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSH
 ```
 <br>
 
-> TASK 2:
+## TASK 2:
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
 gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py 
@@ -34,7 +34,7 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py
 
 <br>
 
-* TASK 3:
+## TASK 3:
 
   * Now go to **open editor** Button 
   * Open `analyze-image.py` file in Editor
@@ -171,7 +171,7 @@ assert errors == []
 
 <br>
 
-> TASK 4 :
+## TASK 4 :
 
 <br>
 
@@ -185,7 +185,7 @@ python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 
 <br>
 
-> TASK 5 :
+## TASK 5 :
 
 <br>
 
