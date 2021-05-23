@@ -1,8 +1,15 @@
 # Integrate with Machine Learning APIs: Challenge Lab
 
+<div align="center"><img src="https://github.com/akshat-jjain/Qwiklabs/blob/a287500a564441cba2f5d90eb47fa4e9620fa4e2/Integrate%20with%20Machine%20Learning%20APIs/Screenshot%20(18).png" align="center" alt="Integrate with Machine Learning APIs: Challenge Lab">
+</div>
+<br>
+
+### Basic Steps :
+  * Login to Cloud Console using given credentials.
+  * Open Google Cloud Shell.
 
 
-* TASK 1 : 
+> TASK 1 : 
 
 ``` export SANAME=challenge
 gcloud iam service-accounts create $SANAME
@@ -12,18 +19,20 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAcco
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
 gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
-* TASK 2:
+> TASK 2:
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
 gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py 
 
 ```
 
+- [x] Task 1 and 2 are Completed
+
 * TASK 3:
 
-Now go to open editor -> analyze-image.py
-
-Khali krdo ( I mean ctrl + A and backspace ) then 
+  * Now go to **open editor** Button 
+  * Open `analyze-image.py` file in Editor
+  * Remove whole code and paste below code
 
 
 ``` python
@@ -148,14 +157,27 @@ errors = bq_client.insert_rows(table, rows_for_bq)
 assert errors == []
 ```
 
-* TASK 4 :
+- [x] Task 3 Completed
+
+
+> TASK 4 :
 ```
 python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
 
-* TASK 5 :
+- [x] Task 4 Completed
 
-Now go to Query Editor and Run This Query
+> TASK 5 :
+
+  * Now go to Big Query
+  * Click Compose New Query
+  * Paste Below Query
+  * Run This Query
 ``` sql
 SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_text_detail GROUP BY locale ORDER BY lcount DESC
 ```
+- [x] Task 5 Completed
+
+**Congratulation LAB Successfully Completed**
+
+Subscribe my YouTube Channel :- [Akshat Jain](https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/)
