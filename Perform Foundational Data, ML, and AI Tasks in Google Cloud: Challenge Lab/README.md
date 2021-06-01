@@ -34,7 +34,7 @@ In this task, you have to transfer the data in a CSV file to BigQuery using Data
 1. In the Cloud Console, click on **Navigation Menu > Dataflow**.
 2. Click **CREATE JOB FROM TEMPLATE**.
 3. In Create job from template, give an arbitrary job name.
-4. From the dropdown under Dataflow template, select **Text Files on Cloud Storage Pub/Sub** under “Process Data in Bulk (batch)”. (DO **NOT** select the item under “Process Data Continuously (stream)”).
+4. From the dropdown under Dataflow template, select **Text Files on Cloud Storage BigQuery** under “Process Data in Bulk (batch)”. (DO **NOT** select the item under “Process Data Continuously (stream)”).
 5. Under the Required parameters, enter the following values:
 
 Field |	Value
