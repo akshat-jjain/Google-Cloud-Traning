@@ -103,18 +103,25 @@ gs://cloud-training/gsp323/runs.csv
 
 
 # Task 4: AI
-### Use Google Cloud Speech API to analyze the audio file
-1. In the Cloud Console, click on **Navigation menu > APIs & Services > Credentials**.
-2. In the Credentials page, click on **+ CREATE CREDENTIALS > API key**.
-3. Copy the API key to the clipboard, then click **RESTRICT KEY**.
-4. Open the Cloud Shell, store the API key as an environment variable by running the following command:
-```
-export API_KEY=<YOUR-API-KEY>
-```
-> Replace <YOUR-API-KEY> with the copied key value.
 
-5. In the Cloud Shell, create a JSON file called `gsc-request.json`.
-6. Save the following codes to the file.
+```
+gcloud iam service-accounts create my-natlang-sa \
+  --display-name "my natural language service account"
+gcloud iam service-accounts keys create ~/key.json \
+  --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
+gcloud auth activate-service-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
+gcloud auth login 
+```
+
+Copy the token from the link provided  
+
+```
+gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
+nano request.json
+```
+
 ```
 {
   "config": {
@@ -126,65 +133,38 @@ export API_KEY=<YOUR-API-KEY>
   }
 }
 ```
-7. Use the following `curl` command to submit the request to Google Cloud Speech API and store the response to a file called `task4-gcs.result`.
-```
-curl -s -X POST -H "Content-Type: application/json" --data-binary @gsc-request.json \
-"https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > task4-gcs.result
-```
-8. Upload the resulted file to Cloud Storage by running:
-```
-gsutil cp task4-gcs.result gs://<YOUR-PROJECT_ID>-marking/task4-gcs.result
-```
-> Replace <YOUR-PROJECT_ID> with your project ID.
-
-### Use the Cloud Natural Language API to analyze the sentence
-1. In the Cloud Shell, run the following command to use the Cloud Natural Language API to analyze the given sentence.
 
 ```
-gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > task4-cnl.result
+curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
+"https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
+gsutil cp result.json gs://YOUR_PROJECT-marking/task4-gcs.result
 ```
-2. Upload the resulted file to Cloud Storage by running:
-```
-gsutil cp task4-cnl.result gs://<YOUR-PROJECT_ID>-marking/task4-cnl.result
-```
-> Replace <YOUR-PROJECT_ID> with your project ID.
 
-### Use Google Video Intelligence and detect all text on the video
-1. In the Cloud Shell, create a JSON file called `gvi-request.json`.
-2. Save the following codes to the file.
+```
+gcloud iam service-accounts create quickstart
+gcloud iam service-accounts keys create key.json --iam-account quickstart@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+gcloud auth activate-service-account --key-file key.json
+export ACCESS_TOKEN=$(gcloud auth print-access-token)
+nano request.json
+```
+
 ```
 {
-   "inputUri":"gs://spls/gsp154/video/train.mp4",
+   "inputUri":"gs://spls/gsp154/video/chicago.mp4",
    "features": [
-       "LABEL_DETECTION"
+       "TEXT_DETECTION"
    ]
 }
-  ```
-3. Go back to the Cloud Console, click on **Navigation menu > APIs & Services > Credentials**.
-4. Click the service account named with “Qwiklabs User Service Account” to view the details.
-5. Click **ADD KEY > Create new key**.
-6. Choose **JSON** and click **CREATE** to download the Private key file to your computer.
-7. Upload the file to the Cloud Shell environment.
-8. Rename the uploaded file to `key.json`.
-9. Run the following commands to create a token.
 ```
-gcloud auth activate-service-account --key-file key.json
-export TOKEN=$(gcloud auth print-access-token)
-```
-10. Run the following command to use theGoogle Video Intelligence and detect all text on the video.
+
 ```
 curl -s -H 'Content-Type: application/json' \
-   -H 'Authorization: Bearer '$(gcloud auth print-access-token)'' \
-   'https://videointelligence.googleapis.com/v1/videos:annotate' \
-   -d @gvi-request.json > task4-gvi.result
+    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    'https://videointelligence.googleapis.com/v1/videos:annotate' \
+    -d @request.json
+curl -s -H 'Content-Type: application/json' -H "Authorization: Bearer $ACCESS_TOKEN" 'https://videointelligence.googleapis.com/v1/operations/OPERATION_FROM_PREVIOUS_REQUEST' > result1.json
+gsutil cp result1.json gs://YOUR_PROJECT-marking/task4-gvi.result
 ```
-11. Upload the resulted file to Cloud Storage by running:
-```
-gsutil cp task4-gvi.result gs://<YOUR-PROJECT_ID>-marking/task4-gvi.result
-```
-> Replace <YOUR-PROJECT_ID> with your project ID.
-
-
 
 ### Congratulations! You completed this challenge lab.
 
