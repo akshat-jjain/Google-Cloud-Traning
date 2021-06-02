@@ -22,7 +22,7 @@ As a final step, you must create and run a query that uses the model that includ
 1. This dataset will be used to store our BQML models.
 2. In the GCP Console go to **Navigation Menu >BigQuery**.
 3. Click on Create Dataset.
-4. Write the name of the Dataset you want I have Used `challenge`.
+4. Write the name of the Dataset you want I have Used `bike`.
 5. Click on Create Dataset.
 
 ## Create a forecasting BigQuery machine learning model
