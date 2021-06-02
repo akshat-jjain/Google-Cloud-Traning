@@ -33,13 +33,14 @@ As a final step, you must create and run a query that uses the model that includ
 2. Copy and paste the following code to the Query editor and then click Run.
 
 ```
-CREATE OR REPLACE MODEL challenge.model
+CREATE OR REPLACE MODEL bike.location_model
 OPTIONS
   (model_type='linear_reg', labels=['duration_minutes']) AS
 SELECT
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
+    location,
     duration_minutes
 FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
@@ -63,7 +64,7 @@ WHERE
 2. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 
 ```
-CREATE OR REPLACE MODEL challenge.subscriber
+CREATE OR REPLACE MODEL bike.subscriber_model
 OPTIONS
   (model_type='linear_reg', labels=['duration_minutes']) AS
 SELECT
@@ -90,11 +91,12 @@ SELECT
   SQRT(mean_squared_error) AS rmse,
   mean_absolute_error
 FROM
-  ML.EVALUATE(MODEL challenge.model, (
+  ML.EVALUATE(MODEL bike.location_model, (
   SELECT
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
+    location,
     duration_minutes
   FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
@@ -114,7 +116,7 @@ SELECT
   SQRT(mean_squared_error) AS rmse,
   mean_absolute_error
 FROM
-  ML.EVALUATE(MODEL challenge.subscriber, (
+  ML.EVALUATE(MODEL bike.subscriber_model, (
   SELECT
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
@@ -155,7 +157,7 @@ ORDER BY
 
 ```
 SELECT AVG(predicted_duration_minutes) AS average_predicted_trip_length
-FROM ML.predict(MODEL challenge.subscriber, (
+FROM ML.predict(MODEL bike.subscriber_model, (
 SELECT
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
