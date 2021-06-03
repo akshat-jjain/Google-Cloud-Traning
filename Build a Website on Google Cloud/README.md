@@ -132,5 +132,4 @@ kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8
 Most steps in the exercise are identical to those in the lab **Migrating a Monolithic Website to Microservices on Google Kubernetes Engine**. To complete this challenge, make sure you carefully replace the cluster and deployment names to the specified ones. If you still have questions, you can leave a comment below.
 
 # Demonstration Video
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RqW0LpNmFe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/RqW0LpNmFe4/maxresdefault.jpg)](https://youtu.be/RqW0LpNmFe4)
