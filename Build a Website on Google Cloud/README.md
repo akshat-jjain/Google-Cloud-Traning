@@ -4,12 +4,13 @@ In this article, we will go through the lab GSP319 Build a Website on Google Clo
 
 **The challenge contains 6 required tasks:**
 
-* Download the monolith code and build your container
-* Create a kubernetes cluster and deploy the application
-* Create a containerized version of orders and product 1. Microservices
-* Deploy the new microservices
-* Create a containerized version of the Frontend 1. microservice
-* Deploy the Frontend microservice
+* [Download the monolith code and build your container](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-1-download-the-monolith-code-and-build-your-container)
+* [Create a kubernetes cluster and deploy the application](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-2-create-a-kubernetes-cluster-and-deploy-the-application)
+* [Create a containerized version of orders and product 1. Microservices](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-3-create-a-containerized-version-of-your-microservices)
+* [Deploy the new microservices](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-4-deploy-the-new-microservices)
+* [Create a containerized version of the Frontend 1. microservice](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-5-configure-the-frontend-microservice)
+* [Deploy the Frontend microservice](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#task-6-create-a-containerized-version-of-the-frontend-microservice)
+* [Demonstration Video](https://github.com/akshat-jjain/Qwiklabs/tree/main/Build%20a%20Website%20on%20Google%20Cloud#demonstration-video)
 
 # Task 1: Download the monolith code and build your container
 **Hint:** Refer and modify the procedures in the first two sections of the lab Deploy Your Website on Cloud Run
@@ -131,3 +132,5 @@ kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8
 Most steps in the exercise are identical to those in the lab **Migrating a Monolithic Website to Microservices on Google Kubernetes Engine**. To complete this challenge, make sure you carefully replace the cluster and deployment names to the specified ones. If you still have questions, you can leave a comment below.
 
 # Demonstration Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RqW0LpNmFe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
