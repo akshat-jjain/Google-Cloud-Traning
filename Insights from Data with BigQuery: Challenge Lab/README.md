@@ -52,25 +52,10 @@ Make sure that you use `country_name` to filter the US reconds instead of `count
 Copy the following code to the Query editor and then click Run.
 
 ``` sql
-SELECT
-  *
-FROM (
-SELECT
-  subregion1_name as state,
-  sum(cumulative_confirmed) as total_confirmed_cases
-FROM
-  `bigquery-public-data.covid19_open_data.covid19_open_data`
-WHERE
-  country_code="US"
-  AND date='2020-04-10'
-  AND subregion1_name is NOT NULL
-GROUP BY
-  subregion1_name
-ORDER BY
-  total_confirmed_cases DESC
-)
-WHERE
-  total_confirmed_cases > 1000
+SELECT * FROM ( 
+SELECT subregion1_name as state, sum(cumulative_confirmed) as total_confirmed_cases 
+FROM `bigquery-public-data.covid19_open_data.covid19_open_data` WHERE country_code="US" AND date='2020-04-10' AND subregion1_name is NOT NULL 
+GROUP BY subregion1_name ORDER BY total_confirmed_cases DESC ) WHERE total_confirmed_cases > 1000
 ```
 
 # Query 4: Fatality Ratio
