@@ -25,6 +25,7 @@ Data Cleaning Tasks:
 - Create a new column called `total_amount` from `tolls_amount` + `fare_amount`
 - Sample the dataset < 1,000,000 rows
 - Only copy fields that will be used in your model
+<br>
 Procedures:
 
 1. In the Cloud Console, navigate to **Menu > BigQuery**.
@@ -119,6 +120,7 @@ In this task, you need to use the BQML model to predict the taxi fares of the da
 Make sure that:
 
 - store your results in a table called `2015_fare_amount_predictions`.
+<br>
 Procedures:
 
 1. Select **Set a destination table for query results under** Destination; Enter `2015_fare_amount_predictions` as the Table name
