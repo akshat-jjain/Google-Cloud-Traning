@@ -8,6 +8,7 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 * [Integrate with Machine Learning APIs: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Integrate%20with%20Machine%20Learning%20APIs)
 * [Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Engineer Data in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab)
+* [Exploring the Public Cryptocurrency Datasets Available in BigQuery](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Applied%20Data:%20Blockchain/Exploring%20the%20Public%20Cryptocurrency%20Datasets%20Available%20in%20BigQuery)
 
 # Channel 
 https://www.youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q
