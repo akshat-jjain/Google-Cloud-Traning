@@ -28,7 +28,8 @@ If you do not remember how to build a docker image on GCP, I recommend you revis
 ```
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 gsutil cp gs://${PROJECT_ID}/echo-web.tar.gz .
-tar -xvzf echo-web.tar.gz
+tar -xvf echo-web.tar.gz
+#gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .
 ```
 4. Build a docker image of the sample application with a tag called `v1`, and push the image to Google Container Registry,
 ```
