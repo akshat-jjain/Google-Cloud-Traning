@@ -15,6 +15,7 @@ In the web console, navigate to **Kubernetes Engine > Clusters**. Click **Create
 - Cluster name: echo-cluster
 - Num of Nodes: 2
 - Machine type: N1-standard-2
+- Zone: us-central1-a
 
 
 I recommend starting from preparing the hardware because the process takes time. You can continue doing the steps in the next section. The cluster should be ready, when you finish building and pushing the docker image to Container Registry.
@@ -28,8 +29,8 @@ If you do not remember how to build a docker image on GCP, I recommend you revis
 ```
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 gsutil cp gs://${PROJECT_ID}/echo-web.tar.gz .
-tar -xvf echo-web.tar.gz
-#gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .
+tar -xvzf echo-web.tar.gz
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1 .
 ```
 4. Build a docker image of the sample application with a tag called `v1`, and push the image to Google Container Registry,
 ```
