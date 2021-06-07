@@ -2,7 +2,7 @@
  
 Containerization with Docker and Kubernetes (K8s) is an emerging application architecture for deploying, scaling and managing distributed applications. The challenge lab GSP304 “Build and Deploy a Docker Image to a Kubernetes Cluster“ is a test to assess the essential professional skills in deploying your application on GKE.
 
-Brief Introduction of Challenge Scenario
+## Brief Introduction of Challenge Scenario
 
 1. Use the sample application and Docker configuration to build a Docker image, and push the image to the gcr.io repository with a `v1` tag.
 2. A new Kubernetes cluster called `echo-cluster` exists.
