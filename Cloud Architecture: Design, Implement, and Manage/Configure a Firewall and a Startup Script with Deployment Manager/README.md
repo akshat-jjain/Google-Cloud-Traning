@@ -90,11 +90,23 @@ Format the REST profile using a JSON to YAML converter, such as https://www.json
 Copy the above firewall configuration to the .jinja file. The final `qwiklabs.jinja` file should become:
 ```
 resources:
+- name: my-default-allow-http
+  type: compute.v1.firewall
+  properties:
+    targetTags: ["http"]
+    sourceRanges: ["0.0.0.0/0"]
+    allowed:
+      - IPProtocol: TCP
+        ports: ["80"]
 - type: compute.v1.instance
   name: vm-test
   properties:
     zone: {{ properties["zone"] }}
+    tags:
+      items: ["http"]
     machineType: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/zones/{{ properties["zone"] }}/machineTypes/f1-micro
+    # For examples on how to use startup scripts on an instance, see:
+    #   https://cloud.google.com/compute/docs/startupscript
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -105,6 +117,7 @@ resources:
         sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-9
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/global/networks/default
+      # Access Config required to give the instance a public IP address
       accessConfigs:
       - name: External NAT
         type: ONE_TO_ONE_NAT
@@ -113,35 +126,8 @@ resources:
       - key: startup-script
         value: |
           #!/bin/bash
-          sudo su -
-          apt-get update
-          apt-get install -y apache2
-    tags:
-      items:
-      - http
-    serviceAccounts:
-    - email: <YOUR-SERVICE-ACCOUNT-EMAIL>
-      scopes:
-      - https://www.googleapis.com/auth/devstorage.read_only
-      - https://www.googleapis.com/auth/logging.write
-      - https://www.googleapis.com/auth/monitoring.write
-      - https://www.googleapis.com/auth/servicecontrol
-      - https://www.googleapis.com/auth/service.management.readonly
-      - https://www.googleapis.com/auth/trace.append
-- type: compute.v1.firewall
-  name: default-allow-http
-  properties:
-    network: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/global/networks/default
-    targetTags: 
-    - http
-    allowed:
-    - IPProtocol: tcp
-      ports: 
-      - '80'
-    sourceRanges: 
-    - 0.0.0.0/0
+          apt-get update && apt-get install -y apache2
 ```
-Replace `<YOUR-SERVICE-ACCOUNT-EMAIL>` in Line 31 to the Service Account of your GCP project, if you copy the codes from this snippet.
 **Save** the file change.
 
 # Apply the Deployment
