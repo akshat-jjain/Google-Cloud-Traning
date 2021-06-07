@@ -39,34 +39,6 @@ To fulfil the lab requirements, the template still does not have,
 
 * metadata for embedding the startup script, and
 * a tag called `http`.
-Next, you need to add two more properties to the instance configuration.
-
-# Setting Metadata and Using Startup Scripts
-Open the `install-web.sh` file, you should see the following codes:
-
-Let’s recall your memory. You have already used them to manually install an Apache web server in the previous lab, if you have done the first challenge lab “Google Cloud Essential Skills“.
-
-This time, you need to deploy the commands automatically with the Deployment Manager. It is similar to use a remote startup script in the previous lab “Deploy a Compute Instance with a Remote Startup Script“. You have to configure metadata, but you use the key startup-script and the commands directly as the value (rather than startup-script-url and a remote file URL). For more information, read Running startup scripts in the Cloud Deployment Manager documentation.
-
-
-Add the following properties to the instance configuration:
-```
-    metadata:
-      items:
-      - key: startup-script
-        value: |
-          #!/bin/bash
-          apt-get update
-          apt-get install -y apache2
-```
-# Add Tag Item
-A tag called `http` is required to associate the GCE instance with the firewall rule that will be created in the next section. Append the following properties to the instance configuration:
-```
-    tags:
-      items:
-      - http
-```
-Next, you need to add a firewall resource to the same .jinja file.
 
 # Add Firewall Rule for HTTP traffic
 Firewall rules and VM instances are separated resources, so make sure to correctly space/indent the firewall configuration code to be part of the resource block. You may manually list and parameterize the configuration all by yourself, if you can. A more robust way to use the GCP web console to visually configure and generate a REST profile with creating the firewall.
@@ -74,39 +46,24 @@ Firewall rules and VM instances are separated resources, so make sure to correct
 Format the REST profile using a JSON to YAML converter, such as https://www.json2yaml.com/. You should obtain something similar to the following codes:
 
 ```
-- type: compute.v1.firewall
-  name: default-allow-http
-  properties:
-    network: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/global/networks/default
-    targetTags:
-    - http
-    allowed:
-    - IPProtocol: tcp
-      ports:
-      - '80'
-    sourceRanges:
-    - 0.0.0.0/0
-```
-Copy the above firewall configuration to the .jinja file. The final `qwiklabs.jinja` file should become:
-```
 resources:
-- name: my-default-allow-http
-  type: compute.v1.firewall
-  properties:
-    targetTags: ["http"]
-    sourceRanges: ["0.0.0.0/0"]
-    allowed:
-      - IPProtocol: TCP
-        ports: ["80"]
 - type: compute.v1.instance
-  name: vm-test
+  name: vm-{{ env["deployment"] }}
   properties:
     zone: {{ properties["zone"] }}
-    tags:
-      items: ["http"]
     machineType: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/zones/{{ properties["zone"] }}/machineTypes/f1-micro
-    # For examples on how to use startup scripts on an instance, see:
-    #   https://cloud.google.com/compute/docs/startupscript
+    tags:
+        items:
+        - 'http'
+    metadata:
+      items:
+      # For more ways to use startup scripts on an instance, see:
+      #   https://cloud.google.com/compute/docs/startupscript
+      - key: startup-script
+        value: |
+          #!/bin/bash
+          apt-get update
+          apt-get install -y apache2
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -121,14 +78,30 @@ resources:
       accessConfigs:
       - name: External NAT
         type: ONE_TO_ONE_NAT
-    metadata:
-      items:
-      - key: startup-script
-        value: |
-          #!/bin/bash
-          apt-get update && apt-get install -y apache2
+- type: compute.v1.firewall
+  name: {{ env["project"] }}-allow-http
+  properties:
+    network: https://www.googleapis.com/compute/v1/projects/{{ env["project"] }}/global/networks/default
+    sourceRanges: [0.0.0.0/0]
+    targetTags: ['http']
+    allowed:
+    - IPProtocol: tcp
+      ports: ['80']
 ```
 **Save** the file change.
+
+Open `qwiklabs.yaml`
+Replace Code with this
+```
+imports:
+- path: qwiklabs.jinja
+
+resources:
+- name: qwiklabs
+  type: qwiklabs.jinja
+  properties:
+    zone: us-central1-a
+```
 
 # Apply the Deployment
 It’s time to deploy the configuration file and see if the deployment works. Run the following `gcloud` command in Cloud Shell.
