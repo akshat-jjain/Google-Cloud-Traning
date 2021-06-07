@@ -34,6 +34,7 @@ The template already includes the following configurations:
 * Machine Type: f1-micro
 * Disks: Persistent, Debian-9
 * Network Interfaces: Default Network with a public IP address
+<br>
 To fulfil the lab requirements, the template still does not have,
 
 * metadata for embedding the startup script, and
