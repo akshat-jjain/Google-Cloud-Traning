@@ -1,5 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/akshat-jjain/Google-Cloud-Traning?style=flat)
-![GitHub Top Languages](https://img.shields.io/github/languages/top/akshat-jjain/Google-Cloud-Training?style=flat)
+![GitHub Top Languages](https://img.shields.io/github/languages/top/akshat-jjain/Google-Cloud-Traning?style=flat)
 ![GitHub last commit](https://img.shields.io/github/last-commit/akshat-jjain/Google-Cloud-Traning?style=flat)
 ![ViewCount](https://views.whatilearened.today/views/github/akshat-jjain/Google-Cloud-Traning.svg?cache=remove)
 
