@@ -2,11 +2,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/akshat-jjain/Google-Cloud-Traning?style=flat)
 ![ViewCount](https://views.whatilearened.today/views/github/akshat-jjain/Google-Cloud-Traning.svg?cache=remove)
 
-<p align="center">  
-	<br>
-	<a href="https://www.hackerrank.com/akshat_jjain">
-        <img width=100 src="https://user-images.githubusercontent.com/56213740/123308121-e914a680-d540-11eb-82c4-491fb83cda68.jpeg"> 
-    </a>
+<p align="center"> <br>
+<a href="https://www.hackerrank.com/akshat_jjain">
+   <img width=100 src="https://user-images.githubusercontent.com/56213740/123308121-e914a680-d540-11eb-82c4-491fb83cda68.jpeg"> 
+</a>
 </p>
 
 # Qwiklabs - Google Cloud Platform - Hands On Cloud Training
