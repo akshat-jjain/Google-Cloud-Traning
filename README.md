@@ -11,7 +11,7 @@
 # Qwiklabs - Google Cloud Platform - Hands On Cloud Training
 
 In this Repository, You will get almost all the Challenge Labs for `Google Cloud Fascinator Program`.
-# Challenge Labs In this Repo
+# Challenge Labs In this Repository
 * [Build a Website on Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Build%20a%20Website%20on%20Google%20Cloud%20Challenge%20Lab)
 * [Create ML Models with Big Query ML: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Create%20ML%20Models%20with%20BigQuery%20ML:%20Challenge%20Lab)
 * [Insights from Data with Big Query: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Insights%20from%20Data%20with%20BigQuery:%20Challenge%20Lab)
