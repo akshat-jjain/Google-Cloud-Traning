@@ -20,10 +20,8 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 * [Engineer Data in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Exploring the Public Cryptocurrency Datasets Available in BigQuery](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Applied%20Data:%20Blockchain/Exploring%20the%20Public%20Cryptocurrency%20Datasets%20Available%20in%20BigQuery)
 
-# Channel 
-https://www.youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q
-# Demonstration Video Playlist 
-[https://www.youtube.com/playlist?list=PLpFTXflYdRA5bBNRW5srC0FLfr8bwZtph]
-
+# Latest Videos
+<!-- YOUTUBE START -->
+<!-- YOUTUBE END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshtjain" /></a></p><br><br>
