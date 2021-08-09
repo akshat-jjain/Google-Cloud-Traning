@@ -23,7 +23,7 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 # Channel 
 https://www.youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q
 # Demonstration Video Playlist 
-https://www.youtube.com/playlist?list=PLpFTXflYdRA5bBNRW5srC0FLfr8bwZtph
+[https://www.youtube.com/playlist?list=PLpFTXflYdRA5bBNRW5srC0FLfr8bwZtph]
 
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshtjain" /></a></p><br><br>
