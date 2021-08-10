@@ -20,7 +20,7 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 * [Engineer Data in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Exploring the Public Cryptocurrency Datasets Available in BigQuery](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Applied%20Data:%20Blockchain/Exploring%20the%20Public%20Cryptocurrency%20Datasets%20Available%20in%20BigQuery)
 
-# Latest Videos
+# Latest YouTube Videos
 <!-- YOUTUBE:START -->
 - [[NEW] - Build Interactive Apps with Google Assistant: Challenge Lab - [GCP325]](https://www.youtube.com/watch?v=03HzBjdGpwg)
 - [[NEW] - BigQuery: Qwik Start - Command Line - [GCP071]](https://www.youtube.com/watch?v=hP0hj9y2330)
