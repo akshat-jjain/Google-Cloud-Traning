@@ -29,4 +29,4 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 - [[NEW] - Cloud Endpoints Qwik Start - [GCP164]](https://www.youtube.com/watch?v=z0NbtfvBPc8)
 <!-- YOUTUBE:END -->
 ## Support:
-<p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshtjain" /></a></p><br><br>
+<p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
