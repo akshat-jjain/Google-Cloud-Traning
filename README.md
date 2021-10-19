@@ -3,7 +3,7 @@
 ![ViewCount](https://views.whatilearened.today/views/github/akshat-jjain/Google-Cloud-Traning.svg?cache=remove)
 
 <p align="center"> <br>
-<a href="https://www.hackerrank.com/akshat_jjain">
+<a href="https://www.cloudskillsboost.google/public_profiles/dac1a33c-3942-4b6e-add6-ceef92a862cd">
    <img width=100 src="https://user-images.githubusercontent.com/56213740/123308121-e914a680-d540-11eb-82c4-491fb83cda68.jpeg"> 
 </a>
 </p>
