@@ -89,6 +89,12 @@ Targets:	bastion
 Source IP ranges:	192.168.48.0/20
 Protocols and ports:	tcp: 22
 Click CREATE.
+
+OR 
+```
+gcloud compute --project=qwiklabs-gcp-01-240538d99502 firewall-rules create allow-bastion-prod-ssh --direction=INGRESS --priority=1000 --network=griffin-prod-vpc --action=ALLOW --rules=tcp:22 --source-ranges=192.168.48.0/20 --target-tags=bastion
+```
+
 Task 4: Create and configure Cloud SQL Instance
 In the Cloud Console, navigate to SQL.
 Click CREATE INSTANCE.
