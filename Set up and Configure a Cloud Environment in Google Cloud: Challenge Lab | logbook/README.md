@@ -107,10 +107,11 @@ gcloud compute --project=qwiklabs-gcp-01-240538d99502 firewall-rules create allo
 ```
 
 ## Task 4: Create and configure Cloud SQL Instance
-In the Cloud Console, navigate to SQL.
-Click CREATE INSTANCE.
-Click Choose MySQL.
-Use the following parameters to create the instance:
+
+1. In the Cloud Console, navigate to SQL.
+2. Click CREATE INSTANCE.
+3. Click Choose MySQL.
+4. Use the following parameters to create the instance:
 
 | Field          	| Value          	|
 |----------------	|----------------	|
@@ -120,17 +121,18 @@ Use the following parameters to create the instance:
 | Root password: 	| e.g. 12345678  	|
 | Path           	| /              	|
 
-Note: In real practice, you must set a strong password.
+> Note: In real practice, you must set a strong password.
 
-Click Create.
-Click the griffin-dev-db in the SQL pane after it has been created.
-Under Connect to this instance, click on Connect using Cloud Shell.
-Go back to the Cloud Shell, run:
+5. Click Create.
+6. Click the griffin-dev-db in the SQL pane after it has been created.
+7. Under Connect to this instance, click on Connect using Cloud Shell.
+8. Go back to the Cloud Shell, run:
 ```
 gcloud sql connect griffin-dev-db --user=root --quiet
 ```
-Enter the Root password generated in Step 4.
-In the SQL console, run the following query to create the wordpress database:
+
+9. Enter the Root password generated in Step 4.
+10. In the SQL console, run the following query to create the wordpress database:
 ``` sql
 CREATE DATABASE wordpress;
 GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";
@@ -163,27 +165,32 @@ gcloud beta container --project "qwiklabs-gcp-01-240538d99502" clusters create "
 
 
 ## Task 6: Prepare the Kubernetes cluster
-In the Cloud Shell, use the following command to copy the files for the Kubernetes:
+
+1. In the Cloud Shell, use the following command to copy the files for the Kubernetes:
 ```
 gsutil cp -r gs://cloud-training/gsp321/wp-k8s ~/
 ```
-Open `wp-k8s/wp-env.yaml` with the Cloud Shell Editor.
+
+2. Open `wp-k8s/wp-env.yaml` with the Cloud Shell Editor.
 ```
 cd ~/wp-k8s
 edit wp-env.yaml
 ```
-Replace `username_goes_here` and `password_goes_here` to **`wp_user`** and **`stormwind_rules`**, respectively.
-Save the file change.
-After the Kubernetes cluster has been created, click on the Connect button.
-Run the following command to connect the cluster:
+
+3. Replace `username_goes_here` and `password_goes_here` to **`wp_user`** and **`stormwind_rules`**, respectively.
+4. Save the file change.
+5. After the Kubernetes cluster has been created, click on the Connect button.
+6. Run the following command to connect the cluster:
 ```
 gcloud container clusters get-credentials griffin-dev --zone=us-east1-b
 ```
-Deploy the configuration to the cluster using:
+
+7. Deploy the configuration to the cluster using:
 ```
 kubectl apply -f wp-env.yaml
 ```
-Use the command below to create the key, and then add the key to the Kubernetes environment:
+
+8. Use the command below to create the key, and then add the key to the Kubernetes environment:
 ```
 gcloud iam service-accounts keys create key.json \
     --iam-account=cloud-sql-proxy@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
@@ -191,28 +198,30 @@ kubectl create secret generic cloudsql-instance-credentials \
     --from-file key.json
 ```
 ## Task 7: Create a WordPress deployment
-Open `wp-k8s/wp-deployment.yaml` with the Cloud Shell Editor
+
+1. Open `wp-k8s/wp-deployment.yaml` with the Cloud Shell Editor
 ```
 cd ~/wp-k8s
 edit wp-deployment.yaml
 ```
-Replace `YOUR_SQL_INSTANCE` with `griffin-dev-db`’s Instance connection name.
 
-
-Save the file change.
-Go back to the Cloud Shell, run the following commands:
+2. Replace `YOUR_SQL_INSTANCE` with `griffin-dev-db`’s Instance connection name.
+3. Save the file change.
+4. Go back to the Cloud Shell, run the following commands:
 ```
 kubectl create -f wp-deployment.yaml
 kubectl create -f wp-service.yaml
 ```
-Copy the External endpoints of the deployed wordpress service and open it in your browser.
+
+5. Copy the External endpoints of the deployed wordpress service and open it in your browser.(Go to **Services and Ingreses** in Kubernetes
 
 
 ## Task 8: Enable monitoring
-Go back to the Cloud Console, and navigate to Monitoring.
-In the Monitoring console, click Uptime checks in the left pane.
-Click CREATE UPTIME CHECK.
-Configure using the following parameters:
+
+1. Go back to the Cloud Console, and navigate to Monitoring.
+2. In the Monitoring console, click Uptime checks in the left pane.
+3. Click CREATE UPTIME CHECK.
+4. Configure using the following parameters:
 
 | Field         	| Value                   	|
 |---------------	|-------------------------	|
@@ -222,15 +231,21 @@ Configure using the following parameters:
 | Hostname      	| YOUR-WORDPRESS_ENDPOINT 	|
 | Path          	| /                       	|
 
-new GCP uptime checks monitoring
-Click TEST.
-Click SAVE if there is no error.
+5. new GCP uptime checks monitoring
+6. Click TEST.
+7. Click SAVE if there is no error.
 ## Task 9: Provide access for an additional engineer
-In the Cloud Console, navigate to IAM & Admin > IAM.
-Click +ADD.
-In the Add members to … pane, copy and paste the second user account for the lab to the New members field.
-In the Role dropdown, select Project > Editor.
-Click SAVE.
+
+1. In the Cloud Console, navigate to IAM & Admin > IAM.
+2. Click +ADD.
+3. In the Add members to … pane, copy and paste the second user account for the lab to the New members field.
+4. In the Role dropdown, select Project > Editor.
+5. Click SAVE.
 
 
-Congratulations! You completed this challenge lab.
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
