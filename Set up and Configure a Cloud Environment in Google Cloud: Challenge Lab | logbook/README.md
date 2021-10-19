@@ -144,6 +144,14 @@ Node subnet: griffin-dev-wp
 
 Networking settings for new Kubernetes cluster griffin-dev
 Click CREATE.
+
+
+or
+```
+gcloud beta container --project "qwiklabs-gcp-01-240538d99502" clusters create "griffin-dev" --zone "us-east1-b" --no-enable-basic-auth --cluster-version "1.20.10-gke.301" --release-channel "regular" --machine-type "n1-standard-4" --image-type "COS_CONTAINERD" --disk-type "pd-standard" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --max-pods-per-node "110" --num-nodes "2" --logging=SYSTEM,WORKLOAD --monitoring=SYSTEM --enable-ip-alias --network "projects/qwiklabs-gcp-01-240538d99502/global/networks/griffin-dev-vpc" --subnetwork "projects/qwiklabs-gcp-01-240538d99502/regions/us-east1/subnetworks/griffin-dev-wp" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --enable-shielded-nodes --node-locations "us-east1-b"
+```
+
+
 Task 6: Prepare the Kubernetes cluster
 In the Cloud Shell, use the following command to copy the files for the Kubernetes:
 
