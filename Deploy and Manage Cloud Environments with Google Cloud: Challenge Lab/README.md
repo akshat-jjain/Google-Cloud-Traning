@@ -86,8 +86,9 @@ git commit -a -m "change"
 git tag v1.0.1
 git push --tags
 ```
-Congratulations! Done with the challenge lab.
+# Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
-If you Want to Connect with Me:
-Linkedin: https://www.linkedin.com/in/mayank-chourasia-38421a134/
-Twitter: https://twitter.com/ChourasiaMayank.
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
