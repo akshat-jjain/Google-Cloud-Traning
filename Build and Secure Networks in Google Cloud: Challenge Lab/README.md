@@ -10,6 +10,8 @@ VPC Networks Controlling Access, HTTP Load Balancer with Cloud Armor and Create 
 - Create a firewall rule that allows traffic on HTTP (tcp/80) to any address and add network tag on juice-shop.
 - Create a firewall rule that allows traffic on SSH (tcp/22) from the acme-mgmt-subnet network address and add network tag on juice-shop.
 - SSH to bastion host via IAP and juice-shop via bastion.
+
+
 #### Some Jooli Inc. standards you should follow:
 - Create all resources in the default region or zone, unless otherwise directed.
 - Naming is normally a team-resource, e.g. an instance could be named kraken-webserver1
@@ -17,16 +19,39 @@ VPC Networks Controlling Access, HTTP Load Balancer with Cloud Armor and Create 
 
 ## 1. Create the production environment
 The first step is to create open-access firewall rules.
+
+> Use this command or Do Manullay
+```
+gcloud compute firewall-rules delete open-access
+```
+
 - In the GCP Console go to Navigation Menu >VPC Network > Firewall.
 - Click on the box next to the rule named open-access.
 - Then Click on Delete to remove.
+
+
 ## 2. Start the bastion host instance
 In this step, you have a virtual machine and want to start.
+
+> Use this command or Do Manullay
+```
+gcloud compute instances start bastion
+```
+
 - In the GCP Console go to Navigation Menu >Compute Engine > VM Instance.
 - Click on the box next to the instance named bastion.
 - Click on Start to run the instance.
+
+
 ## 3. Create a firewall rule that allows SSH (tcp/22) from the IAP service and add network tag on bastion
 In this step, you have to create a firewall rule that allows SSH (tcp/22) from the IAP service.
+
+> Use this command or Do Manullay
+```
+gcloud compute firewall-rules create ssh-ingress --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags ssh-ingress --network acme-vpc
+gcloud compute instances add-tags bastion --tags=ssh-ingress --zone=us-central1-b
+```
+
 - Add network tag on bastion VM.
 - Go to the VM Instance page, click on the bastion instance and click the Edit option
 - Now Add bastion to the Network tags field.
@@ -35,45 +60,65 @@ In this step, you have to create a firewall rule that allows SSH (tcp/22) from t
 - In the GCP Console go to Navigation Menu >VPC Network > Firewall.
 - Click Create firewall rule.
 - Configure the following settings:
-Field- Value
-Name- e.g. allow-ssh-from-iap
-Direction of traffic- Ingress
-Targets- Specified target tags
-Target tags-bastion
-Source IP ranges- 35.235.240.0/20
-Protocols and ports- Select TCP and enter 22 to allow SSH
+
+| Field                	| Value                                	|
+|----------------------	|--------------------------------------	|
+| Name                 	| e.g. allow-ssh-from-iap              	|
+| Direction of traffic 	| Ingress                              	|
+| Targets              	| Specified target tags                	|
+| Target tags          	| bastion                              	|
+| Source IP ranges     	| 35.235.240.0/20                      	|
+| Protocols and ports  	| Select TCP and enter 22 to allow SSH 	|
+
 
 ## 4. Create a firewall rule that allows traffic on HTTP (tcp/80) to any address and add network tag on juice-shop
 In this step, you have to create a firewall rule that allows traffic on HTTP (tcp/80) to any address.
+> Use this command or Do Manullay
+```
+gcloud compute firewall-rules create http-ingress --allow=tcp:80 --source-ranges 0.0.0.0/0 --target-tags http-ingress --network acme-vpc
+gcloud compute instances add-tags juice-shop --tags=http-ingress --zone=us-central1-b
+```
 - In the GCP Console go to Navigation Menu >VPC Network > Firewall.
 - Click Create firewall rule.
 - Configure the following settings:
-Field- Value
-Name- e.g. allow-http-ingress
-Direction of traffic- Ingress
-Targets- Specified target tags
-Target tags-juice-shop
-Source IP ranges-0.0.0.0/0
-Protocols and ports- Select TCP and enter 80 to allow HTTP
+
+| Field                	| Value                                 	|
+|----------------------	|---------------------------------------	|
+| Name                 	| e.g. allow-http-ingress               	|
+| Direction of traffic 	| Ingress                               	|
+| Targets              	| Specified target tags                 	|
+| Target tags          	| juice-shop                            	|
+| Source IP ranges     	| 0.0.0.0/0                             	|
+| Protocols and ports  	| Select TCP and enter 80 to allow HTTP 	|
 
 - Add network tag on juice-shop VM.
 - Go to the VM Instance page, click on the juice-shop instance and click the Edit option
 - Now Add juice-shop to the Network tags field.
 - At the end of the page click Save.
+
+
 ## 5. Create a firewall rule that allows traffic on SSH (tcp/22) from acme-mgmt-subnet network address and add network tag on juice-shop
 In this step, you have to create a firewall rule that allows traffic on SSH (tcp/22) from acme-mgmt-subnet network address.
+> Use this command or Do Manullay
+```
+gcloud compute firewall-rules create internal-ssh-ingress --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags internal-ssh-ingress --network acme-vpc
+gcloud compute instances add-tags juice-shop --tags=internal-ssh-ingress --zone=us-central1-b
+```
 - In the GCP Console go to Navigation Menu >VPC Network.
 - Copy the IP address of the aceme-mgmt-subnet.
 - In the GCP Console go to Navigation Menu >VPC Network > Firewall> Firewall Rules.
 - Click Create firewall rule.
 - Configure the following settings:
-Field- Value
-Name- e.g.allow-ssh-from-mgmt-subnet
-Direction of traffic- Ingress
-Targets- Specified target tags
-Target tags-bastion,juice-shop
-Source IP ranges- IP address range of your aceme-mgmt-subnet
-Protocols and ports- Select TCP and enter 22 to allow SSH.
+
+| Field                	| Value                                      	|
+|----------------------	|--------------------------------------------	|
+| Name                 	| e.g. allow-ssh-from-mgmt-subnet            	|
+| Direction of traffic 	| Ingress                                    	|
+| Targets              	| Specified target tags                      	|
+| Target tags          	| bastion and juice-shop                     	|
+| Source IP ranges     	| IP address range of your aceme-mgmt-subnet 	|
+| Protocols and ports  	| Select TCP and enter 22 to allow SSH       	|
+
 
 ## 6. SSH to bastion host via IAP and juice-shop via bastion
 After configuring the firewall rules, try to verify the environment via the bastion.
@@ -85,6 +130,8 @@ After configuring the firewall rules, try to verify the environment via the bast
 ssh <internal-IP-of-juice-shop>
 ```
 > Note:Replace `<internal-IP-of-juice-shop>` with Internal IP
+
+
 # Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
