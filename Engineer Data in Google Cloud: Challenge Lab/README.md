@@ -146,6 +146,9 @@ FROM
       taxitrips ))
 ``` 
 
-### Congratulations! You completed this challenge lab.
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
 
-# Demonstration Video
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
