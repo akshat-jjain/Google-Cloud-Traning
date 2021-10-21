@@ -253,3 +253,8 @@ If you fail to get the score of this task, remove all data and reports from the 
 
 
 # Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
