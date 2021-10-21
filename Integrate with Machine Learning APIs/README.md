@@ -215,7 +215,13 @@ SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_te
 
 <br>
 
-**Congratulation LAB Successfully Completed**
 ![Lab Completed](https://user-images.githubusercontent.com/56213740/119262464-f9133080-bbf8-11eb-9f1d-14286ca48f02.png)
 
-Subscribe my YouTube Channel :- [Akshat Jain](https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/)
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
+
