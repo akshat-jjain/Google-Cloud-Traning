@@ -3,7 +3,7 @@
  
 In this article, we will go through the lab GSP327 Engineer Data in Google Cloud: Challenge Lab, which is labeled as an expert-level exercise. You will practice the skills and knowledge to build a prediction model of taxi fares using machine learning with BigQuery.
 
-## The challenge contains 6 required tasks:
+## The challenge contains 3 required tasks:
 
 - Clean your training data
 - Create a BQML model called taxirides.fare_model
