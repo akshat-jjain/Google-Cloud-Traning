@@ -62,13 +62,13 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 - Change the Region to the same region of the Notebook instance.
 - Run all three cells.
 - Confirm the created Bucket and the Upload model files in the Cloud Storage.
-- 1. Create an AI Platform model resource for your COMPLETE model
+  1. Create an AI Platform model resource for your COMPLETE model
 
 ```
 !gcloud ai-platform models create $MODEL_NAME --regions $REGION# 
 ```
 
-- Now create a version. 
+     - Now create a version. 
 
 ```
 !gcloud ai-platform versions create $VERSION_NAME \
@@ -80,13 +80,13 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 --python-version=3.5
 ```
 
-- 2.Create your second AI Platform model: limited_model
+  2.Create your second AI Platform model: limited_model
 
 ```
 !gcloud ai-platform models create $LIM_MODEL_NAME --regions $REGION# 
 ```
 
-- Now create a version. 
+   - Now create a version. 
 
 ```
 !gcloud ai-platform versions create $VERSION_NAME \
@@ -98,7 +98,6 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 --python-version=3.5
 ```
 
-my_limited_model
 ## (OPTIONAL) 5.Use the What-If Tool to explore biases
 
 - After your models are deployed to the AI Platform, you can use the following code to explore them in the What-If Tool in the notebook. We’ve created custom prediction functions custom_predict and bad_custom_predict that get the class predictions from the models.
