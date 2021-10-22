@@ -44,7 +44,8 @@ model.fit(train_data, train_labels, batch_size=32, epochs=10)
 ```
 
 - Copy the code for training the second model.
-- Modify model to limited_model as well as train_data, train_labels to limited_train_data, limited_train_labels
+- Modify model to `limited_model` as well as `train_data`, `train_labels` to `limited_train_data`, `limited_train_labels`
+
 ``` 
 limited_model = Sequential()
 limited_model.add(layers.Dense(8, input_dim=input_size))
@@ -63,13 +64,11 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 - Run all three cells.
 - Confirm the created Bucket and the Upload model files in the Cloud Storage.
   1. Create an AI Platform model resource for your COMPLETE model
-
+    
 ```
-!gcloud ai-platform models create $MODEL_NAME --regions $REGION# 
+!gcloud ai-platform models create $MODEL_NAME --regions $REGION
 ```
-
-     - Now create a version. 
-
+    - Nowcreate a version.
 ```
 !gcloud ai-platform versions create $VERSION_NAME \
 --model=$MODEL_NAME \
@@ -83,10 +82,10 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
   2.Create your second AI Platform model: limited_model
 
 ```
-!gcloud ai-platform models create $LIM_MODEL_NAME --regions $REGION# 
+!gcloud ai-platform models create $LIM_MODEL_NAME --regions $REGION
 ```
 
-   - Now create a version. 
+    - Nowcreate a version. 
 
 ```
 !gcloud ai-platform versions create $VERSION_NAME \
