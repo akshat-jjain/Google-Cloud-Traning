@@ -20,6 +20,7 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 * [Engineer Data in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Exploring the Public Cryptocurrency Datasets Available in BigQuery](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Applied%20Data:%20Blockchain/Exploring%20the%20Public%20Cryptocurrency%20Datasets%20Available%20in%20BigQuery)
 * [Set up and Configure a Cloud Environment in Google Cloud](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Set%20up%20and%20Configure%20a%20Cloud%20Environment%20in%20Google%20Cloud:%20Challenge%20Lab%20%7C%20logbook)
+* [Build and Secure Networks in Google Cloud](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Build%20and%20Secure%20Networks%20in%20Google%20Cloud:%20Challenge%20Lab)
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
