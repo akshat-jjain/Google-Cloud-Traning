@@ -60,7 +60,7 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 
 - First, create a storage bucket to store your Models in. (Unique Bucket Name)
 - Replace the values of GCP_PROJECT and MODEL_BUCKET with your project ID and a unique bucket name.
-- Change the Region to the same region of the Notebook instance.
+- Change the Model Name and replace it with `complete_model` and `limited_model`.
 - Run all three cells.
 - Confirm the created Bucket and the Upload model files in the Cloud Storage.
 ```
