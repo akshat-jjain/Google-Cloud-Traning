@@ -16,6 +16,7 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 * [Build and Secure Networks in Google Cloud](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Build%20and%20Secure%20Networks%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Create ML Models with Big Query ML: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Create%20ML%20Models%20with%20BigQuery%20ML:%20Challenge%20Lab)
 * [Deploy and Manage Cloud Environments with Google Cloud](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Deploy%20and%20Manage%20Cloud%20Environments%20with%20Google%20Cloud:%20Challenge%20Lab)
+* [Deploy to Kubernetes in Google Cloud](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Deploy%20to%20Kubernetes%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Engineer Data in Google Cloud: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab)
 * [Exploring the Public Cryptocurrency Datasets Available in BigQuery](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Applied%20Data:%20Blockchain/Exploring%20the%20Public%20Cryptocurrency%20Datasets%20Available%20in%20BigQuery)
 * [Insights from Data with Big Query: Challenge Lab](https://github.com/akshat-jjain/Google-Cloud-Traning/tree/main/Insights%20from%20Data%20with%20BigQuery:%20Challenge%20Lab)
