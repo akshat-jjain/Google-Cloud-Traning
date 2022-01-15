@@ -37,4 +37,11 @@ Download sample startup script below the Qwiklabs start button and lab timer
 3. The startup script automatically installs the Apache web server software while creating the VM instance. You should able to find the log events about downloading the startup script and installing the apache packages.
 4. Open the external IP in your web browser. You should view the Apache default page if the startup script has been successfully executed.
 
-# Congratulations! You should accomplish the lab
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
+
