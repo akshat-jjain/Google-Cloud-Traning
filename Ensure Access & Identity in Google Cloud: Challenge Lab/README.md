@@ -68,7 +68,7 @@ SUBNET_IP_RANGE="10.142.0.0/28"
 gcloud beta container clusters create [Cluster Name] \
    --network orca-build-vpc \
    --subnetwork orca-build-subnet \
-   --service-account []@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
+   --service-account [Security Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
    --enable-master-authorized-networks \
    --master-authorized-networks $JUMPHOST_IP/32 \
    --enable-private-nodes \
@@ -83,3 +83,10 @@ gcloud beta container clusters create [Cluster Name] \
 gcloud container clusters get-credentials orca-cluster-874 --internal-ip --zone=us-east1-b
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 ```
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
