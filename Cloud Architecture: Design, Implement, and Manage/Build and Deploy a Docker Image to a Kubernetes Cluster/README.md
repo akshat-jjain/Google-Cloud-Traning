@@ -64,4 +64,10 @@ kubectl get service echo-web
 ```
 Copy and open the IP address of the external endpoints in a new tab of your browser, the sample application should look like:
 
-# Congratulations! You should accomplish the lab
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
+
