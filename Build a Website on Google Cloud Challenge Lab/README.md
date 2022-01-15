@@ -126,7 +126,13 @@ kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/fronte
 kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
 ```
 
-### Congratulations! You completed this challenge lab.
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
 
 ### Summary
 Most steps in the exercise are identical to those in the lab **Migrating a Monolithic Website to Microservices on Google Kubernetes Engine**. To complete this challenge, make sure you carefully replace the cluster and deployment names to the specified ones. If you still have questions, you can leave a comment below.
