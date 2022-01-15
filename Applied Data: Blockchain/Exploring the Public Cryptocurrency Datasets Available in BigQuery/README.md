@@ -30,6 +30,13 @@ FROM double_entry_book
 where address = "1XPTgDRhN8RFnzniWCddobD9iKZatrvH4"
 ```
 
-# Congratulations You have Completed the Lab
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
+
 
 # Demonstration Video
