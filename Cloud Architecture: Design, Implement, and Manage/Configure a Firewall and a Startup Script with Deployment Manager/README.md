@@ -110,4 +110,11 @@ gcloud deployment-manager deployments create vm-test --config=qwiklabs.yaml
 ```
 In the web console, navigate to **Deployment Manager** to monitor the progress. Also, go to **Compute Engine** and **VPC Network > Firewall** to verify the deployment results.
 
-# Congratulations! You should accomplish the lab
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshat_jjain
+
