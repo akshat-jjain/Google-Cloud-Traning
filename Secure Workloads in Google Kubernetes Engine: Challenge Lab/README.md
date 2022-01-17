@@ -206,7 +206,7 @@ The challenge lab provides the following Pod Security Policy demo files for you 
 
 - psp-restrictive.yaml
 - psp-role.yaml
-- pop-use.yaml
+- psp-use.yaml
 
 Open `psp-restrictive.yaml` with an editor, and replace **appVersion: extensions/v1beta1 with policy/v1beta1**.Save the changes.
 Running the following command to deploy each file:
