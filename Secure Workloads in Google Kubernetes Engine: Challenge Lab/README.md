@@ -68,7 +68,7 @@ Now you need a service account with binding the role `roles/cloudsql.client` and
 gcloud iam service-accounts create [Service Account]
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
-   --member="[Service Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
+   --member="serviceAccount:[Service Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com" \
    --role="roles/cloudsql.client"
 
 gcloud iam service-accounts keys create key.json --iam-account=[Service Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
@@ -109,6 +109,9 @@ Run the following to add the chart repository and ensure the chart list is up to
 ```
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 ```
 Go ahead and use the following helm command to install stable nginx-ingress:
 ```
@@ -129,7 +132,7 @@ A shell script called add_ip.sh is provided, and you have downloaded it to the C
 
 Run the following commands to deploy the cert-manager:
 ```
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2.0/cert-manager.yaml
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.16.0/cert-manager.yaml
 
 kubectl create clusterrolebinding cluster-admin-binding \
    --clusterrole=cluster-admin \
@@ -155,6 +158,7 @@ Open the `network-policy.yaml` in an editor. You should see there are already tw
 
 You need to add one more network policy to allow ingress traffic from the internet into `nginx-ingress`. Use the second network policy as a template to compose a new policy. Change values of `name` and `spec` to the configuration like this:
 ```
+---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
