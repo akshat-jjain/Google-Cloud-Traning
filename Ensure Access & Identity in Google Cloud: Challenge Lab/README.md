@@ -60,6 +60,8 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
 ```
 JUMPHOST_IP=$(gcloud compute instances describe orca-jumphost \
   --format='get(networkInterfaces[0].networkIP)')
+```
+```
 SUBNET_IP_RANGE="10.142.0.0/28"
 ```
 > Note: Replace `[Cluster Name]` with your `Cluster Name`
@@ -79,8 +81,9 @@ gcloud beta container clusters create [Cluster Name] \
 # Task 5: Deploy an application to a private Kubernetes Engine cluster
 
 > Note: Run Commands in SSH window of `orca-jumphost`
+> Note: Replace `[Cluster Name]` with your `Cluster Name`
 ```
-gcloud container clusters get-credentials orca-cluster-874 --internal-ip --zone=us-east1-b
+gcloud container clusters get-credentials [Cluster Name] --internal-ip --zone=us-east1-b
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 ```
 
