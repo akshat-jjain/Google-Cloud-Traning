@@ -130,7 +130,7 @@ A shell script called add_ip.sh is provided, and you have downloaded it to the C
 ```
 ### Set up cert-manager.io
 
-Run the following commands to deploy the cert-manager:
+Run the following commands to deploy the `cert-manager`:
 ```
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.16.0/cert-manager.yaml
 
@@ -138,8 +138,8 @@ kubectl create clusterrolebinding cluster-admin-binding \
    --clusterrole=cluster-admin \
    --user=$(gcloud config get-value core/account)
 ```
-Navigate to the Kubernetes Engine page in the Cloud Console, now you should have the workloads look like this:
-Edit issuer.yaml and set the email address(line no 10).
+Navigate to the Kubernetes Engine page in the Cloud Console
+Edit `issuer.yaml` and set the email address(line no 10).
 Save the file changes and run the following to apply them to setup the letsencrypt prod issuer:
 ```
 kubectl apply -f issuer.yaml
@@ -150,7 +150,7 @@ Save the file changes and run the following:
 ```
 kubectl apply -f ingress.yaml
 ```
-Open your domain name `https://YOUR_LAB_USERNAME.labdns.xyz` with HTTPS in a new tab. Now the WordPress application should be accessible like this:
+Open your domain name `https://YOUR_LAB_USERNAME.labdns.xyz` with HTTPS in a new tab.
 
 # Task 4: Set up Network Policy
 
@@ -173,7 +173,7 @@ spec:
    ingress:
    - {}
 ```
-Append the new policy to the network-policy.yaml, and save the file.
+Append the new policy to the `network-policy.yaml`, and save the file.
 Run the following to apply the configuration file:
 ```
 kubectl apply -f network-policy.yaml
@@ -183,9 +183,9 @@ kubectl apply -f network-policy.yaml
 ### Configure Binary Authorization Policy
 - In the Cloud Console, navigate to **Security > Binary Authorization**.
 - Enable the **Binary Authorization API**.
-- On the Binary Authorization page, click on **CONFIGURE POLICY**.
+- On the Binary Authorization page, click on **EDIT POLICY**.
 - Select *Disallow all images* for the **Default rule**.
-- Scroll down to Images exempt from this policy, click **ADD IMAGE PATH**.
+- Scroll down to Images exempt from this policy, click **ADD IMAGE PATTERN**.
 - Paste `docker.io/library/wordpress:latest` to the textbox, and click **DONE**.
 - Repeat the above two steps to add the following image paths:
    - us.gcr.io/k8s-artifacts-prod/ingress-nginx/*
@@ -196,9 +196,9 @@ kubectl apply -f network-policy.yaml
 ### Enable Binary Authorization in Google Kubernetes Engine
 - Navigate to **Kubernetes Engine > Clusters**.
 - Click your cluster name to view its detail page.
-- Click on the pencil icon for Binary authorization under the Security section.
-- Check Enable Binary Authorization in the dialog.
-- Click SAVE CHANGES.
+- Click on the pencil icon for Binary authorization under the **Security** section.
+- Check Enable **Binary Authorization** in the dialog.
+- Click **SAVE CHANGES**.
 
 Your cluster will start updating its binary authorization settings. Wait until the update finish.
 # Task 6: Setup Pod Security Policy
@@ -208,10 +208,9 @@ The challenge lab provides the following Pod Security Policy demo files for you 
 - psp-role.yaml
 - psp-use.yaml
 
-Open `psp-restrictive.yaml` with an editor, and replace **appVersion: extensions/v1beta1 with policy/v1beta1**.Save the changes.
 Running the following command to deploy each file:
 ```
-kubectl apply -f <filename>.yaml
+kubectl apply -f <filename.yaml>
 ```
 
 # Congratulations! You completed this challenge lab.
