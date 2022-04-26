@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Analyzing Natality Data Using AI Platform and BigQuery - [GCP012]](https://www.youtube.com/watch?v=tNbfb_vjhnc)
 - [[NEW] - Build Interactive Apps with Google Assistant: Challenge Lab - [GCP325]](https://www.youtube.com/watch?v=03HzBjdGpwg)
 - [[NEW] - BigQuery: Qwik Start - Command Line - [GCP071]](https://www.youtube.com/watch?v=hP0hj9y2330)
 - [[NEW] - APIs Explorer: Qwik Start - [GCP277]](https://www.youtube.com/watch?v=NbqVSmT0CDM)
 - [[NEW] - Qwiklabs - APIs Explorer Cloud Storage - [GSP421]](https://www.youtube.com/watch?v=-k4akmnaq2Y)
-- [[NEW] - Cloud Endpoints Qwik Start - [GCP164]](https://www.youtube.com/watch?v=z0NbtfvBPc8)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
