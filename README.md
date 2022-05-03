@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
-- [[NEW] - Set Up Network and HTTP Load Balancers - [GCP007]](https://www.youtube.com/watch?v=hWunsf58CRE)
-- [[NEW] - Kubernetes Engine: Qwik Start - [GCP100]](https://www.youtube.com/watch?v=xH-v7z06znY)
-- [[NEW] - Getting Started with Cloud Shell and gcloud - [GCP002]](https://www.youtube.com/watch?v=0kqhzQsFnvQ)
-- [[NEW] - Creating A Virtual Machine  - [GCP001]](https://www.youtube.com/watch?v=J2k2JrZ4Jwk)
-- [[NEW] - Unboxing Google Cloud Swags | Google Cloud Hoodie  | Learn to Earn](https://www.youtube.com/watch?v=6VJ94x7DO2Y)
+- [[NEW] - Building an IoT Analytics Pipeline on Google Cloud - [GCP088]](https://www.youtube.com/watch?v=S2TJdgDj2gQ)
+- [[NEW] - App Dev Storing Application Data in Cloud Datastore - Python - [GCP]](https://www.youtube.com/watch?v=6mMNjzLiKmc)
+- [[NEW] - Build a Website on Google Cloud Challenge Lab - [GCP319]](https://www.youtube.com/watch?v=RqW0LpNmFe4)
+- [[NEW] - App Dev - Deploying the Application into App Engine Flexible - [GCP172]](https://www.youtube.com/watch?v=ng2wwr978FQ)
+- [[NEW] - Qwiklabs - App Dev: Developing a Backend Service - Python [GSP187]](https://www.youtube.com/watch?v=y2qcaVXRPiI)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
