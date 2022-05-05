@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Cloud IAM Qwik Start - [GCP064]](https://www.youtube.com/watch?v=tPxbInY2u-A)
+- [[NEW] - Cloud Storage Qwik Start - Cloud Console - [GCP073]](https://www.youtube.com/watch?v=7zImUqof1o0)
 - [[NEW] - Set Up Network and HTTP Load Balancers - [GCP007]](https://www.youtube.com/watch?v=hWunsf58CRE)
 - [[NEW] - Kubernetes Engine: Qwik Start - [GCP100]](https://www.youtube.com/watch?v=xH-v7z06znY)
 - [[NEW] - Getting Started with Cloud Shell and gcloud - [GCP002]](https://www.youtube.com/watch?v=0kqhzQsFnvQ)
-- [[NEW] - Creating A Virtual Machine  - [GCP001]](https://www.youtube.com/watch?v=J2k2JrZ4Jwk)
-- [[NEW] - Unboxing Google Cloud Swags | Google Cloud Hoodie  | Learn to Earn](https://www.youtube.com/watch?v=6VJ94x7DO2Y)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
