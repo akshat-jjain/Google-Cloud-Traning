@@ -25,7 +25,7 @@ Some Jooli Inc. standards you should follow:
 ### Task 1: Create a bucket
 
 1. Navigation menu > **STORAGE** > Storage > Create Bucket
-2. Name your bucket > Enter **GCP Project ID** > Continue
+2. Name your bucket > Enter **Bucket Name** > Continue
 3. Choose where to store your data > **Region:** us-east1 > Continue
 4. Use default for the remaining 
 5. Create
@@ -33,7 +33,7 @@ Some Jooli Inc. standards you should follow:
 ### Task 2: Create a Pub/Sub topic
 
 1. Navigation menu > **BIG DATA** > Pub/Sub
-2. Create Topic > **Name:** Jooli > Create Topic
+2. Create Topic > **Name:Topic Name** > Create Topic
 
 ### Task 3: Create the thumbnail Cloud Function
 
@@ -41,11 +41,13 @@ Some Jooli Inc. standards you should follow:
 
 2. Use the following config:
 
-   **Name:** CFJooli
-   **Region:** us-east1
-   **Trigger:** Cloud Storage
-   **Event type:** Finalize/Create
-   **Bucket:** BROWSE > Select the qwiklabs bucket
+| **Field**        	| Value                               	|
+|------------------	|-------------------------------------	|
+| **Name:**        	| Cloud                               	|
+| **Region:**      	| us-east1                            	|
+| **Trigger:**     	| Cloud Storage                       	|
+| **Event type:**  	| Finalize/Create                     	|
+| **Bucket:**      	| BROWSE > Select the qwiklabs bucket 	|
 
 3. Remaining default > Next
 
