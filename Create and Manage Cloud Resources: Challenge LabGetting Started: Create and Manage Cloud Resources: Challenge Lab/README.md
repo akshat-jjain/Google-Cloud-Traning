@@ -20,7 +20,7 @@ The first step is to create a Jumphost instance
 - In the GCP Console go to Navigation Menu >Compute Engine > VM Instance.
 
 - Write the below parameters, check machine type, and Image type.
-- The name of instance be nucleus-jumphost
+- The name of instance be `Instance Name`
 - Region be Default Region
 - Zone be Default Zone
 - The machine type be f1-micro.
@@ -31,16 +31,16 @@ The first step is to create a Jumphost instance
 In this step, you have to create a Kubernetes Service Cluster
 - Create the cluster in the us-east1 region.
 - Using the Docker container hello-app (`gcr.io/google-samples/hello-app:2.0`) as a place holder.
-- Open the app on port 8080
+- Open the app on port `Port Number`
 - Activate Cloud Shell and write the following commands
 
-
+> Note: Replace Port Number with your Port Number
 ```
 gcloud config set compute/zone us-east1-b
 gcloud container clusters create nucleus-webserver1
 gcloud container clusters get-credentials nucleus-webserver1
 kubectl create deployment hello-app --image=gcr.io/google-samples/hello-app:2.0
-kubectl expose deployment hello-app --type=LoadBalancer --port 8080
+kubectl expose deployment hello-app --type=LoadBalancer --port PortNumber
 kubectl get service 
 ```
 
@@ -89,8 +89,10 @@ gcloud compute instances list
 
 4. Creating a firewall rule to allow traffic (80/tcp):
 
+> Note: Replace FirewallName with Your Firewall Name
+
 ```
-gcloud compute firewall-rules create www-firewall --allow tcp:80
+gcloud compute firewall-rules create FirewallName --allow tcp:80
 
 gcloud compute forwarding-rules create nginx-lb \
 --region us-east1 \
