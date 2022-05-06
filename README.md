@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Cloud Functions Qwik Start - Console - [GCP081]](https://www.youtube.com/watch?v=NlysAskJXr8)
 - [[NEW] - Cloud Monitoring Qwik Start - [GCP089]](https://www.youtube.com/watch?v=0UMjIkPoKPo)
 - [[NEW] - Create and Manage Cloud Resources Challenge Lab - [GCP313]](https://www.youtube.com/watch?v=CjVlbv5GmKU)
 - [[NEW] - Cloud IAM Qwik Start - [GCP064]](https://www.youtube.com/watch?v=tPxbInY2u-A)
 - [[NEW] - Cloud Storage Qwik Start - Cloud Console - [GCP073]](https://www.youtube.com/watch?v=7zImUqof1o0)
-- [[NEW] - Set Up Network and HTTP Load Balancers - [GCP007]](https://www.youtube.com/watch?v=hWunsf58CRE)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
