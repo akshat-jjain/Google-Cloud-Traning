@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - HTTP Load Balancer with Cloud Armor - [GSP215]](https://www.youtube.com/watch?v=vqemSYw5q38)
 - [[NEW] - VPC Networks - Controlling Access - [GCP213]](https://www.youtube.com/watch?v=IFnC4LDe8yw)
 - [[NEW] - Multiple VPC Networks - [GCP211]](https://www.youtube.com/watch?v=yUSXOeTeuzg)
 - [[NEW] - Perform Foundational Infrastructure Tasks in Google Cloud Challenge Lab - [GCP315]](https://www.youtube.com/watch?v=lDrIVVd46cU)
 - [[NEW] - User Authentication Identity-Aware Proxy - [GCP499]](https://www.youtube.com/watch?v=gKz_qSTOMq8)
-- [[NEW] - Google Cloud Pub/Sub: Qwik Start - Command Line - [GCP095]](https://www.youtube.com/watch?v=A9IlzN6UESk)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
