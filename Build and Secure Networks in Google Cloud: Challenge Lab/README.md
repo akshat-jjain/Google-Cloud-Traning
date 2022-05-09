@@ -105,7 +105,7 @@ In this step, you have to create a firewall rule that allows traffic on SSH (tcp
 > Replace `SSH internal network tag` with your SSH internal network tag
 ```
 gcloud compute firewall-rules create SSH internal network tag --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags SSH internal network tag --network acme-vpc
-gcloud compute instances add-tags juice-shop --tags=internal-ssh-ingress --zone=us-central1-b
+gcloud compute instances add-tags juice-shop --tags=SSH internal network tags --zone=us-central1-b
 ```
 - In the GCP Console go to Navigation Menu >VPC Network.
 - Copy the IP address of the aceme-mgmt-subnet.
@@ -126,8 +126,8 @@ gcloud compute instances add-tags juice-shop --tags=internal-ssh-ingress --zone=
 ## 6. SSH to bastion host via IAP and juice-shop via bastion
 After configuring the firewall rules, try to verify the environment via the bastion.
 - In the GCP Console go to Navigation Menu >Compute Engine > VM Instance.
-- Copy the Internal IP of the juice-shop instance.
-- Then click on the SSH button in the row of the bastion instance.
+- Copy the Internal IP of the `juice-shop` instance.
+- Then click on the SSH button in the row of the `bastion` instance.
 - From the SSH console, access the juice-shop from the bastion using the following command:
 ```
 ssh <internal-IP-of-juice-shop>
