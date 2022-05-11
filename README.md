@@ -29,9 +29,9 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 <!-- YOUTUBE:START -->
 - [[NEW] - Orchestrating the Cloud with Kubernetes - [GCP021]](https://www.youtube.com/watch?v=TK_59K3Euwg)
 - [[NEW] - Orchestrating the Cloud with Kubernetes - [GCP021]](https://www.youtube.com/watch?v=TK_59K3Euwg)
+- [[NEW] - Managing Deployments Using Kubernetes Engine - [GSP053]](https://www.youtube.com/watch?v=knq_uo5rY5M)
+- [[NEW] - Managing Deployments Using Kubernetes Engine - [GSP053]](https://www.youtube.com/watch?v=knq_uo5rY5M)
 - [[NEW] - Introduction to Docker - [GSP055]](https://www.youtube.com/watch?v=2RhucWgpwKo)
-- [[NEW] - Introduction to Docker - [GSP055]](https://www.youtube.com/watch?v=2RhucWgpwKo)
-- [[NEW] - Google Cloud Packet Mirroring with OpenSource IDS - [GSP474]](https://www.youtube.com/watch?v=jk2_AxGZ3ig)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
