@@ -144,9 +144,13 @@ gcloud compute forwarding-rules create http-content-rule \
 
 gcloud compute forwarding-rules list
 ```
-# Congratulations! Done with the challenge lab.
+
+# Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
+
+# Demonstration Video
+[![Watch the video](https://img.youtube.com/vi/CjVlbv5GmKU/maxresdefault.jpg)](https://youtu.be/CjVlbv5GmKU)
