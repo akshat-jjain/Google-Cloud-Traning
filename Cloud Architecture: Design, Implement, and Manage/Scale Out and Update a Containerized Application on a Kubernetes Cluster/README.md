@@ -61,4 +61,10 @@ Change the image version ‘v1’ to ‘v2’ by pressing “i”.
 Save by esc -> Esc → “:wq”.
 
 
-Congratulations! Done with the challenge lab.
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
