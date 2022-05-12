@@ -174,4 +174,10 @@ WHERE
 5. The query should return the average trip time.
 
 
-# Congratulations! Done with the challenge lab.
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
