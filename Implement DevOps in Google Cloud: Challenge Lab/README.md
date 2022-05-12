@@ -43,6 +43,7 @@ kubectl cluster-info
 You will use Helm to install Jenkins from the Charts repository. Helm is a package manager that makes it easy to configure and deploy Kubernetes applications. Once you have Jenkins installed, you’ll be able to set up your CI/CD pipeline.
 ```
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 - Ensure the repo is up to date.
 ```
@@ -68,25 +69,26 @@ kubectl get pods
 
 - Run the following command to setup port forwarding to the Jenkins UI from the Cloud Shell.
 ```
-export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 ```
 - Now, check that the Jenkins Service was created properly.
 ```
 kubectl get svc
 ```
 #### Connect to Jenkins
-- The Jenkins chart will automatically create an admin password for you. To retrieve it, run.
+- The Jenkins chart will automatically create an `admin password` for you. To retrieve it, run.
 ```
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
-- To get to the Jenkins user interface, click on the Web Preview button in cloud shell, then click Preview on port 8080
+- To get to the Jenkins user interface, click on the `Web Preview` button in cloud shell, then click `Preview on port 8080`
 - You should now be able to log in with username `admin` and your auto-generated password.
 
 #### Deploying the Application.
 - In Google Cloud Shell, navigate to the sample application directory.
 
 ```
-cd sample-app
+cd ~/sample-app
 ```
 - Create the Kubernetes namespace to logically isolate the deployment.
 ```
@@ -126,11 +128,11 @@ git push origin master
 #### Adding your service account credentials
 Configure your credentials to allow Jenkins to access the code repository. Jenkins will use your cluster’s service account credentials in order to download code from the Cloud Source Repositories.
 
--  In the Jenkins user interface, click Manage Jenkins in the left navigation then click Manage Credentials.
--  Click Jenkins.
--  Click Global credentials (unrestricted).
--  Click Add Credentials in the left navigation.
--  Select Google Service Account from metadata from the Kind drop-down and click OK.
+-  In the Jenkins user interface, click `Manage Jenkins` in the left navigation then click `Manage Credentials`.
+-  Click `Jenkins`.
+-  Click `Global credentials (unrestricted)`.
+-  Click `Add Credentials` in the left navigation.
+-  Select `Google Service Account from metadata` from the Kind drop-down and click OK.
 
 
 The global credentials has been added. The name of the credential is the Project ID found in the CONNECTION DETAILS section of the lab.
@@ -139,17 +141,18 @@ The global credentials has been added. The name of the credential is the Project
 
 Navigate to your Jenkins user interface and follow these steps to configure a Pipeline job.
 
-- Click New Item in the left navigation.
-- Name the project sample-app, then choose the Multibranch Pipeline option and click OK.
-- On the next page, in the Branch Sources section, click Add Source and select git.
-- Paste the HTTPS clone URL of your sample-app repo in Cloud Source Repositories into the Project Repository field. Replace `[PROJECT_ID]` with your Project ID.
+- Click `New Item` in the left navigation.
+- Name the project `sample-app`, then choose the `Multibranch Pipeline` option and click OK.
+- On the next page, in the Branch Sources section, click `Add Source` and select `git`.
+- Paste the HTTPS clone URL of your `sample-app` repo in Cloud Source Repositories into the Project Repository field. 
+> Replace `[PROJECT_ID]` with your Project ID.
 ```
-https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
+https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
 ```
 
-- Select the service account for your GCP project from the Credentials dropdown list.
-- Under Scan Multibranch Pipeline Triggers section, check the Periodically if not otherwise run box and set the Interval value to 1 minute.
-- Click Save leaving all other options with their defaults.
+- Select the service account for your `GCP project` from the Credentials dropdown list.
+- Under `Scan Multibranch Pipeline Triggers` section, check the `Periodically if not otherwise` run box and set the Interval value to `1 minute`.
+- Click `Save` leaving all other options with their defaults.
 
 ### 2.Push an update to the application to a development branch.
 In this task, you need to Modify the site.
