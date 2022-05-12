@@ -120,4 +120,10 @@ sudo service apache2 status
 (Optional) Test the website to check if any issues after migration.
 
 
-# Congratulations! You should accomplish the lab
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
