@@ -16,7 +16,7 @@ In this article, we will go through the lab GSP318 Deploy to Kubernetes in Googl
 
 - First of all, you have to run the following command in Cloud Shell.
 ```
-source <(gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh)
+source <(gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh)
 ```
 It installs the marking scripts, which use to check your progress.
 - Then, run the commands below to clone the valkyrie-app source code repository to the Cloud Shell. (Remember to replace YOUR_PROJECT_ID with your Project ID)
@@ -45,7 +45,7 @@ docker build -t [Image Name]:[Tag name] .
 Before clicking Check my progress on the lab page, don’t forget to run the following commands to execute the marking script:
 ```
 cd ~/marking
-./step1.sh
+./step1_v2.sh
 ```
 ## Task 2: Test the created Docker image
 > Hint: Refer procedures and modify the codes in the lab GSP055 Introduction to Docker
@@ -58,10 +58,10 @@ The lab instruction requires you to run the docker image built in Task 1 and sho
 docker run -p 8080:8080 --name [Image name] [Image with tag] &
 ```
 - Click Web Preview to see the running app.
-- After that, open a new Cloud Shell to run the step2.sh marking script.
+- After that, open a new Cloud Shell to run the step2_v2.sh marking script.
 ```
 cd ~/marking
-./step2.sh
+./step2_v2.sh
 ```
 
 ## Task 3: Push the Docker image in the Container Repository
