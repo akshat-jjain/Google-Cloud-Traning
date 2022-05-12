@@ -27,10 +27,10 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Deploy Kubernetes Load Balancer Service with Terraform - [GSP233]](https://www.youtube.com/watch?v=TSOlVEugLcY)
 - [[NEW] - Cloud Source Repositories Qwik Start - [GSP121]](https://www.youtube.com/watch?v=V5Q3VffUxwI)
 - [[NEW] - Orchestrating the Cloud with Kubernetes - [GCP021]](https://www.youtube.com/watch?v=TK_59K3Euwg)
 - [[NEW] - Orchestrating the Cloud with Kubernetes - [GCP021]](https://www.youtube.com/watch?v=TK_59K3Euwg)
-- [[NEW] - Managing Deployments Using Kubernetes Engine - [GSP053]](https://www.youtube.com/watch?v=knq_uo5rY5M)
 - [[NEW] - Managing Deployments Using Kubernetes Engine - [GSP053]](https://www.youtube.com/watch?v=knq_uo5rY5M)
 <!-- YOUTUBE:END -->
 ## Support:
