@@ -35,4 +35,10 @@ echo '<!doctype html><html><body><h1>Hello World!</h1></body></html>' | sudo tee
 ```
 Refresh the web page in your browser,
 
-# Congratulations! You should accomplish the lab 
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
