@@ -222,12 +222,17 @@ git push origin master
 ```
 export FRONTEND_SERVICE_IP=$(kubectl get -o \ jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
 ```
+
+# Demonstration Video
+
+[![Watch the video](https://img.youtube.com/vi/lLDrmbOMtto/maxresdefault.jpg)](https://youtu.be/lLDrmbOMtto)
+
 # Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
 
 
 Thank you stay safe, stay healthy.
