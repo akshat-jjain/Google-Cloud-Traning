@@ -71,11 +71,11 @@ In this task, you will push the Docker image valkyrie-app:v0.0.1 into the Contai
 
 
 Thus, you should format the docker commands as below.
-> Replace `[Image with tag]` with `Image with tag`
+> Replace `[Image with tag]` with `Image with tag` and `[Tag name]` with `[Tag name]`
 ```
 docker tag [Image with tag] gcr.io/$PROJECT/[Image with tag]
 docker images
-docker push gcr.io/$PROJECT/valkyrie-app:v0.0.1
+docker push gcr.io/$PROJECT/valkyrie-dev:[Tag name]
 ```
 After pushing the container, the valkyrie-app repository will appear in the Cloud Console as shown in the image below.
 
@@ -84,14 +84,14 @@ Push the Docker image of valkyrie-app in the Google Container Repository
 ## Task 4: Create and expose a deployment in Kubernetes
 > Hint: Refer procedures in the labs GSP100 Kubernetes Engine: Qwik Start and GSP021 Orchestrating the Cloud with Kubernetes for steps 1-2 and steps 3-4, respectively.
 
-- In the Cloud Shell, go to the `valkyrie-app/k8s` subdirectory.
+- In the Cloud Shell, go to the `valkyrie-app` subdirectory.
 - Get authentication credentials for the cluster
 
 ```
-gcloud container clusters get-credentials valkyrie-dev --region us-east
+gcloud container clusters get-credentials valkyrie-dev --region us-east1
 ```
 
-- Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-app:v0.0.1 `
+- Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] `
 ```
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
@@ -119,16 +119,7 @@ docker images
 docker push gcr.io/$PROJECT/valkyrie-app:[Updated Version]
 ```
 - Trigger a rolling update by running the following command:
-```
-kubectl edit deployment valkyrie-dev
-```
-press `ESC` and `i` to edit and save By `ESC` and `:wq`
-- Change the image tags from v0.0.1 to v0.0.2 for both the backend and frontend, then save and exit.
-
-> Tips: If you change the text mode editor from Vim to Nano by KUBE_EDITOR="nano" before the kubectl edit command.
--    
-> Tips: Instead of kubectl edit, you can update images for the deployment by running the following:
--  Replace `[Updated Version]` with `Updated Version` 
+> Replace `[Updated Version]` with `Updated Version` 
 ```
 kubectl set image deployment valkyrie-dev backend=gcr.io/$PROJECT_ID/valkyrie-app:[Updated Version] frontend=gcr.io/$PROJECT_ID/valkyrie-app:[Updated Version]
 ```
