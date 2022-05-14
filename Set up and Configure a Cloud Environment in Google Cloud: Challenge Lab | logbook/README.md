@@ -144,21 +144,21 @@ exit
 Create a 2 node cluster (n1-standard-4) called griffin-dev, in the griffin-dev-wp subnet, and in the zone us-east1-b.
 
 
-1. In the Cloud Console, navigate to Kubernetes Engine > Clusters.
-2. Click Create cluster.
+1. In the Cloud Console, navigate to `Kubernetes Engine > Clusters`.
+2. Click `Create cluster`.
 3. In the Cluster basics tab, configure:
-   - Name: griffin-dev
-   - Zone: us-east1-b
+   - Name: `griffin-dev`
+   - Zone: `us-east1-b`
  
-4. In the left pane, click default-pool under NODE POOLS and set
-   - Number of nodes: 2
-5. Click Nodes Under default-pool, and set
-   - Machine type: n1-standard-4
-7. Go to the Network tab, set
-   - Network: griffin-dev-vpc
-   - Node subnet: griffin-dev-wp
-8. Networking settings for new Kubernetes cluster griffin-dev
-9. Click CREATE.
+4. In the left pane, click default-pool under `NODE POOLS` and set
+   - Number of nodes: `2`
+5. Click Nodes Under `default-pool`, and set
+   - Machine type: `n1-standard-4`
+7. Go to the `Network` tab, set
+   - Network: `griffin-dev-vpc`
+   - Node subnet: `griffin-dev-wp`
+8. Networking settings for new Kubernetes cluster `griffin-dev`
+9. Click `CREATE`.
 
 
 ## Task 6: Prepare the Kubernetes cluster
@@ -176,7 +176,7 @@ edit wp-env.yaml
 
 3. Replace `username_goes_here` and `password_goes_here` to **`wp_user`** and **`stormwind_rules`**, respectively.
 4. Save the file change.
-5. After the Kubernetes cluster has been created, click on the Connect button.
+5. **After the Kubernetes cluster has been created, click on the `Connect` button.**
 6. Run the following command to connect the cluster:
 ```
 gcloud container clusters get-credentials griffin-dev --zone=us-east1-b
@@ -215,9 +215,9 @@ kubectl create -f wp-service.yaml
 
 ## Task 8: Enable monitoring
 
-1. Go back to the Cloud Console, and navigate to Monitoring.
-2. In the Monitoring console, click Uptime checks in the left pane.
-3. Click CREATE UPTIME CHECK.
+1. Go back to the Cloud Console, and navigate to `Monitoring`.
+2. In the Monitoring console, click `Uptime checks` in the left pane.
+3. Click `CREATE UPTIME CHECK`.
 4. Configure using the following parameters:
 
 | Field         	| Value                   	|
@@ -228,16 +228,16 @@ kubectl create -f wp-service.yaml
 | Hostname      	| YOUR-WORDPRESS_ENDPOINT 	|
 | Path          	| /                       	|
 
-5. new GCP uptime checks monitoring
-6. Click TEST.
-7. Click SAVE if there is no error.
+5. Click `TEST` (Optional Step).
+6. Click `SAVE`.
+
 ## Task 9: Provide access for an additional engineer
 
-1. In the Cloud Console, navigate to IAM & Admin > IAM.
-2. Click +ADD.
-3. In the Add members to … pane, copy and paste the second user account for the lab to the New members field.
-4. In the Role dropdown, select Project > Editor.
-5. Click SAVE.
+1. In the Cloud Console, navigate to `IAM & Admin > IAM`.
+2. Click `+ADD`.
+3. In the Add members to … pane, copy and paste the `second user account` for the lab to the `New members field`.
+4. In the Role dropdown, select `Project > Editor`.
+5. Click `SAVE`.
 
 
 # Congratulations! You completed this challenge lab.
