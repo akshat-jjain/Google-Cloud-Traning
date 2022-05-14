@@ -101,16 +101,11 @@ gcloud deployment-manager deployments create griffin-prod --config prod-network.
 
 14. Click **CREATE**.
 
-OR 
-```
-gcloud compute --project=qwiklabs-gcp-01-240538d99502 firewall-rules create allow-bastion-prod-ssh --direction=INGRESS --priority=1000 --network=griffin-prod-vpc --action=ALLOW --rules=tcp:22 --source-ranges=192.168.48.0/20 --target-tags=bastion
-```
-
 ## Task 4: Create and configure Cloud SQL Instance
 
-1. In the Cloud Console, navigate to SQL.
-2. Click CREATE INSTANCE.
-3. Click Choose MySQL.
+1. In the Cloud Console, navigate to `SQL`.
+2. Click `CREATE INSTANCE`.
+3. Click `Choose MySQL`.
 4. Use the following parameters to create the instance:
 
 | Field          	| Value          	|
@@ -123,15 +118,15 @@ gcloud compute --project=qwiklabs-gcp-01-240538d99502 firewall-rules create allo
 
 > Note: In real practice, you must set a strong password.
 
-5. Click Create.
-6. Click the griffin-dev-db in the SQL pane after it has been created.
-7. Under Connect to this instance, click on Connect using Cloud Shell.
+5. Click `Create`.
+6. Click the `griffin-dev-db` in the SQL pane after it has been created.
+7. Under Connect to this instance, click on `Open in Cloud Shell`.
 8. Go back to the Cloud Shell, run:
 ```
 gcloud sql connect griffin-dev-db --user=root --quiet
 ```
 
-9. Enter the Root password generated in Step 4.
+9. Enter the `Root password` generated in Step 4.
 10. In the SQL console, run the following query to create the wordpress database:
 ``` sql
 CREATE DATABASE wordpress;
@@ -139,6 +134,12 @@ GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_ru
 FLUSH PRIVILEGES;
 exit
 ```
+#### Create User
+- Click `Users` under SQL in Navigation Pane.
+- Click `+ Add Users` button
+- Enter Username as `wp_user`
+- Enter Password as `stormwind_rules`
+ 
 ## Task 5: Create Kubernetes cluster
 Create a 2 node cluster (n1-standard-4) called griffin-dev, in the griffin-dev-wp subnet, and in the zone us-east1-b.
 
@@ -158,10 +159,6 @@ Create a 2 node cluster (n1-standard-4) called griffin-dev, in the griffin-dev-w
    - Node subnet: griffin-dev-wp
 8. Networking settings for new Kubernetes cluster griffin-dev
 9. Click CREATE.
-or
-```
-gcloud beta container --project "qwiklabs-gcp-01-240538d99502" clusters create "griffin-dev" --zone "us-east1-b" --no-enable-basic-auth --cluster-version "1.20.10-gke.301" --release-channel "regular" --machine-type "n1-standard-4" --image-type "COS_CONTAINERD" --disk-type "pd-standard" --disk-size "100" --metadata disable-legacy-endpoints=true --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --max-pods-per-node "110" --num-nodes "2" --logging=SYSTEM,WORKLOAD --monitoring=SYSTEM --enable-ip-alias --network "projects/qwiklabs-gcp-01-240538d99502/global/networks/griffin-dev-vpc" --subnetwork "projects/qwiklabs-gcp-01-240538d99502/regions/us-east1/subnetworks/griffin-dev-wp" --no-enable-intra-node-visibility --default-max-pods-per-node "110" --no-enable-master-authorized-networks --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --enable-autoupgrade --enable-autorepair --max-surge-upgrade 1 --max-unavailable-upgrade 0 --enable-shielded-nodes --node-locations "us-east1-b"
-```
 
 
 ## Task 6: Prepare the Kubernetes cluster
@@ -248,4 +245,4 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
