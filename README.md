@@ -27,11 +27,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Deploy to Kubernetes in Google Cloud: Challenge Lab - [GSP318]](https://www.youtube.com/watch?v=6iqMeYbbqMI)
 - [[NEW] - Continuous Delivery with Jenkins in Kubernetes Engine - [GSP051]](https://www.youtube.com/watch?v=k1OlW8u-kJo)
 - [[NEW] - Implement DevOps in Google Cloud Challenge Lab - [GSP330]](https://www.youtube.com/watch?v=lLDrmbOMtto)
 - [[NEW] - Deploy Kubernetes Load Balancer Service with Terraform - [GSP233]](https://www.youtube.com/watch?v=TSOlVEugLcY)
 - [[NEW] - Cloud Source Repositories Qwik Start - [GSP121]](https://www.youtube.com/watch?v=V5Q3VffUxwI)
-- [[NEW] - Orchestrating the Cloud with Kubernetes - [GCP021]](https://www.youtube.com/watch?v=TK_59K3Euwg)
 <!-- YOUTUBE:END -->
 ## Support:
 <p><a href="https://www.buymeacoffee.com/akshatjain"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="akshatjain" /></a></p><br><br>
