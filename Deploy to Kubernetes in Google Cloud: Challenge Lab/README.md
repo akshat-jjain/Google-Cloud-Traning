@@ -8,7 +8,7 @@ In this article, we will go through the lab GSP318 Deploy to Kubernetes in Googl
 - Test the created Docker image
 - Push the Docker image in the Google Container Repository
 - Create and expose a deployment in Kubernetes
-- Increase the replicas from 1 to 3
+- Increase the replicas from 1 to [Replica Count]
 - Update the deployment with a new version of valkyrie-app
 - Create a pipeline in Jenkins to deploy your app
 ## Task 1: Create a Docker image and store the Dockerfile
@@ -113,15 +113,15 @@ git merge origin/kurt-dev
 ```
 - Build and push the new version with tagged `[Updated Version]`:
 ```
-docker build -t valkyrie-app:[Updated Version] .
-docker tag valkyrie-app:[Updated Version] gcr.io/$PROJECT/valkyrie-app:[Updated Version]
+docker build -t valkyrie-dev:[Updated Version] .
+docker tag valkyrie-dev:[Updated Version] gcr.io/$PROJECT/valkyrie-dev:[Updated Version]
 docker images
-docker push gcr.io/$PROJECT/valkyrie-app:[Updated Version]
+docker push gcr.io/$PROJECT/valkyrie-dev:[Updated Version]
 ```
 - Trigger a rolling update by running the following command:
-> Replace `[Updated Version]` with `Updated Version` 
+> Replace `[Updated Version]` with `Updated Version` and `[PROJECT_ID]` with `PROJECT_ID`
 ```
-kubectl set image deployment valkyrie-dev backend=gcr.io/$PROJECT_ID/valkyrie-app:[Updated Version] frontend=gcr.io/$PROJECT_ID/valkyrie-app:[Updated Version]
+kubectl set image deployment valkyrie-dev backend=gcr.io/$PROJECT_ID/valkyrie-dev:[Updated Version] frontend=gcr.io/$PROJECT_ID/valkyrie-dev:[Updated Version]
 ```
 
 ## Task 6: Create a pipeline in Jenkins to deploy your app
