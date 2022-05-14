@@ -159,8 +159,8 @@ kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 - Select `Google Service Account from metadata` from the Kind drop-down and click OK.
 - Create a pipeline job that points to your */master branch on your source code.
 - Click `Jenkins > New Item` in the left navigation:
-- Name the project `valkyrie-app`, then choose the `Multibranch Pipeline` option and click OK.
-- On the next page, in the `Branch Sources` section, click `Add Source` and select `git`.
+- Name the project `valkyrie-app`, then choose the `Pipeline` option and click OK.
+- On the next page, in the `Pipeline` section, click `Pipeline script from SCM` and select `git` in SCM  .
 - Paste the HTTPS clone URL of your `sample-app` repo in Cloud Source Repositories 
 ```
 https://source.developers.google.com/p/YOUR_PROJECT_ID/r/valkyrie-app 
@@ -168,8 +168,7 @@ https://source.developers.google.com/p/YOUR_PROJECT_ID/r/valkyrie-app
 into the Project Repository field. 
 - Remember to replace YOUR_PROJECT_ID with your GCP Project ID.
 - From the  `Credentials` drop-down, select the name of the credentials you created when adding your service account in the previous steps.
-- Under the `Scan Multibranch Pipeline Triggers` section, check the `Periodically if not otherwise` run box and set the Interval value to `1 minute`.
-- Open Jenkinsfile file in a text editor, and replace `YOUR_PROJECT` with your `GCP project ID`.
+- Open `Jenkinsfile` file in a text editor, and replace `YOUR_PROJECT` with your `GCP project ID`.
 - Open `source/html.go` file in a text editor, and change the color of headings from `green` to `orange`.
 - Commit and push the changes:
 ```
