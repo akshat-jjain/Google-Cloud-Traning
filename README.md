@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Distributed Load Testing Using Kubernetes - [GSP182]](https://www.youtube.com/watch?v=yEHH-8bgy5E)
 - [[NEW] - Running Dedicated Game Servers in Google Kubernetes Engine - [GSP133]](https://www.youtube.com/watch?v=OD0SVh3gj70)
 - [[NEW] - Deploying Memcached on Kubernetes Engine - [GSP116]](https://www.youtube.com/watch?v=MEkjTFfjZN4)
 - [[NEW] - Deploying a Fault-Tolerant Microsoft Active Directory Environment - [GSP118]](https://www.youtube.com/watch?v=P0WGiouOfCk)
 - [[NEW] - Setting up Jenkins on Kubernetes Engine - [GSP117]](https://www.youtube.com/watch?v=ZAs8zjs4Eck)
-- [[NEW] - Autoscaling an Instance Group with Custom Cloud Monitoring Metrics - [GSP087]](https://www.youtube.com/watch?v=-IVAaIPDp2I)
 <!-- YOUTUBE:END -->
 
 ## FAQ
