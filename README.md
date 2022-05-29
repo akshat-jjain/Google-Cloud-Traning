@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Deploy Your Website on Cloud Run - [GSP659]](https://www.youtube.com/watch?v=ojm6dB7O3Gk)
 - [[NEW] - Google Assistant Build an Application with Dialogflow and Cloud Functions - [GSP174]](https://www.youtube.com/watch?v=wOU6NJwYo5c)
 - [[NEW] - App Engine Qwik Start - Python - [GSP067]](https://www.youtube.com/watch?v=lHJ1gp-HouU)
 - [[NEW] - Google Assistant Build a Restaurant Locator with the Places API - [GSP486]](https://www.youtube.com/watch?v=UoEjifPQrj8)
 - [[NEW] - Entity and Sentiment Analysis with the Natural Language API - [GSP038]](https://www.youtube.com/watch?v=vYgZ1u15oSg)
-- [[NEW] - Weather Data in BigQuery - [GSP009]](https://www.youtube.com/watch?v=jXpnmBpWW0w)
 <!-- YOUTUBE:END -->
 
 ## FAQ
