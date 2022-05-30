@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Deploy, Scale, and Update Your Website on Google Kubernetes Engine - [GSP663]](https://www.youtube.com/watch?v=9BXyJnU4edY)
 - [[NEW] - Hosting a Web App on Google Cloud Using Compute Engine - [GSP662]](https://www.youtube.com/watch?v=tuxsxFwe4Z0)
 - [[NEW] - Deploy Your Website on Cloud Run - [GSP659]](https://www.youtube.com/watch?v=ojm6dB7O3Gk)
 - [[NEW] - Google Assistant Build an Application with Dialogflow and Cloud Functions - [GSP174]](https://www.youtube.com/watch?v=wOU6NJwYo5c)
 - [[NEW] - App Engine Qwik Start - Python - [GSP067]](https://www.youtube.com/watch?v=lHJ1gp-HouU)
-- [[NEW] - Google Assistant Build a Restaurant Locator with the Places API - [GSP486]](https://www.youtube.com/watch?v=UoEjifPQrj8)
 <!-- YOUTUBE:END -->
 
 ## FAQ
