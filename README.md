@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Video Intelligence: Qwik Start - [GSP154]](https://www.youtube.com/watch?v=MnZrMsBC-8Y)
 - [[NEW] - Cloud SQL for MySQL: Qwik Start - [GSP151]](https://www.youtube.com/watch?v=BVZiwKO9RJs)
 - [[NEW] - Datastore: Qwik Start - [GSP131]](https://www.youtube.com/watch?v=OXTExjUGF8E)
 - [[NEW] - Container-Optimized OS: Qwik Start - [GSP144]](https://www.youtube.com/watch?v=PQI-weA0fAM)
 - [[NEW] - Google Cloud SDK Qwik Start - RedhatCentos - [GSP122]](https://www.youtube.com/watch?v=VGgj-yQC5a4)
-- [[NEW] - Migrating a Monolithic Website to Microservices on Google Kubernetes Engine - [GSP699]](https://www.youtube.com/watch?v=8DKHVEBdsNU)
 <!-- YOUTUBE:END -->
 
 ## FAQ
