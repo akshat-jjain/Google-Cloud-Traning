@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Cloud Security Scanner Qwik Start - [GSP112]](https://www.youtube.com/watch?v=sKaAuymKW1M)
 - [[NEW] - Video Intelligence: Qwik Start - [GSP154]](https://www.youtube.com/watch?v=MnZrMsBC-8Y)
 - [[NEW] - Cloud SQL for MySQL: Qwik Start - [GSP151]](https://www.youtube.com/watch?v=BVZiwKO9RJs)
 - [[NEW] - Datastore: Qwik Start - [GSP131]](https://www.youtube.com/watch?v=OXTExjUGF8E)
 - [[NEW] - Container-Optimized OS: Qwik Start - [GSP144]](https://www.youtube.com/watch?v=PQI-weA0fAM)
-- [[NEW] - Google Cloud SDK Qwik Start - RedhatCentos - [GSP122]](https://www.youtube.com/watch?v=VGgj-yQC5a4)
 <!-- YOUTUBE:END -->
 
 ## FAQ
