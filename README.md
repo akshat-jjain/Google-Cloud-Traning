@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - APIs Explorer Compute Engine - [GSP293]](https://www.youtube.com/watch?v=DbU6aI7E4WI)
 - [[NEW] - APIs Explorer: PubSub and IoT - [GSP284]](https://www.youtube.com/watch?v=jKihImnf9f8)
 - [[NEW] - APIs Explorer: Cloud SQL - [GSP423]](https://www.youtube.com/watch?v=d_ySt3xtL5M)
 - [[NEW] - Cloud Security Scanner Qwik Start - [GSP112]](https://www.youtube.com/watch?v=sKaAuymKW1M)
 - [[NEW] - Video Intelligence: Qwik Start - [GSP154]](https://www.youtube.com/watch?v=MnZrMsBC-8Y)
-- [[NEW] - Cloud SQL for MySQL: Qwik Start - [GSP151]](https://www.youtube.com/watch?v=BVZiwKO9RJs)
 <!-- YOUTUBE:END -->
 
 ## FAQ
