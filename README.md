@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Using Cloud Logging with IoT Core Devices - [GSP258]](https://www.youtube.com/watch?v=aD72W-HRe4g)
 - [[NEW] - Streaming IoT Core Data to Dataprep - [GSP279]](https://www.youtube.com/watch?v=X72jETPN4ME)
 - [[NEW] - Streaming IoT Data to Cloud Storage - [GSP278]](https://www.youtube.com/watch?v=uFWlUL2Qegc)
 - [[NEW] - Internet of Things: Qwik Start - [GSP086]](https://www.youtube.com/watch?v=3xn8jDYvdaM)
 - [[NEW] - APIs Explorer Compute Engine - [GSP293]](https://www.youtube.com/watch?v=DbU6aI7E4WI)
-- [[NEW] - APIs Explorer: PubSub and IoT - [GSP284]](https://www.youtube.com/watch?v=jKihImnf9f8)
 <!-- YOUTUBE:END -->
 
 ## FAQ
