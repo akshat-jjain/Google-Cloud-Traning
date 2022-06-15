@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Exploring NCAA Data with BigQuery - [GSP160]](https://www.youtube.com/watch?v=qIFkIhV-LQ0)
 - [[NEW] - Predict Taxi Fare with a BigQuery ML Forecasting Model - [GSP246]](https://www.youtube.com/watch?v=vLA1bZ7gpA8)
 - [[NEW] - Predict Visitor Purchases with a Classification Model in BQML - [GSP229]](https://www.youtube.com/watch?v=YcatAwsTJTM)
 - [[NEW] - Getting Started with BigQuery Machine Learning - [GSP247]](https://www.youtube.com/watch?v=wXSH5yrmolU)
 - [[NEW] - Big Data Analysis to a Slide Presentation - [GSP240]](https://www.youtube.com/watch?v=7FQCrPSkvBU)
-- [[NEW] - Explore and Create Reports with Data Studio - [GSP409]](https://www.youtube.com/watch?v=D4zgPgk-NxA)
 <!-- YOUTUBE:END -->
 
 ## FAQ
