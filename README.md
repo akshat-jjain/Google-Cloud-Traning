@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - ETL Processing on Google Cloud Using Dataflow and BigQuery - [GSP290]](https://www.youtube.com/watch?v=o0fN87TEnsE)
 - [[NEW] - Integrating BigQuery ML with Dialogflow ES Chatbot - [GSP431]](https://www.youtube.com/watch?v=_Mww558YwDE)
 - [[NEW] - Creating a Data Transformation Pipeline with Cloud Dataprep - [GSP430]](https://www.youtube.com/watch?v=lgy9p8LSBJ0)
 - [[NEW] - Exploring NCAA Data with BigQuery - [GSP160]](https://www.youtube.com/watch?v=qIFkIhV-LQ0)
 - [[NEW] - Predict Taxi Fare with a BigQuery ML Forecasting Model - [GSP246]](https://www.youtube.com/watch?v=vLA1bZ7gpA8)
-- [[NEW] - Predict Visitor Purchases with a Classification Model in BQML - [GSP229]](https://www.youtube.com/watch?v=YcatAwsTJTM)
 <!-- YOUTUBE:END -->
 
 ## FAQ
