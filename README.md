@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Troubleshooting and Solving Data Join Pitfalls - [GSP412]](https://www.youtube.com/watch?v=NVxkhuwVKDQ)
 - [[NEW] - Creating Date-Partitioned Tables in BigQuery - [GSP414]](https://www.youtube.com/watch?v=a-rjJ-V5dbk)
 - [[NEW] - Creating a Data Warehouse Through Joins and Unions - [GSP413]](https://www.youtube.com/watch?v=3F-yXDHHU_A)
 - [[NEW] - Cloud Composer: Copying BigQuery Tables Across Different Locations - [GSP283]](https://www.youtube.com/watch?v=kG5EJd8u5O8)
 - [[NEW] - ETL Processing on Google Cloud Using Dataflow and BigQuery - [GSP290]](https://www.youtube.com/watch?v=o0fN87TEnsE)
-- [[NEW] - Integrating BigQuery ML with Dialogflow ES Chatbot - [GSP431]](https://www.youtube.com/watch?v=_Mww558YwDE)
 <!-- YOUTUBE:END -->
 
 ## FAQ
