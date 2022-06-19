@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Visualize the 10,000 Bitcoin Pizza Transaction Using BigQuery and AI Notebooks - [GSP604]](https://www.youtube.com/watch?v=vjuQ7ScVlJw)
 - [[NEW] -Working with JSON, Arrays, and Structs in BigQuery  - [GSP416]](https://www.youtube.com/watch?v=ALI7rkv7r3g)
 - [[NEW] - Troubleshooting and Solving Data Join Pitfalls - [GSP412]](https://www.youtube.com/watch?v=NVxkhuwVKDQ)
 - [[NEW] - Creating Date-Partitioned Tables in BigQuery - [GSP414]](https://www.youtube.com/watch?v=a-rjJ-V5dbk)
 - [[NEW] - Creating a Data Warehouse Through Joins and Unions - [GSP413]](https://www.youtube.com/watch?v=3F-yXDHHU_A)
-- [[NEW] - Cloud Composer: Copying BigQuery Tables Across Different Locations - [GSP283]](https://www.youtube.com/watch?v=kG5EJd8u5O8)
 <!-- YOUTUBE:END -->
 
 ## FAQ
