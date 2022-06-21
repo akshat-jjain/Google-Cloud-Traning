@@ -64,11 +64,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Cloud SQL with Terraform - [GSP234]](https://www.youtube.com/watch?v=WeUf6R8CiI4)
 - [[NEW] - Loading Data into Google Cloud SQL - [GSP196]](https://www.youtube.com/watch?v=SE-MKSkNg_I)
 - [[NEW] - Tracking Cryptocurrency Exchange Trades with Google Cloud Platform in Real-Time - [GSP603]](https://www.youtube.com/watch?v=Sk7EEuqYUY4)
 - [[NEW] - Visualize the 10,000 Bitcoin Pizza Transaction Using BigQuery and AI Notebooks - [GSP604]](https://www.youtube.com/watch?v=vjuQ7ScVlJw)
 - [[NEW] -Working with JSON, Arrays, and Structs in BigQuery  - [GSP416]](https://www.youtube.com/watch?v=ALI7rkv7r3g)
-- [[NEW] - Troubleshooting and Solving Data Join Pitfalls - [GSP412]](https://www.youtube.com/watch?v=NVxkhuwVKDQ)
 <!-- YOUTUBE:END -->
 
 ## FAQ
