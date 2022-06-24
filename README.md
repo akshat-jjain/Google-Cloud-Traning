@@ -64,10 +64,10 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] - Cloud Natural Language API: Qwik Start - [GSP097]](https://www.youtube.com/watch?v=d-lKjp0NGZU)
 - [[NEW] - Dataproc: Qwik Start - Console - [GSP103]](https://www.youtube.com/watch?v=pdhW_QIyFbU)
 - [[NEW] - Dataflow: Qwik Start - Templates - [GSP192]](https://www.youtube.com/watch?v=8yj1IjkQ4u0)
 - [[NEW] - Dataprep: Qwik Start - [GSP105]](https://www.youtube.com/watch?v=PKZJMPMBx9A)
-- [[NEW] -  Rent-a-VM to Process Earthquake Data- [GSP008]](https://www.youtube.com/watch?v=qbhZtkIeMbg)
 - [[NEW] -  Rent-a-VM to Process Earthquake Data- [GSP008]](https://www.youtube.com/watch?v=qbhZtkIeMbg)
 <!-- YOUTUBE:END -->
 
