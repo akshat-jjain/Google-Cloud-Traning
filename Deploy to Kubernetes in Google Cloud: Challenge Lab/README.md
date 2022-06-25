@@ -73,7 +73,7 @@ In this task, you will push the Docker image valkyrie-app:v0.0.1 into the Contai
 Thus, you should format the docker commands as below.
 > Replace `[Image with tag]` with `Image with tag`
 ```
-docker tag valkyrie-app gcr.io/$PROJECT/[Image with tag]
+docker tag [Image with tag] gcr.io/$PROJECT/[Image with tag]
 docker images
 docker push gcr.io/$PROJECT/[Image with Tag]
 ```
