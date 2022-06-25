@@ -120,9 +120,9 @@ docker images
 docker push gcr.io/$PROJECT/valkyrie-dev:[Updated Version]
 ```
 - Trigger a rolling update by running the following command:
-> Replace `[Updated Version]` with `Updated Version` and `[PROJECT_ID]` with `PROJECT_ID`
+> Replace `[Updated Version]` with `Updated Version`, `[Image Name]` with `[Image Name]` and `[PROJECT_ID]` with `PROJECT_ID`
 ```
-kubectl set image deployment valkyrie-dev backend=gcr.io/$PROJECT_ID/valkyrie-dev:[Updated Version] frontend=gcr.io/$PROJECT_ID/valkyrie-dev:[Updated Version]
+kubectl set image deployment valkyrie-dev backend=gcr.io/PROJECT_ID/[Image Name]:[Updated Version] frontend=gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 ```
 
 ## Task 6: Create a pipeline in Jenkins to deploy your app
