@@ -75,9 +75,9 @@ Thus, you should format the docker commands as below.
 ```
 docker tag [Image with tag] gcr.io/$PROJECT/[Image with tag]
 docker images
-docker push gcr.io/$PROJECT/valkyrie-dev:[Tag name]
+docker push gcr.io/$PROJECT/[Image Name]:[Tag name]
 ```
-After pushing the container, the valkyrie-app repository will appear in the Cloud Console as shown in the image below.
+After pushing the container, the [Image name] repository will appear in the Cloud Console as shown in the image below.
 
 
 Push the Docker image of valkyrie-app in the Google Container Repository
