@@ -71,11 +71,11 @@ In this task, you will push the Docker image valkyrie-app:v0.0.1 into the Contai
 
 
 Thus, you should format the docker commands as below.
-> Replace `[Image with tag]` with `Image with tag` and `[Tag name]` with `[Tag name]`
+> Replace `[Image with tag]` with `Image with tag`
 ```
 docker tag [Image with tag] gcr.io/$PROJECT/[Image with tag]
 docker images
-docker push gcr.io/$PROJECT/[Image Name]:[Tag name]
+docker push gcr.io/$PROJECT/[Image with Tag]
 ```
 After pushing the container, the [Image name] repository will appear in the Cloud Console as shown in the image below.
 
@@ -88,11 +88,12 @@ Push the Docker image of valkyrie-app in the Google Container Repository
 - Get authentication credentials for the cluster
 
 ```
-gcloud container clusters get-credentials valkyrie-dev --region us-east1
+gcloud container clusters get-credentials valkyrie-dev --region us-east1-d
 ```
 
 - Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] `
 ```
+cd valkyrie-dev
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
