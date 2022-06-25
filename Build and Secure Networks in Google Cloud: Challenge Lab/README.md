@@ -130,7 +130,7 @@ After configuring the firewall rules, try to verify the environment via the bast
 - Then click on the SSH button in the row of the `bastion` instance.
 - From the SSH console, access the juice-shop from the bastion using the following command:
 ```
-ssh <internal-IP-of-juice-shop>
+gcloud compute ssh juice-shop --internal-ip
 ```
 > Note:Replace `<internal-IP-of-juice-shop>` with Internal IP
 
