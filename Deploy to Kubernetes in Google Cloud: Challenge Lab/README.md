@@ -173,7 +173,7 @@ into the Project Repository field.
 - Remember to replace YOUR_PROJECT_ID with your GCP Project ID.
 - From the  `Credentials` drop-down, select the name of the credentials you created when adding your service account in the previous steps.
 - Open `Jenkinsfile` file in a text editor, and replace `YOUR_PROJECT` with your `GCP project ID`.
-- Open `source/html.go` file in a text editor, and change the color of headings from `green` to `orange`.
+- Open `source/html.go` file in a text editor, and change the color of headings from `green` to `orange` at line 37 and 81.
 - Commit and push the changes:
 ``` bash
 git config --global user.email "you@example.com"
