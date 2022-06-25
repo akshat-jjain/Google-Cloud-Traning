@@ -93,7 +93,7 @@ gcloud container clusters get-credentials valkyrie-dev --region us-east1-d
 
 - Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] `
 ```
-cd valkyrie-dev
+cd valkyrie-app
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
