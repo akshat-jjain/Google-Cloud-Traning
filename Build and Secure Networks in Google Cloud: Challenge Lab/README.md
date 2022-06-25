@@ -21,7 +21,7 @@ VPC Networks Controlling Access, HTTP Load Balancer with Cloud Armor and Create 
 The first step is to create open-access firewall rules.
 
 > Use this command or Do Manually
-```
+``` bash
 gcloud compute firewall-rules delete open-access
 ```
 
@@ -34,7 +34,7 @@ gcloud compute firewall-rules delete open-access
 In this step, you have a virtual machine and want to start.
 
 > Use this command or Do Manually
-```
+``` bash
 gcloud compute instances start bastion
 ```
 
@@ -48,7 +48,7 @@ In this step, you have to create a firewall rule that allows SSH (tcp/22) from t
 
 > Use this command or Do Manually
 > Replace `SSH IAP network tag` with your SSH IAP network tag.
-```
+``` bash
 gcloud compute firewall-rules create SSH IAP network tag --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags SSH IAP network tag --network acme-vpc
 gcloud compute instances add-tags bastion --tags=SSH IAP network tag --zone=us-central1-b
 ```
@@ -76,7 +76,7 @@ gcloud compute instances add-tags bastion --tags=SSH IAP network tag --zone=us-c
 In this step, you have to create a firewall rule that allows traffic on HTTP (tcp/80) to any address.
 > Use this command or Do Manually
 > Replace `HTTP network tag` with your HTTP network tag
-```
+``` bash
 gcloud compute firewall-rules create HTTP network tag --allow=tcp:80 --source-ranges 0.0.0.0/0 --target-tags HTTP network tag --network acme-vpc
 gcloud compute instances add-tags juice-shop --tags=HTTP network tag --zone=us-central1-b
 ```
@@ -103,7 +103,7 @@ gcloud compute instances add-tags juice-shop --tags=HTTP network tag --zone=us-c
 In this step, you have to create a firewall rule that allows traffic on SSH (tcp/22) from acme-mgmt-subnet network address.
 > Use this command or Do Manually
 > Replace `SSH internal network tag` with your SSH internal network tag
-```
+``` bash
 gcloud compute firewall-rules create SSH internal network tag --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags SSH internal network tag --network acme-vpc
 gcloud compute instances add-tags juice-shop --tags=SSH internal network tags --zone=us-central1-b
 ```
@@ -129,7 +129,7 @@ After configuring the firewall rules, try to verify the environment via the bast
 - Copy the Internal IP of the `juice-shop` instance.
 - Then click on the SSH button in the row of the `bastion` instance.
 - From the SSH console, access the juice-shop from the bastion using the following command:
-```
+``` bash
 gcloud compute ssh juice-shop --internal-ip
 ```
 
