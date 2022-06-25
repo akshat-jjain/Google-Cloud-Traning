@@ -132,7 +132,6 @@ After configuring the firewall rules, try to verify the environment via the bast
 ```
 gcloud compute ssh juice-shop --internal-ip
 ```
-> Note:Replace `<internal-IP-of-juice-shop>` with Internal IP
 
 
 # Congratulations! You completed this challenge lab.
