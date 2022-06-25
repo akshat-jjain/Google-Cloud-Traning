@@ -113,11 +113,12 @@ kubectl scale deployment valkyrie-dev --replicas [Replicas count]
 git merge origin/kurt-dev
 ```
 - Build and push the new version with tagged `[Updated Version]`:
+> Replace `[Updated Version]` with `Updated Version`, `[Image Name]` with `[Image Name]` and `[PROJECT_ID]` with `PROJECT_ID`
 ```
-docker build -t valkyrie-dev:[Updated Version] .
-docker tag valkyrie-dev:[Updated Version] gcr.io/$PROJECT/valkyrie-dev:[Updated Version]
+docker build -t valkyrie-app:[Updated Version] .
+docker tag valkyrie-app:[Updated Version] gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 docker images
-docker push gcr.io/$PROJECT/valkyrie-dev:[Updated Version]
+docker push gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 ```
 - Trigger a rolling update by running the following command:
 > Replace `[Updated Version]` with `Updated Version`, `[Image Name]` with `[Image Name]` and `[PROJECT_ID]` with `PROJECT_ID`
