@@ -15,7 +15,7 @@ In this article, we will go through the lab GSP318 Deploy to Kubernetes in Googl
 > Hint: Refer procedures and modify the codes in the lab GSP055 Introduction to Docker
 
 - First of all, you have to run the following command in Cloud Shell.
-```
+``` bash
 source <(gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh)
 ```
 It installs the marking scripts, which use to check your progress.
@@ -25,7 +25,7 @@ export PROJECT=$YOUR_PROJECT_ID
 gcloud source repos clone valkyrie-app --project=$PROJECT
 ```
 - Create a Dockerfile under the valkyrie-app directory and add the configuration to the file. Copy the given codes from the lab page to the following snippet, and then run the commands in the Cloud Shell.
-```
+``` bash
 cd valkyrie-app
 cat > Dockerfile <<EOF  
 FROM golang:1.10
@@ -37,13 +37,13 @@ EOF
 ```
 - Build the image with the following command:
 - Replace `[Image Name]` with `Image Name` And `[Tag name]` with `Tag name`
-```
+``` bash
 docker build -t [Image Name]:[Tag name] .
 ```
 - Run `docker images` to look at the images you built.
 
 Before clicking Check my progress on the lab page, don’t forget to run the following commands to execute the marking script:
-```
+``` bash
 cd ~/marking
 ./step1_v2.sh
 ```
@@ -54,12 +54,12 @@ The lab instruction requires you to run the docker image built in Task 1 and sho
 
 - In the Cloud Shell, go back to the valkyrie-app directory, and run the below command.
 - Replace `[Image Name]` with `Image Name` and `[Image with tag]` with `Image with tag`
-```
+``` bash
 docker run -p 8080:8080 --name [Image name] [Image with tag] &
 ```
 - Click Web Preview to see the running app.
 - After that, open a new Cloud Shell to run the step2_v2.sh marking script.
-```
+``` bash
 cd ~/marking
 ./step2_v2.sh
 ```
@@ -72,7 +72,7 @@ In this task, you will push the Docker image valkyrie-app:v0.0.1 into the Contai
 
 Thus, you should format the docker commands as below.
 > Replace `[Image with tag]` with `Image with tag`
-```
+``` bash
 docker tag [Image with tag] gcr.io/$PROJECT/[Image with tag]
 docker images
 docker push gcr.io/$PROJECT/[Image with Tag]
@@ -85,15 +85,17 @@ Push the Docker image of valkyrie-app in the Google Container Repository
 > Hint: Refer procedures in the labs GSP100 Kubernetes Engine: Qwik Start and GSP021 Orchestrating the Cloud with Kubernetes for steps 1-2 and steps 3-4, respectively.
 
 - In the Cloud Shell, go to the `valkyrie-app` subdirectory.
+``` bash
+cd valkyrie-app
+```
 - Get authentication credentials for the cluster
 
-```
+``` bash
 gcloud container clusters get-credentials valkyrie-dev --region us-east1-d
 ```
 
 - Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] ` at line no 20 and 35
-```
-cd valkyrie-app
+``` bash
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
@@ -103,18 +105,18 @@ kubectl create -f k8s/service.yaml
 > Hint: Refer the skills in lab GSP053 Managing Deployments Using Kubernetes Engine or my previous article Qwiklabs/Logbook: Scale Out and Update a Containerized Application on a Kubernetes Cluster
 
 - Replace `[Replicas count]` with `Replicas count`
-```
+``` bash
 kubectl scale deployment valkyrie-dev --replicas [Replicas count]
 ```
 
 - Go back to the `valkyrie-app` directory in the Cloud Shell.
 - Merge the branch called kurt-dev into master using the following git command:
-```
+``` bash
 git merge origin/kurt-dev
 ```
 - Build and push the new version with tagged `[Updated Version]`:
 > Replace `[Updated Version]` with `Updated Version`, `[Image Name]` with `[Image Name]` and `[PROJECT_ID]` with `PROJECT_ID`
-```
+``` bash
 docker build -t valkyrie-app:[Updated Version] .
 docker tag valkyrie-app:[Updated Version] gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 docker images
@@ -122,7 +124,7 @@ docker push gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 ```
 - Trigger a rolling update by running the following command:
 > Replace `[Updated Version]` with `Updated Version`, `[Image Name]` with `[Image Name]` and `[PROJECT_ID]` with `PROJECT_ID`
-```
+``` bash
 kubectl set image deployment valkyrie-dev backend=gcr.io/PROJECT_ID/[Image Name]:[Updated Version] frontend=gcr.io/PROJECT_ID/[Image Name]:[Updated Version]
 ```
 
@@ -138,17 +140,17 @@ In this task, you will need to:
 - Modify the site
 - Kick off Deployment
 - Get the password with the following command:
-```
+``` bash
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
 
 - If there is another running container, use the docker commands below to kill it:
-```
+``` bash
 docker ps
 docker container kill $(docker ps -aq)
 ```
 - Connect to the Jenkins console using the commands below:
-```
+``` bash
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 ```
@@ -173,7 +175,7 @@ into the Project Repository field.
 - Open `Jenkinsfile` file in a text editor, and replace `YOUR_PROJECT` with your `GCP project ID`.
 - Open `source/html.go` file in a text editor, and change the color of headings from `green` to `orange`.
 - Commit and push the changes:
-```
+``` bash
 git config --global user.email "you@example.com"
 git config --global user.name "student"
 git add *
