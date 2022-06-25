@@ -44,17 +44,17 @@ Make sure you create all resources in the `us-east1` region and `us-east1-b` zon
 
 1. Copy the Deployment Manager configuration files to Cloud Shell using the following command:
 
-```
+``` bash
 gsutil cp -r gs://cloud-training/gsp321/dm ~/
 ```
 2. Edit `prod-network.yaml` configuration file
-```
+``` bash
 cd dm
 edit prod-network.yaml
 ```
 3. Replace `SET_REGION` with `us-east1` in the editor, and then save the change.
 4. Go back to the Cloud Shell, use the following command to create the production VPC network with the configuration files:
-```
+``` bash
 gcloud deployment-manager deployments create griffin-prod --config prod-network.yaml
 ```
 5. Go back to the Cloud Console, navigate to Deployment Manager to confirm the deployment.
@@ -122,7 +122,7 @@ gcloud deployment-manager deployments create griffin-prod --config prod-network.
 6. Click the `griffin-dev-db` in the SQL pane after it has been created.
 7. Under Connect to this instance, click on `Open in Cloud Shell`.
 8. Go back to the Cloud Shell, run:
-```
+``` bash
 gcloud sql connect griffin-dev-db --user=root --quiet
 ```
 
@@ -164,12 +164,12 @@ Create a 2 node cluster (n1-standard-4) called griffin-dev, in the griffin-dev-w
 ## Task 6: Prepare the Kubernetes cluster
 
 1. In the Cloud Shell, use the following command to copy the files for the Kubernetes:
-```
+``` bash
 gsutil cp -r gs://cloud-training/gsp321/wp-k8s ~/
 ```
 
 2. Open `wp-k8s/wp-env.yaml` with the Cloud Shell Editor.
-```
+``` bash
 cd ~/wp-k8s
 edit wp-env.yaml
 ```
@@ -178,17 +178,17 @@ edit wp-env.yaml
 4. Save the file change.
 5. **After the Kubernetes cluster has been created, click on the `Connect` button.**
 6. Run the following command to connect the cluster:
-```
+``` bash
 gcloud container clusters get-credentials griffin-dev --zone=us-east1-b
 ```
 
 7. Deploy the configuration to the cluster using:
-```
+``` bash
 kubectl apply -f wp-env.yaml
 ```
 
 8. Use the command below to create the key, and then add the key to the Kubernetes environment:
-```
+``` bash
 gcloud iam service-accounts keys create key.json \
     --iam-account=cloud-sql-proxy@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
 kubectl create secret generic cloudsql-instance-credentials \
@@ -197,7 +197,7 @@ kubectl create secret generic cloudsql-instance-credentials \
 ## Task 7: Create a WordPress deployment
 
 1. Open `wp-k8s/wp-deployment.yaml` with the Cloud Shell Editor
-```
+``` bash
 cd ~/wp-k8s
 edit wp-deployment.yaml
 ```
@@ -205,7 +205,7 @@ edit wp-deployment.yaml
 2. Replace `YOUR_SQL_INSTANCE` with `griffin-dev-db`’s Instance connection name.
 3. Save the file change.
 4. Go back to the Cloud Shell, run the following commands:
-```
+``` bash
 kubectl create -f wp-deployment.yaml
 kubectl create -f wp-service.yaml
 ```
