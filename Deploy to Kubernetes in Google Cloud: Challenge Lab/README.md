@@ -91,7 +91,7 @@ Push the Docker image of valkyrie-app in the Google Container Repository
 gcloud container clusters get-credentials valkyrie-dev --region us-east1-d
 ```
 
-- Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] `
+- Use a text editor to modify `deployment.yaml` and replace `IMAGE_HERE` with `gcr.io/YOUR_PROJECT_ID/valkyrie-dev:[Tag name] ` at line no 20 and 35
 ```
 cd valkyrie-app
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
