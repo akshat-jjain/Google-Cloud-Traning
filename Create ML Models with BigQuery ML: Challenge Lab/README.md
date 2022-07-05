@@ -32,7 +32,7 @@ As a final step, you must create and run a query that uses the model that includ
 1. This task asks us to train a model-based.
 2. Copy and paste the following code to the Query editor and then click Run.
 
-```
+``` sql
 CREATE OR REPLACE MODEL bike.location_model
 OPTIONS
   (model_type='linear_reg', labels=['duration_minutes']) AS
@@ -63,7 +63,7 @@ WHERE
 1. Similar to the second task, this task requires you to train a second model.
 2. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 
-```
+``` sql
 CREATE OR REPLACE MODEL bike.subscriber_model
 OPTIONS
   (model_type='linear_reg', labels=['duration_minutes']) AS
@@ -85,7 +85,7 @@ WHERE EXTRACT(YEAR FROM start_time) = 2018
 
 1. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 
-```
+``` sql
 -- Evaluation metrics for location_model
 SELECT
   SQRT(mean_squared_error) AS rmse,
@@ -110,7 +110,7 @@ FROM
 
 2. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 
-```
+``` sql
 -- Evaluation metrics for subscriber_model
 SELECT
   SQRT(mean_squared_error) AS rmse,
@@ -137,7 +137,7 @@ FROM
 1. In this task, we are required to calculate the average predicted trip time for the busiest station.
 2. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 
-```
+``` sql
 SELECT
   start_station_name,
   COUNT(*) AS trips
@@ -155,7 +155,7 @@ ORDER BY
 3. Click on compose new query and then copy and paste the following query into the BigQuery Query editor.
 4. The query should return the busiest station
 
-```
+``` sql
 SELECT AVG(predicted_duration_minutes) AS average_predicted_trip_length
 FROM ML.predict(MODEL bike.subscriber_model, (
 SELECT
