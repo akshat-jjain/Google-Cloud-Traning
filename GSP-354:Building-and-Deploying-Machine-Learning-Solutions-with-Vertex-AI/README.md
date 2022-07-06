@@ -12,7 +12,7 @@
 - TODO: create a Docker Artifact Registry using the gcloud CLI. Note the required respository-format and location flags.
 - Documentation link: https://cloud.google.com/sdk/gcloud/reference/artifacts/repositories/create
 - TODO: use Cloud Build to build and submit your custom model container to your Artifact Registry.
-> Documentation link: https://cloud.google.com/sdk/gcloud/reference/builds/submit
+- Documentation link: https://cloud.google.com/sdk/gcloud/reference/builds/submit
 > Hint: make sure the config flag is pointed at {MODEL_DIR}/cloudbuild.yaml defined above and you include your model directory.
 - TODO: change this to your name.
 - TODO: fill in the remaining arguments from the pipeline constructor.
