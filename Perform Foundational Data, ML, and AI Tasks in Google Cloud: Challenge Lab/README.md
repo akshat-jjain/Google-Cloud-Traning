@@ -10,16 +10,16 @@ In this article, we will go through the lab GSP323 Perform Foundational Data, ML
 In this task, you have to transfer the data in a CSV file to BigQuery using Dataflow via Pub/Sub. First of all, you need to create a BigQuery dataset called `lab` and a Cloud Storage bucket called with your project ID.
 
 
-## 1.1 Created a BigQuery dataset called `lab`
+## 1.1 Created a BigQuery dataset
 1. In the Cloud Console, click on **Navigation Menu > BigQuery.**
 2. Select your project in the left pane.
 3. Click **CREATE DATASET.**
-4. Enter `lab` in the Dataset ID, then click **Create dataset**.
-5. (Optional) Run ```gsutil cp gs://cloud-training/gsp323/lab.schema .``` in the Cloud Shell to download the schema file.
-6. View the schema by running `cat lab.schema.`
+4. Enter `dataset_name` in the Dataset ID, then click **Create dataset**.
+5. Run `gsutil cp gs://cloud-training/gsp323/lab.schema .`in the Cloud Shell to download the schema file.
+6. View the schema by running `cat lab.schema.` And Copy the schema
 7. Go back to the Cloud Console, select the new dataset **lab** and click **Create Table**.
 8. In the Create table dialog, select **Google Cloud Storage** from the dropdown in the Source section.
-9. Copy `gs://cloud-training/gsp323/lab.csv` to Select file from GCS bucket.
+9. Copy `cloud-training/gsp323/lab.csv` to Select file from GCS bucket.
 10. Enter `customers` to “Table name” in the Destination section.
 11. Enable **Edit as text** and copy the JSON data from the `lab.schema` file to the textarea in the Schema section.
 12. Click `Create table`.
@@ -27,7 +27,7 @@ In this task, you have to transfer the data in a CSV file to BigQuery using Data
 ## 1.2 Create a Cloud Storage bucket
 1. In the Cloud Console, click on **Navigation Menu > Storage**.
 2. Click **CREATE BUCKET**.
-3. Copy your GCP Project ID to Name your bucket.
+3. Copy your Bucket Name from panel.
 4. Click **CREATE**.
 
 ## 1.3 Create a Dataflow job
@@ -42,12 +42,10 @@ Field |	Value
 JavaScript UDF path in Cloud Storage |	`gs://cloud-training/gsp323/lab.js`
 JSON path |	`gs://cloud-training/gsp323/lab.schema`
 JavaScript UDF name |	`transform`
-BigQuery output table	| `YOUR_PROJECT:lab.customers`
+BigQuery output table	| `Use As per your lab`
 Cloud Storage input path |	`gs://cloud-training/gsp323/lab.csv`
-Temporary BigQuery directory |	`gs://YOUR_PROJECT/bigquery_temp`
-Temporary location |	`gs://YOUR_PROJECT/temp`
-
-**Replace** `YOUR_PROJECT` with your project ID.
+Temporary BigQuery directory |	`Use As per your lab`
+Temporary location |	`Use As per your lab`
 
 6. Click RUN JOB.
 
@@ -55,11 +53,11 @@ Temporary location |	`gs://YOUR_PROJECT/temp`
 ### Create a Dataproc cluster
 1. In the Cloud Console, click on **Navigation Menu > Dataproc > Clusters**.
 2. Click **CREATE CLUSTER**.
-3. Make sure the cluster is going to create in the region `us-central1`.
+3. Make sure the cluster is going to create in the region `Use As per your lab`.
 4. Click **Create**.
 5. After the cluster has been created, click the **SSH** button in the row of the master instance.
 6. In the SSH console, run the following command:
-```
+``` bash
 hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 ```
 7. Close the SSH window and go back to the Cloud Console.
@@ -76,7 +74,7 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 3. In the Import Data page, select **GCS** in the left pane.
 4. Click on the pencil icon under Choose a file or folder.
 5. Copy below code and paste it to the textbox, and click the **Go** button next to it.
-```
+``` bash
 gs://cloud-training/gsp323/runs.csv 
 ```
 6. After showing the preview of runs.csv in the right pane, click on the **Import & Wrangle button**.
@@ -98,13 +96,13 @@ gs://cloud-training/gsp323/runs.csv
 - time
 - score
 - state
-8. Confirm the recipe. It should like the screenshot below.
+8. Confirm the recipe.And Add it
 9. Click Run Job.
 
 
 # Task 4: AI
 
-```
+``` bash
 gcloud iam service-accounts create my-natlang-sa \
   --display-name "my natural language service account"
 gcloud iam service-accounts keys create ~/key.json \
