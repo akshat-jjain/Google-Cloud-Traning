@@ -66,17 +66,17 @@ kubectl expose deployment IMAGE_NAME --type=LoadBalancer --port 80 --target-port
 
 **Make sure that you:**
 
-* submit a build named “orders” with a version of “1.0.0”, and
-* submit a build named “products” with a version of “1.
+* submit a build named “ORDERS_IMAGE_NAME” with a version of “1.0.0”, and
+* submit a build named “PRODUCTS_IMAGE_NAME” with a version of “1.
 Run the following commands to build your Docker container for the **Orders Microservice** and push it to the gcr.io:
 ```
 cd ~/monolith-to-microservices/microservices/src/orders
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/orders:1.0.0 .
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/ORDERS_IMAGE_NAME:1.0.0 .
 ```
 Similarly, repeat the step for the **Products Microservice:**
 ```
 cd ~/monolith-to-microservices/microservices/src/products
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/products:1.0.0 .
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.0.0 .
 ```
 # Task 4: Deploy the new microservices
 **Make sure that you:**
