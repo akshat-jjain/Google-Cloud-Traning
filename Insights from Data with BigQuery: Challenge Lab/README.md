@@ -9,6 +9,7 @@ In this article, we will go through the lab **GSP322** Insights from Data with B
 3. Search `covid19_open_data` and then select **COVID-19 Open Data**
 4. Use Filter to locate the table **covid19_open_data** under the **covid19_open_data** dataset.
 
+> Replace `Your Date` with `YYYY-MM-DD`, `DEATH_COUNT` with `XXX` in entire lab
 # Query 1: Total Confirmed Cases
 
 Copy the following code to the Query editor and then click Run.
@@ -18,7 +19,7 @@ SELECT
 FROM
   `bigquery-public-data.covid19_open_data.covid19_open_data`
 WHERE
-  date = "2020-04-15"
+  date = "YYYY-MM-DD"
  ```
 This query sums up the cumulative confirmed cases of all records on 15 April, 2020.
 
@@ -37,12 +38,12 @@ FROM
   `bigquery-public-data.covid19_open_data.covid19_open_data`
 WHERE
   country_name="United States of America"
-  AND date='2020-04-10'
+  AND date='YYYY-MM-DD'
   AND subregion1_name IS NOT NULL
 GROUP BY
   subregion1_name
 )
-WHERE death_count > 100
+WHERE death_count > XXX
 ```
 Make sure that you use `country_name` to filter the US reconds instead of `country_code`, and use `subregion1_name` to group the states in the US.
 
@@ -54,8 +55,8 @@ Copy the following code to the Query editor and then click Run.
 ``` sql
 SELECT * FROM ( 
 SELECT subregion1_name as state, sum(cumulative_confirmed) as total_confirmed_cases 
-FROM `bigquery-public-data.covid19_open_data.covid19_open_data` WHERE country_code="US" AND date='2020-04-10' AND subregion1_name is NOT NULL 
-GROUP BY subregion1_name ORDER BY total_confirmed_cases DESC ) WHERE total_confirmed_cases > 1000
+FROM `bigquery-public-data.covid19_open_data.covid19_open_data` WHERE country_code="US" AND date='YYYY-MM-DD' AND subregion1_name is NOT NULL 
+GROUP BY subregion1_name ORDER BY total_confirmed_cases DESC ) WHERE total_confirmed_cases > XXX
 ```
 
 # Query 4: Fatality Ratio
