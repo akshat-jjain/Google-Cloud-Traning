@@ -16,23 +16,23 @@ In this article, we will go through the lab GSP319 Build a Website on Google Clo
 **Hint:** Refer and modify the procedures in the first two sections of the lab Deploy Your Website on Cloud Run
 
 First of all, you need to clone the project repository from GitHub to your Cloud Shell environment.
-```
+``` bash
 git clone https://github.com/googlecodelabs/monolith-to-microservices.git
 ```
 Run the `setup.sh` to install the NodeJS dependencies for the monolith code
-```
+``` bash
 cd ~/monolith-to-microservices
 ./setup.sh
 ```
 Before building the Docker container, you can preview the monolith application on port 8080 by running the following commands to start the web server:
-```
+``` bash
 cd ~/monolith-to-microservices/monolith
 npm start
 ```
 > Don't forget to replace Values
 
 Next, enable the Cloud Build API and submit a build named `Use Your Image Name` with a version of `1.0.0` using the following commands:
-```
+``` bash
 gcloud services enable cloudbuild.googleapis.com
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/IMAGE_NAME:1.0.0 .
 ```
@@ -46,7 +46,7 @@ In the Cloud Console, navigate to **Cloud Run** and wait for the successful buil
 * create the resources in the `us-central1-a` zone, and
 * the cluster is named `CLUSTER_NAME`.
 Use the following commands to set the default zone and create the Kubernetes cluster:
-```
+``` bash
 gcloud config set compute/zone us-central1-a
 gcloud services enable container.googleapis.com
 gcloud container clusters create CLUSTER_NAME --num-nodes 3
@@ -57,7 +57,7 @@ After the cluster is ready, you need to deploy the application. Make sure that y
 * expose the service on port 80, and
 * map it to port 8080.
 Run the following commands:
-```
+``` bash
 kubectl create deployment IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/IMAGE_NAME:1.0.0
 kubectl expose deployment IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8080
 ```
@@ -69,12 +69,12 @@ kubectl expose deployment IMAGE_NAME --type=LoadBalancer --port 80 --target-port
 * submit a build named “ORDERS_IMAGE_NAME” with a version of “1.0.0”, and
 * submit a build named “PRODUCTS_IMAGE_NAME” with a version of “1.
 Run the following commands to build your Docker container for the **Orders Microservice** and push it to the gcr.io:
-```
+``` bash
 cd ~/monolith-to-microservices/microservices/src/orders
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/ORDERS_IMAGE_NAME:1.0.0 .
 ```
 Similarly, repeat the step for the **Products Microservice:**
-```
+``` bash
 cd ~/monolith-to-microservices/microservices/src/products
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.0.0 .
 ```
@@ -84,31 +84,31 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.
 * name the deployment to be “ORDERS_IMAGE_NAME” and “PRODUCTS_IMAGE_NAME”, and
 * expose the services on port 80.
 Run the following commands to deploy the **Orders Microservice:**
-```
+``` bash
 kubectl create deployment ORDERS_IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/ORDERS_IMAGE_NAME:1.0.0
 kubectl expose deployment ORDERS_IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8081
 ```
 Run the following commands to deploy the **Products Microservice:**
-```
+``` bash
 kubectl create deployment PRODUCTS_IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.0.0
 kubectl expose deployment PRODUCTS_IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8082
 ```
 # Task 5: Configure the Frontend microservice
 Use the `nano` editor to replace the local URLs with the IP addresses of the new microservices:
-
+Use this command to get ip `kubectl get svc`
 Use the `nano` editor to edit the config file in the frontend microservice codebase:
-```
+``` bash
 cd ~/monolith-to-microservices/react-app
 nano .env
 ```
 Replace `<ORDERS_IP_ADDRESS>` and `<PRODUCTS_IP_ADDRESS>` with the Orders and Product microservice IP addresses, respectively.
 
-```
+``` bash
 REACT_APP_ORDERS_URL=http://<ORDERS_IP_ADDRESS>/api/orders
 REACT_APP_PRODUCTS_URL=http://<PRODUCTS_IP_ADDRESS>/api/products
 ```
 Save the file and rebuild the frontend app before containerizing it:
-```
+``` bash
 npm run build
 ```
 # Task 6: Create a containerized version of the Frontend microservice
@@ -116,13 +116,13 @@ npm run build
 
 * submit a build that is named `frontend`
 * with a version of `1.0.0`.
-```
+``` bash
 cd ~/monolith-to-microservices/microservices/src/frontend
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0 .
 ```
 # Task 7: Deploy the Frontend microservice
 Similar to Task 4, use `kubectl` commands to deploy the Frontend microservice:
-```
+``` bash
 kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0
 
 kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
