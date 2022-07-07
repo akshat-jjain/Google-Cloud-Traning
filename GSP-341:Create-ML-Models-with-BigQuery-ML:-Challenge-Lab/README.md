@@ -15,7 +15,7 @@ You have been asked to develop a machine learning model based on each of these i
 You can access the public data for the Austin bike share scheme in your project by opening this link to the Austin bike share dataset in the browser tab for your lab.
 As a final step, you must create and run a query that uses the model that includes subscriber type as a feature, to predict the average trip duration for all trips from the busiest bike-sharing station in 2019 (based on the number of trips per station in 2019) where the subscriber type is ‘Single Trip’.
 
-## Create a dataset to store your machine learning models
+## TASK 1: Create a dataset to store your machine learning models
 
 ### Steps:-
 
@@ -25,7 +25,9 @@ As a final step, you must create and run a query that uses the model that includ
 4. Write the name of the Dataset you want I have Used `bike`.
 5. Click on Create Dataset.
 
-## Create a forecasting BigQuery machine learning model
+> Replace `EVALUTION_YEAR` And `TRAINING_YEAR` With Your Ones
+
+## TASK 2: Create a forecasting BigQuery machine learning model
 
 ### Steps :
 
@@ -56,7 +58,7 @@ WHERE
 3. The query should return the starting station name, the hour the trip started, the weekday of the trip, and the address of the start station.
 
 
-## Create the second machine learning model
+## TASK 3: Create the second machine learning model
 
 ### Steps :-
 
@@ -79,7 +81,7 @@ WHERE EXTRACT(YEAR FROM start_time) = TRAINING_YEAR
 3. The query should return to predict the trip duration for bike trips.
 
 
-## Evaluate the two machine learning models
+## TASK 4: Evaluate the two machine learning models
 
 ### Steps:-
 
@@ -96,7 +98,7 @@ FROM
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
-    location,
+    start_station_name As location,
     duration_minutes
   FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
@@ -131,7 +133,7 @@ FROM
 
 3. The query should return both the Mean Absolute Error and the Root Mean Square Error of the Model.
 
-## Use the subscriber type machine learning model to predict average trip durations
+## TASK 5: Use the subscriber type machine learning model to predict average trip durations
 
 ### Steps:-
 1. In this task, we are required to calculate the average predicted trip time for the busiest station.
