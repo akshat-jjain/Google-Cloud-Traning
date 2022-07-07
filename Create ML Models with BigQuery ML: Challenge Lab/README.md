@@ -40,7 +40,7 @@ SELECT
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
-    location,
+    start_station_name AS location,
     duration_minutes
 FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
@@ -49,7 +49,7 @@ JOIN
 ON
     trips.start_station_name = stations.name
 WHERE
-    EXTRACT(YEAR FROM start_time) = 2018
+    EXTRACT(YEAR FROM start_time) = TRAINING_YEAR
     AND duration_minutes > 0
 ```
 
@@ -73,7 +73,7 @@ SELECT
     subscriber_type,
     duration_minutes
 FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
-WHERE EXTRACT(YEAR FROM start_time) = 2018
+WHERE EXTRACT(YEAR FROM start_time) = TRAINING_YEAR
 ```
 
 3. The query should return to predict the trip duration for bike trips.
@@ -104,7 +104,7 @@ FROM
    `bigquery-public-data.austin_bikeshare.bikeshare_stations` AS stations
   ON
     trips.start_station_name = stations.name
-  WHERE EXTRACT(YEAR FROM start_time) = 2019)
+  WHERE EXTRACT(YEAR FROM start_time) = EVALUTION_YEAR)
 )
 ```
 
@@ -125,7 +125,7 @@ FROM
   FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
   WHERE
-    EXTRACT(YEAR FROM start_time) = 2019)
+    EXTRACT(YEAR FROM start_time) = EVALUTION_YEAR)
 )
 ```
 
@@ -144,7 +144,7 @@ SELECT
 FROM
   `bigquery-public-data.austin_bikeshare.bikeshare_trips`
 WHERE
-  EXTRACT(YEAR FROM start_time) = 2019
+  EXTRACT(YEAR FROM start_time) = EVALUTION_YEAR
 GROUP BY
   start_station_name
 ORDER BY
@@ -166,7 +166,7 @@ SELECT
 FROM
   `bigquery-public-data.austin_bikeshare.bikeshare_trips`
 WHERE 
-  EXTRACT(YEAR FROM start_time) = 2019
+  EXTRACT(YEAR FROM start_time) = EVALUTION_YEAR
   AND subscriber_type = 'Single Trip'
   AND start_station_name = '21st & Speedway @PCL'))
 ```
