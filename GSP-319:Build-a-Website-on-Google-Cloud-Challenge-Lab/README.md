@@ -53,7 +53,7 @@ gcloud container clusters create CLUSTER_NAME --num-nodes 3
 ```
 After the cluster is ready, you need to deploy the application. Make sure that you
 
-* name the deployment to be “IMAGE_NAME”,
+* name the deployment to be `“IMAGE_NAME”`,
 * expose the service on port 80, and
 * map it to port 8080.
 Run the following commands:
@@ -66,8 +66,8 @@ kubectl expose deployment IMAGE_NAME --type=LoadBalancer --port 80 --target-port
 
 **Make sure that you:**
 
-* submit a build named “ORDERS_IMAGE_NAME” with a version of “1.0.0”, and
-* submit a build named “PRODUCTS_IMAGE_NAME” with a version of “1.
+* submit a build named `“ORDERS_IMAGE_NAME”` with a version of “1.0.0”, and
+* submit a build named `“PRODUCTS_IMAGE_NAME”` with a version of “1.
 Run the following commands to build your Docker container for the **Orders Microservice** and push it to the gcr.io:
 ``` bash
 cd ~/monolith-to-microservices/microservices/src/orders
@@ -81,7 +81,7 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.
 # Task 4: Deploy the new microservices
 **Make sure that you:**
 
-* name the deployment to be “ORDERS_IMAGE_NAME” and “PRODUCTS_IMAGE_NAME”, and
+* name the deployment to be `“ORDERS_IMAGE_NAME”` and `“PRODUCTS_IMAGE_NAME”`, and
 * expose the services on port 80.
 Run the following commands to deploy the **Orders Microservice:**
 ``` bash
@@ -114,18 +114,18 @@ npm run build
 # Task 6: Create a containerized version of the Frontend microservice
 **Make sure that you:**
 
-* submit a build that is named `frontend`
+* submit a build that is named `FRONTEND_IMAGE_NAME`
 * with a version of `1.0.0`.
 ``` bash
 cd ~/monolith-to-microservices/microservices/src/frontend
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0 .
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/FRONTEND_IMAGE_NAME:1.0.0 .
 ```
 # Task 7: Deploy the Frontend microservice
 Similar to Task 4, use `kubectl` commands to deploy the Frontend microservice:
 ``` bash
-kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0
+kubectl create deployment FRONTEND_IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/FRONTEND_IMAGE_NAME:1.0.0
 
-kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
+kubectl expose deployment FRONTEND_IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8080
 ```
 
 ### Summary
