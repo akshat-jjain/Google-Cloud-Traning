@@ -10,19 +10,18 @@ In this article, we will go through the lab GSP327 Engineer Data in Google Cloud
 - Perform a batch prediction on new data
 
 ## Task 1: Clean your training data
-In this task, you need to make a copy of `historical_taxi_rides_raw` to `taxi_training_data` in the given `taxirides` dataset in BigQuery.
+In this task, you need to make a copy of `historical_taxi_rides_raw` to `TABLE_NAME` in the given `taxirides` dataset in BigQuery.
 
 > **Hints**: Refer to the lab **GSP426** Predict Taxi Fare with a BigQuery ML Forecasting Model on Qwiklabs
 
 Make sure that:
 
-- target column is called `fare_amount`
-Data Cleaning Tasks:
-
-- Keep rows for `trip_distance` > 0
-- Remove rows for `fare_amount` > 2.5
+- target column is called `FARE_AMOUNT` 
+- Keep rows for `trip_distance` > `TRIP_DISTANCE`
+- Remove rows for `fare_amount` > `FARE_AMOUNT`
 - Ensure that the latitudes and longitudes are reasonable for the use case. ??
-- Create a new column called `total_amount` from `tolls_amount` + `fare_amount`
+- Create a new column called `FARE_AMOUNT` from `tolls_amount` + `fare_amount`
+- Ensure `passenger_count` > `NUMBER`
 - Sample the dataset < 1,000,000 rows
 - Only copy fields that will be used in your model
 <br>
@@ -30,9 +29,10 @@ Procedures:
 
 1. In the Cloud Console, navigate to **Menu > BigQuery**.
 2. Click on **More > Query settings** under the Query Editor.
-3. Select **Set a destination table for query results** under Destination; Enter `taxi_training_data` as the Table name
-4. Click **Save**
-5. Run the following SQL query
+3. Select **Set a destination table for query results** under Destination; 
+4. Enter `TABLE_NAME` as the Table name
+5. Click **Save**
+6. Run the following SQL query
 ``` sql
 Select
   pickup_datetime,
@@ -41,12 +41,12 @@ Select
   dropoff_longitude AS dropofflon,
   dropoff_latitude AS dropofflat,
   passenger_count AS passengers,
-  ( tolls_amount + fare_amount ) AS fare_amount
+  ( tolls_amount + fare_amount ) AS FARE_AMOUNT
 FROM
   `taxirides.historical_taxi_rides_raw`
 WHERE
-  trip_distance > 0
-  AND fare_amount >= 2.5
+  trip_distance > TRIP_DISTANCE
+  AND fare_amount >= FARE_AMOUNT
   AND pickup_longitude > -75
   AND pickup_longitude < -73
   AND dropoff_longitude > -75
@@ -55,13 +55,13 @@ WHERE
   AND pickup_latitude < 42
   AND dropoff_latitude > 40
   AND dropoff_latitude < 42
-  AND passenger_count > 0
+  AND passenger_count > NUMBER
   AND RAND() < 999999 / 1031673361
 ```
-## Task 2: Create a BQML model called `taxirides.fare_model`
+## Task 2: Create a BQML model called `taxirides.FARE_MODEL`
 In this task, you need to:
 
-- Create a model called `taxirides.fare_model`
+- Create a model called `taxirides.FARE_MODEL`
 - Train the model with an RMSE < 10
 > **Hints**: Refer to the lab **GSP426** Predict Taxi Fare with a BigQuery ML Forecasting Model on Qwiklabs
 
@@ -70,20 +70,21 @@ Compose a new query with the given `ST_distance()` and `ST_GeogPoint()` function
 
 Make sure that:
 
-- set `fare_amount` as the label
-- train with the data in `taxirides.taxi_training_data`
+- set `FARE_AMOUNT` as the label
+- train with the data in `taxirides.TABLE_NAME`
+> GO TO QUERY SETTINGS AND REVERT THE CHANGES
 The SQL query to create the BQML model can be coded to be:
 ``` sql
 CREATE or REPLACE MODEL
-  taxirides.fare_model OPTIONS (model_type='linear_reg',
-    labels=['fare_amount']) AS
+  taxirides.FARE_MODEL OPTIONS (model_type='linear_reg',
+    labels=['FARE_AMOUNT']) AS
 WITH
   taxitrips AS (
   SELECT
     *,
     ST_Distance(ST_GeogPoint(pickuplon, pickuplat), ST_GeogPoint(dropofflon, dropofflat)) AS euclidean
   FROM
-    `taxirides.taxi_training_data` )
+    `taxirides.TABLE_NAME` )
   SELECT
     *
   FROM
@@ -92,7 +93,7 @@ WITH
 Click **Run** and the machine learning process will take about 2 minutes.
 
 Evaluate model performance
-After the training completed, you can evaluate the **Root Mean Square Error (RMSE)** of the prediction model using the following query.
+After the training completed, you can evaluate the **Root Mean Square Error (RMSE)** of the prediction model using the following query. (OPTIONAL)
 ``` sql
 #standardSQL
 SELECT
@@ -131,7 +132,7 @@ Procedures:
 SELECT
   *
 FROM
-  ML.PREDICT(MODEL `taxirides.fare_model`,
+  ML.PREDICT(MODEL `taxirides.FARE_MODEL`,
     (
     WITH
       taxitrips AS (
@@ -151,4 +152,4 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
