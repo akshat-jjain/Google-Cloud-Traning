@@ -29,10 +29,12 @@ Before building the Docker container, you can preview the monolith application o
 cd ~/monolith-to-microservices/monolith
 npm start
 ```
-Next, enable the Cloud Build API and submit a build named `fancytest` with a version of `1.0.0` using the following commands:
+> Don't forget to replace Values
+
+Next, enable the Cloud Build API and submit a build named `Use Your Image Name` with a version of `1.0.0` using the following commands:
 ```
 gcloud services enable cloudbuild.googleapis.com
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/fancytest:1.0.0 .
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/IMAGE_NAME:1.0.0 .
 ```
 In the Cloud Console, navigate to **Cloud Run** and wait for the successful build of the container.
 
@@ -42,22 +44,22 @@ In the Cloud Console, navigate to **Cloud Run** and wait for the successful buil
 **Make sure that you:**
 
 * create the resources in the `us-central1-a` zone, and
-* the cluster is named `fancy-cluster`.
+* the cluster is named `CLUSTER_NAME`.
 Use the following commands to set the default zone and create the Kubernetes cluster:
 ```
 gcloud config set compute/zone us-central1-a
 gcloud services enable container.googleapis.com
-gcloud container clusters create fancy-cluster --num-nodes 3
+gcloud container clusters create CLUSTER_NAME --num-nodes 3
 ```
 After the cluster is ready, you need to deploy the application. Make sure that you
 
-* name the deployment to be “fancytest”,
+* name the deployment to be “IMAGE_NAME”,
 * expose the service on port 80, and
 * map it to port 8080.
 Run the following commands:
 ```
-kubectl create deployment fancytest --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/fancytest:1.0.0
-kubectl expose deployment fancytest --type=LoadBalancer --port 80 --target-port 8080
+kubectl create deployment IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/IMAGE_NAME:1.0.0
+kubectl expose deployment IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8080
 ```
 # Task 3: Create a containerized version of your Microservices
 **Hint:** Refer to the lab Migrating a Monolithic Website to Microservices on Google Kubernetes Engine
