@@ -9,7 +9,19 @@ In this article, we will go through the lab **GSP322** Insights from Data with B
 3. Search `covid19_open_data` and then select **COVID-19 Open Data**
 4. Use Filter to locate the table **covid19_open_data** under the **covid19_open_data** dataset.
 
-> Replace `Your Date` with `YYYY-MM-DD`, `DEATH_COUNT` with `XXX` in entire lab
+Replace Below Parameters With Your Lab Parameters
+| KEY               	| VALUE      	|
+|-------------------	|------------	|
+| **DATE:**         	| YYYY-MM-DD 	|
+| **DEATH_COUNT:**  	| XXX        	|
+| **MONTH:**        	| MM         	|
+| **TOTAL_CASES:**  	| XXXXX      	|
+| **RANGE_DATES:**  	| YYYY-MM-DD 	|
+| **PERCENTAGE:**   	| PERCENTAGE 	|
+| **LIMIT:**        	| RESULTS    	|
+| **CDGR:**         	| YYYY-MM-DD 	|
+| **DATE_RANGE:**   	| YYYY-MM_DD 	|
+
 # Query 1: Total Confirmed Cases
 
 Copy the following code to the Query editor and then click Run.
@@ -21,7 +33,7 @@ FROM
 WHERE
   date = "YYYY-MM-DD"
  ```
-This query sums up the cumulative confirmed cases of all records on 15 April, 2020.
+This query sums up the cumulative confirmed cases of all records on Your Given Date
 
 # Query 2: Worst Affected Areas
 
@@ -62,13 +74,13 @@ GROUP BY subregion1_name ORDER BY total_confirmed_cases DESC ) WHERE total_confi
 # Query 4: Fatality Ratio
 
 Copy the following code to the Query editor and then click Run.
+> In this Date Range is based on month given to you
 
 ``` sql
 SELECT SUM(cumulative_confirmed) AS total_confirmed_cases, SUM(cumulative_deceased) AS total_deaths, (SUM(cumulative_deceased)/SUM(cumulative_confirmed))*100 AS case_fatality_ratio
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
-WHERE country_name="Italy" AND date BETWEEN "2020-04-01" AND "2020-04-30"
+WHERE country_name="Italy" AND date BETWEEN "2020-MM-01" AND "2020-MM-DD"
 ```
-Originally, it should be `date='2020-04-30'`. I don’t know why Qwiklabs replaced it with a date range.
 
 
 # Query 5: Identifying specific day
@@ -82,7 +94,7 @@ FROM
   `bigquery-public-data.covid19_open_data.covid19_open_data`
 WHERE
  country_name = 'Italy'
- AND cumulative_deceased > 10000
+ AND cumulative_deceased > XXXXX
 ORDER BY date
 LIMIT 1
 ```
@@ -101,7 +113,7 @@ WITH india_cases_by_date AS (
     `bigquery-public-data.covid19_open_data.covid19_open_data`
   WHERE
     country_name="India"
-    AND date between '2020-02-21' and '2020-03-15'
+    AND date between 'YYYY-MM-DD' and 'YYYY-MM-DD'
   GROUP BY
     date
   ORDER BY
@@ -160,7 +172,7 @@ SELECT
 FROM
   us_previous_day_comparison
 WHERE
-  percentage_increase > 10
+  percentage_increase > PERCENTAGE
 ```  
 # Query 8: Recovery rate
 
@@ -193,7 +205,7 @@ FROM
 WHERE
    cases > 50000
 ORDER BY recovery_rate DESC
-LIMIT 10
+LIMIT RESULTS
 ```
 
 # Query 9: CDGR - Cumulative Daily Growth Rate
@@ -210,7 +222,7 @@ WITH
   WHERE
     country_name="France"
     AND date IN ('2020-01-24',
-      '2020-05-10')
+      'YYYY-MM-DD')
   GROUP BY
     date
   ORDER BY
@@ -237,8 +249,8 @@ SELECT
 FROM
   `bigquery-public-data.covid19_open_data.covid19_open_data`
 WHERE
-  date BETWEEN '2020-03-15'
-  AND '2020-04-30'
+  date BETWEEN 'YYYY-MM-DD'
+  AND 'YYYY-MM-DD'
   AND country_name='United States of America'
 GROUP BY date
 ```
