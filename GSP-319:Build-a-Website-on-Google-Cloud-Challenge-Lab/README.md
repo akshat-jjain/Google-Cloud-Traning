@@ -81,17 +81,17 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.
 # Task 4: Deploy the new microservices
 **Make sure that you:**
 
-* name the deployment to be “orders” and “products”, and
+* name the deployment to be “ORDERS_IMAGE_NAME” and “PRODUCTS_IMAGE_NAME”, and
 * expose the services on port 80.
 Run the following commands to deploy the **Orders Microservice:**
 ```
-kubectl create deployment orders --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/orders:1.0.0
-kubectl expose deployment orders --type=LoadBalancer --port 80 --target-port 8081
+kubectl create deployment ORDERS_IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/ORDERS_IMAGE_NAME:1.0.0
+kubectl expose deployment ORDERS_IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8081
 ```
 Run the following commands to deploy the **Products Microservice:**
 ```
-kubectl create deployment products --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/products:1.0.0
-kubectl expose deployment products --type=LoadBalancer --port 80 --target-port 8082
+kubectl create deployment PRODUCTS_IMAGE_NAME --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/PRODUCTS_IMAGE_NAME:1.0.0
+kubectl expose deployment PRODUCTS_IMAGE_NAME --type=LoadBalancer --port 80 --target-port 8082
 ```
 # Task 5: Configure the Frontend microservice
 Use the `nano` editor to replace the local URLs with the IP addresses of the new microservices:
