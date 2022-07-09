@@ -15,11 +15,11 @@ After the VM instance is really, you have to configure it as an Apache webserver
 Keep inside the VM instances console, click **SSH** to launch a terminal, and connect to the `apache` instance. You will install the packages with the following command-lines.
 
 In the SSH terminal, update the package index:
-```
+``` bash
 sudo apt-get update
 ```
 Install the apache2 package:
-```
+``` bash
 sudo apt-get install apache2 -y
 ```
 
@@ -30,7 +30,7 @@ Apache2 Debian Default Page
 
 
 Finally, you have to overwrite the default web page to rendering with **“Hello World!”**:
-```
+``` bash
 echo '<!doctype html><html><body><h1>Hello World!</h1></body></html>' | sudo tee /var/www/html/index.html
 ```
 Refresh the web page in your browser,
@@ -42,3 +42,4 @@ Stay tuned till the next blog
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
