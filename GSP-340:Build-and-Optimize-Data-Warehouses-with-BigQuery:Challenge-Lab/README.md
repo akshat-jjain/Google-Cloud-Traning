@@ -43,3 +43,11 @@ SELECT country_name, country_area FROM `covid_165.oxford_policy_tracker_474` WHE
 
 SELECT DISTINCT country_name FROM `covid_165.oxford_policy_tracker_474` WHERE population is NULL UNION ALL SELECT DISTINCT country_name FROM `covid_165.oxford_policy_tracker_474` WHERE country_area IS NULL ORDER BY country_name
 ```
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
