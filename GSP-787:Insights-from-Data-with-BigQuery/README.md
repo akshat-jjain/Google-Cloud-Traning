@@ -263,11 +263,10 @@ GROUP BY date
 If you fail to get the score of this task, remove all data and reports from the Datastudio console before retry.
 
 
-
-
 # Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
