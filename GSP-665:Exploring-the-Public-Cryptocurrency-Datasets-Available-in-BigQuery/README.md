@@ -37,6 +37,4 @@ Stay tuned till the next blog
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
-
-
-# Demonstration Video
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
