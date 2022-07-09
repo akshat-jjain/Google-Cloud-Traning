@@ -5,12 +5,11 @@ In this article, we will go through the lab GSP323 Perform Foundational Data, ML
 
  **The challenge contains 4 required tasks:**
 
-
-# Task 1: Run a simple Dataflow job
+### Task 1: Run a simple Dataflow job
 In this task, you have to transfer the data in a CSV file to BigQuery using Dataflow via Pub/Sub. First of all, you need to create a BigQuery dataset called `lab` and a Cloud Storage bucket called with your project ID.
 
 
-## 1.1 Created a BigQuery dataset
+#### 1.1 Created a BigQuery dataset
 1. In the Cloud Console, click on **Navigation Menu > BigQuery.**
 2. Select your project in the left pane.
 3. Click **CREATE DATASET.**
@@ -24,13 +23,13 @@ In this task, you have to transfer the data in a CSV file to BigQuery using Data
 11. Enable **Edit as text** and copy the JSON data from the `lab.schema` file to the textarea in the Schema section.
 12. Click `Create table`.
 
-## 1.2 Create a Cloud Storage bucket
+#### 1.2 Create a Cloud Storage bucket
 1. In the Cloud Console, click on **Navigation Menu > Storage**.
 2. Click **CREATE BUCKET**.
 3. Copy your Bucket Name from panel.
 4. Click **CREATE**.
 
-## 1.3 Create a Dataflow job
+#### 1.3 Create a Dataflow job
 1. In the Cloud Console, click on **Navigation Menu > Dataflow**.
 2. Click **CREATE JOB FROM TEMPLATE**.
 3. In Create job from template, give an arbitrary job name.
@@ -49,8 +48,8 @@ Temporary location |	`Use As per your lab`
 
 6. Click RUN JOB.
 
-# Task 2: Run a simple Dataproc job
-### Create a Dataproc cluster
+### Task 2: Run a simple Dataproc job
+#### Create a Dataproc cluster
 1. In the Cloud Console, click on **Navigation Menu > Dataproc > Clusters**.
 2. Click **CREATE CLUSTER**.
 3. Make sure the cluster is going to create in the region `Use As per your lab`.
@@ -67,8 +66,8 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 11. Copy `file:///usr/lib/spark/examples/jars/spark-examples.jar` to “Jar files”.
 12. Enter `/data.txt` to “Arguments”.
 13. Click **CREATE**.
-# Task 3: Run a simple Dataprep job
-### Import runs.csv to Dataprep
+### Task 3: Run a simple Dataprep job
+#### Import runs.csv to Dataprep
 1. In the Cloud Console, click on **Navigation menu > Dataprep**.
 2. After entering the home page of Cloud Dataprep, click the **Import Data** button.
 3. In the Import Data page, select **GCS** in the left pane.
@@ -78,7 +77,7 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 gs://cloud-training/gsp323/runs.csv 
 ```
 6. After showing the preview of runs.csv in the right pane, click on the **Import & Wrangle button**.
-### Transform data in Dataprep
+#### Transform data in Dataprep
 1. After launching the Dataperop Transformer, scroll right to the end and select **column10**.
 2. In the Details pane, click **FAILURE** under Unique Values to show the context menu.
 3. Select **Delete rows with selected values** to Remove all rows with the state of “FAILURE”.
@@ -96,74 +95,53 @@ gs://cloud-training/gsp323/runs.csv
 - time
 - score
 - state
+
 8. Confirm the recipe.And Add it
 9. Click Run Job.
 
 
-# Task 4: AI
+### Task 4: AI
 
 ``` bash
 gcloud iam service-accounts create my-natlang-sa \
   --display-name "my natural language service account"
 gcloud iam service-accounts keys create ~/key.json \
-  --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
-export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
-gcloud auth activate-service-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
-gcloud auth login 
+  --iam-account my-natlang-sa@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
-
-Copy the token from the link provided  
-
-```
-gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
-nano request.json
-```
-
-```
-{
-  "config": {
-      "encoding":"FLAC",
-      "languageCode": "en-US"
-  },
-  "audio": {
-      "uri":"gs://cloud-training/gsp323/task4.flac"
-  }
-}
-```
-
-```
+#### Task:4.1 Google Cloud Speech API
+``` bash
+wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud%3A%20Challenge%20Lab/speech-request.json
 curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
-gsutil cp result.json gs://YOUR_PROJECT-marking/task4-gcs.result
+```
+- Replace with your first bucket url
+``` bash
+gsutil cp speech.json <enter first bucket url>
 ```
 
+#### Task:4.2 Cloud Natural Language API
+
+``` bash
+gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > language.json
 ```
-gcloud iam service-accounts create quickstart
-gcloud iam service-accounts keys create key.json --iam-account quickstart@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
-gcloud auth activate-service-account --key-file key.json
-export ACCESS_TOKEN=$(gcloud auth print-access-token)
-nano request.json
+- Replace with your second bucket url
+``` bash
+gsutil cp language.json <enter second bucket url>
 ```
 
-```
-{
-   "inputUri":"gs://spls/gsp154/video/chicago.mp4",
-   "features": [
-       "TEXT_DETECTION"
-   ]
-}
-```
+#### Task:4.3 Google Video Intelligence
 
-```
+``` bash 
+wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab/video-intelligence-request.json
 curl -s -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    -H 'Authorization: Bearer '$(gcloud auth print-access-token)'' \
     'https://videointelligence.googleapis.com/v1/videos:annotate' \
-    -d @request.json
-curl -s -H 'Content-Type: application/json' -H "Authorization: Bearer $ACCESS_TOKEN" 'https://videointelligence.googleapis.com/v1/operations/OPERATION_FROM_PREVIOUS_REQUEST' > result1.json
-gsutil cp result1.json gs://YOUR_PROJECT-marking/task4-gvi.result
+    -d @video-intelligence-request.json  > video.json
 ```
-
+- Replace with your third bucket url
+``` bash
+ gsutil cp video.json <enter third bucket url>
+```
 # Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
