@@ -1,6 +1,6 @@
 # Create ML Models with BigQuery ML: Challenge Lab
 
-This article will go through the lab to Create ML Models with BigQuery ML: Challenge Lab. In the previous, lab you will get familiar with Getting Started with BQML, Predict Visitor Purchases with a Classification Model in BQML, Predict Taxi Fare with a BigQuery ML Forecasting Model, Bracketology with Google Machine Learning, and Implement a Helpdesk Chatbot with Dialogflow & BigQuery ML.
+This article will go through the lab to Create ML Models with BigQuery ML: Challenge Lab. In the previous, lab you will get familiar with Getting Started with BQML, Predict Visitor Purchases with a Classification Model in BQML, Predict Taxi Fare with a BigQuery ML Forecasting Model, Bracketology with Google Machine Learning, and Implement a Helpdesk Chatbot with Dialogflow & BigQuery ML.<br>
 ### The challenge contains 5 required tasks.
 1. Create a dataset to store your machine learning models.
 2. Create a forecasting BigQuery machine learning model.
@@ -9,7 +9,7 @@ This article will go through the lab to Create ML Models with BigQuery ML: Chall
 5. Use the subscriber type machine learning model to predict average trip durations.
 # Challenge Scenario
 
-One of the projects you are working on needs to provide analysis based on real-world data that will help in the selection of new bicycle models for public bike share systems. Your role in this project is to develop and evaluate machine learning models that can predict average trip durations for bike schemes using the public data from Austin’s public bike share scheme to train and evaluate your models.
+One of the projects you are working on needs to provide analysis based on real-world data that will help in the selection of new bicycle models for public bike share systems. Your role in this project is to develop and evaluate machine learning models that can predict average trip durations for bike schemes using the public data from Austin’s public bike share scheme to train and evaluate your models.<br>
 Two of the senior data scientists in your team have different theories on what factors are important in determining the duration of a bike-share trip and you have been asked to prioritize these to start. The first data scientist maintains that the key factors are the start station, the location of the start station, the day of the week, and the hour the trip started. While the second data scientist argues that this is an over-complication and the key factors are simply start station, subscriber type, and the hour the trip started.<br>
 You have been asked to develop a machine learning model based on each of these input features. Given the fact that stay-at-home orders were in place for Austin during parts of 2020 as a result of COVID-19, you will be working on data from previous years. You have been instructed to train your models on data from 2018 and then evaluate them against data from 2019 based on Mean Absolute Error and the square root of Mean Squared Error.
 You can access the public data for the Austin bike share scheme in your project by opening this link to the Austin bike share dataset in the browser tab for your lab.
@@ -183,3 +183,5 @@ Stay tuned till the next blog
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
+
