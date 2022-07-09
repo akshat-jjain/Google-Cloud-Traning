@@ -62,3 +62,11 @@ Some Jooli Inc. standards you should follow:
 
 1. Navigation menu > IAM & Admin
 2. Search for the "**Username 2**" > Edit > Delete Role
+
+# Congratulations! You completed this challenge lab.
+Stay tuned till the next blog
+##### If you Want to Connect with Me:
+
+- Linkedin: https://www.linkedin.com/in/akshat-jjain
+- Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
