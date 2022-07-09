@@ -19,11 +19,11 @@ In this step you have to Clone the repository, Checking a Kubernetes cluster, In
 
 #### Clone the repository
 - To get set up, open a new session in Cloud Shell and run the following command to set your zone `us-east1-d`.
-```
+``` ssh
 gcloud config set compute/zone us-east1-d
 ```
 - Then clone the lab’s sample code.
-```
+``` ssh
 git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
 ```
 #### Checking a Kubernetes cluster.
@@ -31,54 +31,54 @@ git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-a
 - Then Check cluster named `jenkins-cd`.
 
 Now, get the credentials for your cluster.
-```
+``` ssh
 gcloud container clusters get-credentials jenkins-cd --zone us-east1-b --project $DEVSHELL_PROJECT_ID
 ```
 Kubernetes Engine uses these credentials to access your newly provisioned cluster confirm that you can connect to it by running the following command.
-```
+``` ssh
 kubectl cluster-info
 ```
 - Navigate to Source Repositories, click on `sample-app` and review the Jenkins file in the root of that repository.
 #### Install and Setup Helm.
 You will use Helm to install Jenkins from the Charts repository. Helm is a package manager that makes it easy to configure and deploy Kubernetes applications. Once you have Jenkins installed, you’ll be able to set up your CI/CD pipeline.
-```
+``` ssh
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo add stable https://charts.helm.sh/stable
 ```
 - Ensure the repo is up to date.
-```
+``` ssh
 helm repo update
 ```
 #### Configure and Install Jenkins.
 - Use git to clone the lab’s sample code.
-```
+``` ssh
 git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
 ```
 - Change to the following directory.
-```
+``` ssh
 cd continuous-deployment-on-kubernetes
 ```
 -  To configure and install Jenkins, run the following command to deploy with the Helm CLI.
-```
+``` ssh
 helm install cd stable/jenkins -f jenkins/values.yaml --version 1.2.2 --wait
 ```
 - Once that command completes ensure the Jenkins pod goes to the Running state and the container is in the READY state.
-```
+``` ssh
 kubectl get pods
 ```
 
 - Run the following command to setup port forwarding to the Jenkins UI from the Cloud Shell.
-```
+``` ssh
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 ```
 - Now, check that the Jenkins Service was created properly.
-```
+``` ssh
 kubectl get svc
 ```
 #### Connect to Jenkins
 - The Jenkins chart will automatically create an `admin password` for you. To retrieve it, run.
-```
+``` ssh
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
 - To get to the Jenkins user interface, click on the `Web Preview` button in cloud shell, then click `Preview on port 8080`
@@ -87,40 +87,40 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
 #### Deploying the Application.
 - In Google Cloud Shell, navigate to the sample application directory.
 
-```
+``` ssh
 cd ~/sample-app
 ```
 - Create the Kubernetes namespace to logically isolate the deployment.
-```
+``` ssh
 kubectl create ns production 
 ```
 Create the production and canary deployments, and the services using the kubectl apply commands.
-```
+``` ssh
 kubectl apply -f k8s/production -n production
 kubectl apply -f k8s/canary -n production
 kubectl apply -f k8s/services -n production
 ```
 - Retrieve the external IP for the production services.
-```
+``` ssh
 kubectl get service gceme-frontend -n production
 ```
 #### Creating the Jenkins Pipeline
 Initialize the sample-app directory as its own Git repository.
-```
+``` ssh
 git init
 git config credential.helper gcloud.sh
 ```
 - Run the following command.
-```
+``` ssh
 git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/default
 ```
 Set the username and email address for your Git commits. Replace `[EMAIL_ADDRESS]` with your Git email address and `[USERNAME]` with your Git username.
-```
-git config --global user.email "student-03-932c4d0605b8@qwiklabs.net"
+``` ssh
+git config --global user.email "[EMAIL_ADDRESS]"
 git config --global user.name "[YOUR_USERNAME]"
 ```
 -  Add, commit, and push the files.
-```
+``` ssh
 git add .
 git commit -m "Initial commit"
 git push origin master
@@ -146,7 +146,7 @@ Navigate to your Jenkins user interface and follow these steps to configure a Pi
 - On the next page, in the Branch Sources section, click `Add Source` and select `git`.
 - Paste the HTTPS clone URL of your `sample-app` repo in Cloud Source Repositories into the Project Repository field. 
 > Replace `[PROJECT_ID]` with your Project ID.
-```
+``` ssh
 https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
 ```
 
@@ -158,35 +158,35 @@ https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
 In this task, you need to Modify the site.
 
 - Create a development branch and push it to the Git server.
-```
+``` ssh
 git checkout -b new-feature
 ```
 - Now Open `html.go`
-```
+``` ssh
 vi html.go
 ```
 - Then Start the editor. `i`
 - Change the two instances of `<div class="card blue">` with `Your Colour`
-```
+``` bash
 <div class="card Colour">
 ```
 - Save the `html.go` file: press `Esc` then. `:wq`
 - Now Open `main.go`
-```
+``` bash
 vi main.go
 ```
 - Then Start the editor. `i`
 - The version is defined in this line.
-```
+``` bash
 const version string = "1.0.0"
 ```
 - Update it to the `Your Version`
-```
+``` bash
 const version string = "Version"
 ```
 - Save the main.go file one more time: Esc then. `:wq`
 - Commit and push your changes.
-```
+``` bash
 git config --global user.email "[EMAIL_ADDRESS]"
 git config --global user.name "[USERNAME]"
 git add Jenkinsfile html.go main.go
@@ -197,29 +197,29 @@ git push origin new-feature
 In this task, you need to create a new branch called canary, merge the development branch with it, and push that to the repository.
 
 - Now Go to the SSH window, run the following command to create a canary branch in the sample-app directory.
-```
+``` bash
 git checkout -b canary
 ```
 - Merge the change from the development branch.
-```
+``` bash
 git merge new-feature
 ```
 - Now Push the canary to the Git server.
-```
+``` bash
 git push origin canary
 ```
 ### 4.Promote the Canary Deployment to production.
 In this task, you need to MERGE and PUSH it to the Git Server.
 
 - Now Go to the SSH window, run the following commands to merge the canary branch and push it to the Git server.
-```
+``` bash
 git checkout master
 git merge canary
 git push origin master
 ```
 - In Jenkins, you should see the master pipeline has kicked off.
 -  You can check the service URL to ensure that all of the traffic is being served by your new version, 2.0.0.
-```
+``` ssh
 export FRONTEND_SERVICE_IP=$(kubectl get -o \ jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
 ```
 
