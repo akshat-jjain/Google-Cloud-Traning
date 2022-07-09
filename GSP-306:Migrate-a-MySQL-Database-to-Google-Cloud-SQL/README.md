@@ -39,20 +39,20 @@ Both WordPress and its MySQL database are running in this VM instance. The exist
 
 In the SSH session, use mysqldump to export the MySQL database to a dump file with the following flags:
 
-``` sql
+``` bash
 mysqldump \
 --databases [DATABASE_NAME1, DATABASE_NAME2, ...] -h [INSTANCE_IP] -u [USERNAME] -p \
 --hex-blob --skip-triggers --single-transaction --ignore-table [VIEW_NAME1] [...] \
 --default-character-set=utf8mb4 > [SQL_FILE].sql
 ```
 In this lab, you can remove the --ignore-table [VIEW_NAME1] flag because the database does not include any views. Replace the argument values, the command line should look like:
-``` sql
+``` bash
 mysqldump --databases wordpress -h localhost -u blogadmin -p \
 --hex-blob --skip-triggers --single-transaction \
 --default-character-set=utf8mb4 > wordpress.sql
 ```
 Now you need to copy the dump file to Cloud Storage. Use the following commands to create a bucket and upload the file to it.
-```
+``` bash
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
 gsutil mb gs://${PROJECT_ID}
 gsutil cp ~/wordpress.sql gs://${PROJECT_ID}
@@ -82,13 +82,13 @@ Click Done and Save to authorize the VM instance blog to access the Cloud SQL.
 # Reconfigure WordPress to connect the Cloud SQL instance
 For this lab, the WordPress site configuration file is located in the /var/www/html/wordpress/ directory. Use the following commands to change the current directory and list the files,
 
-```
+``` bash
 cd /var/www/html/wordpress/
 ls
 ```
 You should find a file called wp-config.php.
 (Optional) Before changing the WordPress configuration, I recommend you stop the local MySQL server using the following commands in the SSH session:
-```
+``` bash
 sudo service mysql stop
 sudo service mysql status
 ```
@@ -96,29 +96,28 @@ Refresh the Demo Blog Site, the website becomes fail to render.
 Now you edit the WordPress configuration, such that it points to the Cloud SQL instance.
 
 Open the wp-config.php, such as using nano editor”
-```
+``` bash
 sudo nano wp-config.php
 ```
 The file looks like below,
 Find the following lines in the file,
-``` sql
+``` php
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 ```
 Replace localhost with the Public IP of the Cloud SQL instance, e.g,
-``` sql
+``` php
 /** MySQL hostname */
 define('DB_HOST', '35.226.248.101');
 ```
 Press Ctrl + x and type Y to save and exit the file.
 
 If you refresh the website in your web browser, it should be restored. That means the WordPress site is connected to the Cloud SQL. Otherwise, use the following command to restart the webserver,
-```
+``` bash
 sudo service apache2 restart
 sudo service apache2 status
 ```
 (Optional) Test the website to check if any issues after migration.
-
 
 
 # Congratulations! You completed this challenge lab.
@@ -127,3 +126,4 @@ Stay tuned till the next blog
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
