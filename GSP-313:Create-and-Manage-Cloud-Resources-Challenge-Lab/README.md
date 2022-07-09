@@ -155,4 +155,4 @@ Stay tuned till the next blog
 
 
 # Demonstration Video
-[![Watch the video](https://img.youtube.com/vi/CjVlbv5GmKU/maxresdefault.jpg)](https://youtu.be/CjVlbv5GmKU)
+[![Demo video](https://img.youtube.com/vi/CjVlbv5GmKU/maxresdefault.jpg)](https://youtu.be/CjVlbv5GmKU)
