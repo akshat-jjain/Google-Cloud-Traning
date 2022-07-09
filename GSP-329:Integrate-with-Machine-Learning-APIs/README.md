@@ -13,7 +13,8 @@
 
 ## TASK 1 : 
 
-``` 
+
+``` bash
 export SANAME=challenge
 gcloud iam service-accounts create $SANAME
 
@@ -25,9 +26,9 @@ gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSH
 <br>
 
 ## TASK 2:
-```
+``` bash
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
-gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
+gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images-v2.py .
 
 ```
 <br>
@@ -45,7 +46,7 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
   * Remove whole code and paste below code
 
 <br>
-
+> Replace Locale as per your lab instructions at 2 places
 ``` python
 # Dataset: image_classification_dataset
 # Table name: image_text_detail
@@ -140,7 +141,7 @@ for file in files:
 
         # if the locale is English (en) save the description as the translated_txt
 
-        if locale == 'en':
+        if locale == 'LOCALE': // REPLACE LOCALE HERE
             translated_text = desc
         else:
             # TBD: For non EN locales pass the description data to the translation API
@@ -149,7 +150,7 @@ for file in files:
 
             from google.cloud import translate_v2 as translate
             client = translate.Client()
-            translation = translate_client.translate(text_data, target_language='en')
+            translation = translate_client.translate(text_data, target_language='LOCALE') // REPLACE LOCALE HERE
             translated_text = translation['translatedText']
         print(translated_text)
         
@@ -184,8 +185,8 @@ assert errors == []
 
 <br>
 
-```
-python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
+``` bash
+python3 analyze-images-v2.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
 
 <br>
@@ -222,6 +223,6 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
 - YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
 
