@@ -23,7 +23,7 @@ The What-If Tool is a visual interface designed to help you understand your data
 
 - In your notebook, click the terminal.
 - Clone the repository.
-```
+``` bash
 git clone https://github.com/GoogleCloudPlatform/training-data-analyst
 ```
 
@@ -35,7 +35,7 @@ git clone https://github.com/GoogleCloudPlatform/training-data-analyst
 ## 3.Build and train your models
 
 - In the second cell of the Train your 1st model on the whole dataset section, add the following lines to create the model.
-```
+``` IPython Notebook
 model = Sequential()
 model.add(layers.Dense(8, input_dim=input_size))
 model.add(layers.Dense(1, activation='sigmoid'))
@@ -46,7 +46,7 @@ model.fit(train_data, train_labels, batch_size=32, epochs=10)
 - Copy the code for training the second model.
 - Modify model to `limited_model` as well as `train_data`, `train_labels` to `limited_train_data`, `limited_train_labels`
 
-``` 
+``` IPython Notebook
 limited_model = Sequential()
 limited_model.add(layers.Dense(8, input_dim=input_size))
 limited_model.add(layers.Dense(1, activation='sigmoid'))
@@ -63,7 +63,7 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 - Change the Model Name and replace it with `complete_model` and `limited_model`.
 - Run all three cells.
 - Confirm the created Bucket and the Upload model files in the Cloud Storage.
-```
+``` bash
 # 1. Create an AI Platform model resource for your COMPLETE model.
 
 !gcloud ai-platform models create $MODEL_NAME --regions $REGION
@@ -104,4 +104,5 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
