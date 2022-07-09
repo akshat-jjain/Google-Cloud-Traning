@@ -35,7 +35,7 @@ In this step, you have to create a Kubernetes Service Cluster
 - Activate Cloud Shell and write the following commands
 
 > Note: Replace Port Number with your Port Number
-```
+``` bash
 gcloud config set compute/zone us-east1-b
 gcloud container clusters create nucleus-webserver1
 gcloud container clusters get-credentials nucleus-webserver1
@@ -50,7 +50,7 @@ It will create a Kubernetes cluster
 In this step, you have to create a serve the site via Nginx web servers
 - Activate the cloud shell and Copy and Paste the following commands
 
-```
+``` bash
 cat << EOF > startup.sh
 #! /bin/bash
 apt-get update
@@ -64,20 +64,20 @@ Now you have to perform the steps to HTTP(s) Load Balancer in front of two web s
 
 1. Creating an instance template:
 
-```
+``` bash
 gcloud compute instance-templates create nginx-template \
 --metadata-from-file startup-script=startup.sh
 ```
 
 2. Creating a target pool:
 
-```
+``` bash
 gcloud compute target-pools create nginx-pool
 ```
 
 3. Creating a managed instance group:
 
-```
+``` bash
 gcloud compute instance-groups managed create nginx-group \
 --base-instance-name nginx \
 --size 2 \
@@ -91,7 +91,7 @@ gcloud compute instances list
 
 > Note: Replace FirewallName with Your Firewall Name
 
-```
+``` bash
 gcloud compute firewall-rules create FirewallName --allow tcp:80
 
 gcloud compute forwarding-rules create nginx-lb \
@@ -104,7 +104,7 @@ gcloud compute forwarding-rules list
 
 5. Creating a health check:
 
-```
+``` bash
 gcloud compute http-health-checks create http-basic-check
 
 gcloud compute instance-groups managed \
@@ -114,7 +114,7 @@ set-named-ports nginx-group \
 
 6. Creating a backend service and attach the managed instance group:
 
-```
+``` bash
 gcloud compute backend-services create nginx-backend \
 --protocol HTTP --http-health-checks http-basic-check --global
 
@@ -126,7 +126,7 @@ gcloud compute backend-services add-backend nginx-backend \
 
 7. Creating a URL map and target HTTP proxy to route requests to your URL map:
 
-```
+``` bash
 gcloud compute url-maps create web-map \
 --default-service nginx-backend
 
@@ -136,7 +136,7 @@ gcloud compute target-http-proxies create http-lb-proxy \
 
 8. Creating a forwarding rule:
 
-```
+``` bash
 gcloud compute forwarding-rules create http-content-rule \
 --global \
 --target-http-proxy http-lb-proxy \
@@ -151,6 +151,8 @@ Stay tuned till the next blog
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
+
 
 # Demonstration Video
 [![Watch the video](https://img.youtube.com/vi/CjVlbv5GmKU/maxresdefault.jpg)](https://youtu.be/CjVlbv5GmKU)
