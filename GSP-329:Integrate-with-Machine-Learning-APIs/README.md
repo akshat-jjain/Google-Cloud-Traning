@@ -13,14 +13,22 @@
 
 ## TASK 1 : 
 
+> REPLACE BIGQUERY ROLE IN BELOW COMMAND
+``` bash
+export BIGQUERY_ROLE=BIGQUERY_ROLE
+```
+> REPLACE STORAGE ROLE IN BELOW COMMAND
+``` bash
+export STORAGE_ROLE=STORAGE_ROLE
+```
 
 ``` bash
 export SANAME=challenge
 gcloud iam service-accounts create $SANAME
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/bigquery.admin
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=$BIGQUERY_ROLE
 
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=$STORAGE_ROLE
 gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
 <br>
