@@ -2,7 +2,7 @@
 
 # Task 0: Download the necessary files
 Run the following to download all the files for this lab:
-```
+``` bash
 gsutil -m cp gs://cloud-training/gsp335/* .
 ```
 
@@ -17,7 +17,7 @@ You need to create a Kubernetes cluster with the following values:
 - enable network policy
 
 Run the following gcloud command will create a cluster called kraken-cluster with the required specifications:
-```
+``` bash
 gcloud container clusters create [Cluster Name] \
    --zone us-central1-c \
    --machine-type n1-standard-4 \
@@ -36,12 +36,12 @@ You can perform the first two subtasks simultaneously, while you are creating th
 ### Setup the Cloud SQL database and database username and password
 #### Create a Cloud SQL instance
 You can create the Cloud SQL instance using either Cloud Console or Cloud Shell. In production, I will suggest you go for the Cloud Console because you can better look at all the configurations. But in this lab, you can simply run the following command to create a default MySQL instance in the region **us-central1**:
-```
+``` bash
 gcloud sql instances create [Cloud SQL Instance] --region us-central1
 ```
 It usually requires 5 - 10 minutes to process.
 > Run below command or Do it Manually
-```
+``` bash
 gcloud sql databases create wordpress --instance [Cloud SQL Instance] --charset utf8 --collation utf8_general_ci
 
 gcloud sql users create wordpress --host % --instance [Cloud SQL Instance] --password [Password]
@@ -64,7 +64,7 @@ gcloud sql users create wordpress --host % --instance [Cloud SQL Instance] --pas
 
 ### Create a service account for access to your WordPress database from your WordPress instances
 Now you need a service account with binding the role `roles/cloudsql.client` and save its credentials as a JSON file. In the Cloud Shell, run the following commands:
-```
+``` bash
 gcloud iam service-accounts create [Service Account]
 
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
@@ -74,11 +74,11 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
 gcloud iam service-accounts keys create key.json --iam-account=[Service Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
 After that, save the service account file as a secret in your Kubernetes cluster using the command provided in the official lab instruction.
-```
+``` bash
 kubectl create secret generic cloudsql-instance-credentials --from-file key.json
 ```
 Also, the WordPress database username and password as well.
-```
+``` bash
 kubectl create secret generic cloudsql-db-credentials \
    --from-literal username=wordpress \
    --from-literal password='[Password]'
@@ -86,13 +86,13 @@ kubectl create secret generic cloudsql-db-credentials \
 
 ### Create the WordPress deployment and service
 Run the following to create a persistent volume for your WordPress application:
-```
+``` bash
 kubectl create -f volume.yaml
 ```
 Go to the overview page of your Cloud SQL instance, and copy the `Connection name`.
 Open `wordpress.yaml` with your favorite editor, and replace **INSTANCE_CONNECTION_NAME** (in line 61) with the Connection name of your Cloud SQL instance.
 Save the file changes, and run the following to apply the file to create the WordPress environment in the cluster.
-```
+``` bash
 kubectl apply -f wordpress.yaml
 ```
 To verify the deployment, navigate to the Kubernetes Engine page in the Cloud Console. Now you should see `wordpress` in the Workloads tab as well as the Services tab.
@@ -102,11 +102,11 @@ In this challenge lab, please note that you have to install the same nginx-ingre
 
 ### Set up nginx-ingress environment
 The nginx-ingress will be installed using Helm. A recent, stable version of Helm should be pre-installed on your Cloud Shell. Run `helm version` to check which version you are using and also ensure that Helm is installed:
-```
+``` bash
 helm version
 ```
 Run the following to add the chart repository and ensure the chart list is up to date:
-```
+``` bash
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
@@ -114,24 +114,24 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 Go ahead and use the following helm command to install stable nginx-ingress:
-```
+``` bash
 helm install nginx-ingress stable/nginx-ingress --set rbac.create=true
 ```
 Wait until the load balancer gets deployed and exposes an external IP. You get to monitor the nginx-ingress-controller service by running the following command:
-```
+``` bash
 kubectl get service nginx-ingress-controller -w
 ```
 ### Set up your DNS record
 Once the service obtained an external IP address, press **Ctrl + C** to stop the previous command. You can now continue to set up your DNS record.
 
 A shell script called add_ip.sh is provided, and you have downloaded it to the Cloud Shell at the beginning of the lab. Execute it by running this command:
-```
+``` bash
 . add_ip.sh
 ```
 ### Set up cert-manager.io
 
 Run the following commands to deploy the `cert-manager`:
-```
+``` bash
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.16.0/cert-manager.yaml
 
 kubectl create clusterrolebinding cluster-admin-binding \
@@ -141,13 +141,13 @@ kubectl create clusterrolebinding cluster-admin-binding \
 Navigate to the Kubernetes Engine page in the Cloud Console
 Edit `issuer.yaml` and set the email address(line no 10).
 Save the file changes and run the following to apply them to setup the letsencrypt prod issuer:
-```
+``` bash
 kubectl apply -f issuer.yaml
 ```
 Configure `nginx-ingress` to use an encrypted certificate for your site
 Edit `ingress.yaml` and set your **YOUR_LAB_USERNAME.labdns.xyz** DNS record to lines 11 and 14 like this:
 Save the file changes and run the following:
-```
+``` bash
 kubectl apply -f ingress.yaml
 ```
 Open your domain name `https://YOUR_LAB_USERNAME.labdns.xyz` with HTTPS in a new tab.
@@ -157,7 +157,7 @@ Open your domain name `https://YOUR_LAB_USERNAME.labdns.xyz` with HTTPS in a new
 Open the `network-policy.yaml` in an editor. You should see there are already two network policies. The first one is to deny all ingress from the internet and the second one is to allow the traffic from `ngnix-ingress` to `wordpress`.
 
 You need to add one more network policy to allow ingress traffic from the internet into `nginx-ingress`. Use the second network policy as a template to compose a new policy. Change values of `name` and `spec` to the configuration like this:
-```
+``` bash
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -175,7 +175,7 @@ spec:
 ```
 Append the new policy to the `network-policy.yaml`, and save the file.
 Run the following to apply the configuration file:
-```
+``` bash
 kubectl apply -f network-policy.yaml
 ```
 
@@ -209,7 +209,7 @@ The challenge lab provides the following Pod Security Policy demo files for you 
 - psp-use.yaml
 
 Running the following command to deploy each file:
-```
+``` bash
 kubectl apply -f <filename.yaml>
 ```
 
