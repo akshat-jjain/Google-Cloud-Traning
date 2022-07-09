@@ -53,7 +53,7 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images-v2.py .
   * Open `analyze-image.py` file in Editor
   * Remove whole code and paste below code
 
-> Replace Locale as per your lab instructions at 2 places
+> Replace Locale as per your lab instructions at 2 places (line no 94 and 103)
 
 ``` python
 # Dataset: image_classification_dataset
