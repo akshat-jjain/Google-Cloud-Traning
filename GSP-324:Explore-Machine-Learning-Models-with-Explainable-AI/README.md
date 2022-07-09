@@ -92,7 +92,7 @@ limited_model.fit(limited_train_data, limited_train_labels, batch_size=32, epoch
 ## (OPTIONAL) 5.Use the What-If Tool to explore biases
 
 - After your models are deployed to the AI Platform, you can use the following code to explore them in the What-If Tool in the notebook. We’ve created custom prediction functions `custom_predict` and `bad_custom_predict` that get the class predictions from the models.
-```
+``` bash
 config_builder = (WitConfigBuilder(     examples_for_wit[:num_datapoints],feature_names=column_names)     .set_custom_predict_fn(bad_custom_predict)     .set_target_feature('loan_granted')     
 .set_label_vocab(['denied', 'accepted'])     
 .set_compare_custom_predict_fn(custom_predict)     .set_model_name('limited')   
