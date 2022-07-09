@@ -86,15 +86,15 @@ gs://cloud-training/gsp323/runs.csv
 6. Select **Delete matching rows** under the Action section, then click the **Add** button.
 7. Rename the columns to be:
 
-- runid
-- userid
-- labid
-- lab_title
-- start
-- end
-- time
-- score
-- state
+   - runid
+   - userid
+   - labid
+   - lab_title
+   - start
+   - end
+   - time
+   - score
+   - state
 
 8. Confirm the recipe.And Add it
 9. Click Run Job.
@@ -147,4 +147,4 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
