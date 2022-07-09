@@ -149,7 +149,7 @@ for file in files:
 
         # if the locale is English (en) save the description as the translated_txt
 
-        if locale == 'LOCALE': // REPLACE LOCALE HERE
+        if locale == 'LOCALE': # REPLACE LOCALE HERE
             translated_text = desc
         else:
             # TBD: For non EN locales pass the description data to the translation API
@@ -158,7 +158,7 @@ for file in files:
 
             from google.cloud import translate_v2 as translate
             client = translate.Client()
-            translation = translate_client.translate(text_data, target_language='LOCALE') // REPLACE LOCALE HERE
+            translation = translate_client.translate(text_data, target_language='LOCALE') # REPLACE LOCALE HERE
             translated_text = translation['translatedText']
         print(translated_text)
         
