@@ -61,11 +61,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 <details>
 <summary>What's the difference between Quests and Skill Badges?</summary>
-
-- `Quests = Group of Training Labs`  
-  A self paced learning path which contains a collection of labs organized by technologies or specific cloud services
-- `Skill Badges = Group of Training Labs + A Challenge Lab`  
-  A self paced learning path which contains a collection of labs, however it capstones with a challenge lab.
+   
+| **Quests** | **Skill Badges** |
+|---|---|
+| Group of Training Labs | Group of Training Labs + A Challenge Lab |
+| A self paced learning path which contains a collection of labs organized by technologies or specific cloud services  | A self paced learning path which contains a collection of labs, however it capstones with a challenge lab.  |
 
 </details>
 
