@@ -3,12 +3,12 @@
 # Prerequisite
 
 - Create file `role-definition.yaml`
-```
+``` bash
 nano role-definition.yaml
 ```
 - Replace `[Custom Security Role]` with your `Role`
 - Paste below code in the editor
-```
+``` bash
 title: "[Custom Security Role]"
 description: "Add and update objects in Google Cloud Storage buckets"
 includedPermissions:
@@ -22,7 +22,7 @@ includedPermissions:
 # Task 1: Create a custom security role
 
 > Note: Replace `[Custom Security Role]` with your `Role`
-```
+``` bash
 gcloud iam roles create [Custom Security Role] \
    --project $DEVSHELL_PROJECT_ID \
    --file role-definition.yaml
@@ -30,14 +30,14 @@ gcloud iam roles create [Custom Security Role] \
 # Task 2: Create a service account
 
 > Note: Replace `[Service Account]` with your `Service Account`
-```
+``` bash
 gcloud iam service-accounts create [Security Account] \
    --display-name "Orca Private Cluster Service Account"
 ```
 # Task 3: Bind a custom security role to a service account
 
 > Note: Replace `[Service Account]` with your `Service Account` And Replace `[Custom Security Role]` with your `Role`
-```
+``` bash
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
    --member serviceAccount:[Service Account]@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
    --role roles/monitoring.viewer
@@ -57,16 +57,16 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID \
 
 # Task 4: Create and configure a new Kubernetes Engine private cluster
 
-```
+``` bash
 JUMPHOST_IP=$(gcloud compute instances describe orca-jumphost \
   --format='get(networkInterfaces[0].networkIP)')
 ```
-```
+``` bash
 SUBNET_IP_RANGE="10.142.0.0/28"
 ```
 > Note: Replace `[Cluster Name]` with your `Cluster Name` and `[Service Account]` with your `Service Account`
 
-```
+``` bash
 gcloud beta container clusters create [Cluster Name] \
    --network orca-build-vpc \
    --subnetwork orca-build-subnet \
@@ -82,14 +82,14 @@ gcloud beta container clusters create [Cluster Name] \
 
 > Note: Run Commands in SSH window of `orca-jumphost`
 > And Replace `[Cluster Name]` with your `Cluster Name`
-```
+``` bash
 gcloud container clusters get-credentials [Cluster Name] --internal-ip --zone=us-east1-b
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 ```
-
 # Congratulations! You completed this challenge lab.
 Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
 - Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
