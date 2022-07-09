@@ -18,12 +18,12 @@ The first step is to create a production environment.
    - In the SSH window, go to the cd /work/dm directory.
    - Use an editor to open the configuration file prod-network.yaml, and replace `SET_REGION` to `us-east1`
    - Copy and Paste the following command.  
-   ```
+   ``` bash
    sed -i s/SET_REGION/us-east1/g prod-network.yaml
    gcloud deployment-manager deployments create prod-network --config=prod-network.yaml
    ```
    - Now create a Kubernetes cluster in the new network
-   ```
+   ``` bash
    gcloud config set compute/zone us-east1-b
    gcloud container clusters create kraken-prod \
    --num-nodes 2 \
@@ -31,12 +31,12 @@ The first step is to create a production environment.
    --subnetwork kraken-prod-subnet
    ```
    - Checking Credentials of kraken-pod
-   ```
+   ``` bash
    gcloud container clusters get-credentials kraken-prod
    ```
    
    - Go to Directory
-   ```
+   ``` bash
    cd /work/k8s
    for F in $(ls *.yaml); do kubectl create -f $F; done
    ```
@@ -45,7 +45,7 @@ The first step is to create a production environment.
 ## 2.Setup the Admin instance
 In this step Create kraken-admin and Monitoring workspace.
 Create kraken-admin through this command :
-```
+``` bash
 gcloud config set compute/zone us-east1-b
 gcloud compute instances create kraken-admin --network-interface="subnet=kraken-mgmt-subnet" --network-interface="subnet=kraken-prod-subnet"
 ```
@@ -75,7 +75,7 @@ In this step the lab manual suggests you use Cloud Shell and kubectl to port for
 - Click on the web preview icon on cloud shell open port 8080.
 - Clone your source code repository and commit it by following the command.
 > Note: Commands written in cloud Shell.
-```
+``` bash
 gcloud config set compute/zone us-east1-b
 gcloud source repos clone sample-app
 cd sample-app
@@ -91,4 +91,5 @@ Stay tuned till the next blog
 ##### If you Want to Connect with Me:
 
 - Linkedin: https://www.linkedin.com/in/akshat-jjain
-- Twitter: https://twitter.com/akshat_jjain
+- Twitter: https://twitter.com/akshatjain_13
+- YouTube Channel: https://youtube.com/channel/UCQUEgfYbcz7pv36NoAv7S-Q/
