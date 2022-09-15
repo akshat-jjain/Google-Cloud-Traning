@@ -50,11 +50,11 @@ In this Repository, You will get almost all the Challenge Labs for `Google Cloud
 
 # Latest YouTube Videos
 <!-- YOUTUBE:START -->
+- [[NEW] -  How I use Google assistant to change my password](https://www.youtube.com/watch?v=oHjIr9eCjyA)
 - [[NEW] - Reinforcement Learning: Qwik Start - [GSP691]](https://www.youtube.com/watch?v=17MWZkcxbdE)
 - [[NEW] - Google Cloud Speech API: Qwik Start - [GSP119]](https://www.youtube.com/watch?v=h-XjUKY0Vso)
 - [[NEW] - Cloud Natural Language API: Qwik Start - [GSP097]](https://www.youtube.com/watch?v=d-lKjp0NGZU)
 - [[NEW] - Dataproc: Qwik Start - Console - [GSP103]](https://www.youtube.com/watch?v=pdhW_QIyFbU)
-- [[NEW] - Dataflow: Qwik Start - Templates - [GSP192]](https://www.youtube.com/watch?v=8yj1IjkQ4u0)
 <!-- YOUTUBE:END -->
 
 ## FAQ
